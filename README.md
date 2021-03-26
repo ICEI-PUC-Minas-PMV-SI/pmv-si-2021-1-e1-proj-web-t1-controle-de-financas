@@ -1,21 +1,22 @@
-# TÍTULO DO PROJETO
+# CONTROLE DE FINANÇAS
 
-`CURSO`
+`SISTEMAS DE INFORMAÇÃO`
 
-`DISCIPLINA`
+`EIXO 1 - PROJETO: APLICAÇÕES WEB - TURMA 1`
 
-`SEMESTRE`
+`2021/01`
 
 Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
 
 ## Integrantes
 
+- Willian Medeiros de Faria
 - Obi-Wan Kenobi 
 - Anakin Skywalker
 
 ## Professor
 
-- Mestre Yoda
+- Hugo de Paula
 
 # Documentação
 
