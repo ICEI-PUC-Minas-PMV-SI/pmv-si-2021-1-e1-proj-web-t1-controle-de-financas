@@ -11,7 +11,7 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 ## Integrantes
 
 - Willian Medeiros de Faria
-- Obi-Wan Kenobi 
+- Bruno Pacheco de Souza 
 - Anakin Skywalker
 
 ## Professor
