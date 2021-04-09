@@ -11,7 +11,8 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 ## Integrantes
 
 - Willian Medeiros de Faria
-- Bruno Pacheco de Souza 
+- Bruno Pacheco de Souza
+- Daniela Siqueira Silva 
 - Anakin Skywalker
 
 ## Professor
