@@ -11,7 +11,7 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 ## Integrantes
 
 - Willian Medeiros de Faria
-- Bruno Pacheco de Souza
+- <a href="https://github.com/brunopacs">Bruno Pacheco de Souza</a>
 - Daniela Siqueira Silva 
 - Anakin Skywalker
 
