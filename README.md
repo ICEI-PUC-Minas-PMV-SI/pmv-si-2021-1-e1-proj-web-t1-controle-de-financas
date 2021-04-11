@@ -14,7 +14,7 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 - <a href="https://github.com/brunopacs">Bruno Pacheco de Souza</a>
 - Daniela Siqueira Silva 
 - Anakin Skywalker
-- <a href="https://github.com/brunopacs">Gabriel Calebe da Silva Magalhães</a>
+- Gabriel Calebe da Silva Magalhães
 
 ## Professor
 
