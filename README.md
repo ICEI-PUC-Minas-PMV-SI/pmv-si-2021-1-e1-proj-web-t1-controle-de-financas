@@ -12,8 +12,7 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 
 - Willian Medeiros de Faria
 - <a href="https://github.com/brunopacs">Bruno Pacheco de Souza</a>
-- Daniela Siqueira Silva 
-- Anakin Skywalker
+- Daniela Siqueira Silva
 - Gabriel Calebe da Silva Magalhães
 
 ## Professor
