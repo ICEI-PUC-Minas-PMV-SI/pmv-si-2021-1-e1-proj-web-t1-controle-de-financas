@@ -10,7 +10,7 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 
 ## Integrantes
 
-- <a href="https://github.com/willianmfaria">Willian Medeiros de Faria</a>
+- [Willian Medeiros de Faria](https://github.com/willianmfaria)
 - <a href="https://github.com/brunopacs">Bruno Pacheco de Souza</a>
 - Daniela Siqueira Silva
 - Gabriel Calebe da Silva Magalhães
