@@ -11,13 +11,13 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 ## Integrantes
 
 - [Willian Medeiros de Faria](https://github.com/willianmfaria)
-- <a href="https://github.com/brunopacs">Bruno Pacheco de Souza</a>
-- Daniela Siqueira Silva
-- Gabriel Calebe da Silva Magalhães
+- [Bruno Pacheco de Souza](https://github.com/brunopacs)
+- [Daniela Siqueira Silva](https://github.com/danixsiq)
+- [Gabriel Calebe da Silva Magalhães](https://github.com/gabrielcdsm10)
 
 ## Professor
 
-- Hugo de Paula
+- [Hugo de Paula](https://github.com/hugodepaula)
 
 # Documentação
 
