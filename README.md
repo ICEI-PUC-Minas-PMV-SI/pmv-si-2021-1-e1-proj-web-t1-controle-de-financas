@@ -39,8 +39,8 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 
 # Código
 
-<li><a href="src/README.md"> Código Fonte</a></li>
+- [Código Fonte](src/README.md")
 
 # Apresentação
 
-<li><a href="presentation/README.md"> Apresentação da solução</a></li>
+- [Apresentação da solução]("presentation/README.md")
