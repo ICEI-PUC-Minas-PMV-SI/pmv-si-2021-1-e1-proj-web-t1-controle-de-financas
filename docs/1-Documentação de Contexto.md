@@ -30,7 +30,7 @@ Além disso, são objetivos específicos do projeto:
 
 ## Justificativa
 
-O nosso projeto tem o intuito de auxiliar os brasileiros que se encontram com problemas para controlar as suas finanças. Atualmente as ferramentas de controle de finanças tem uma caractéristica em comum, a necessidade de integrar a sua conta bancária à ferramenta, porém isso não seria possível para aquele trabalhador que recebe a sua remuneração em espécie ou para um cidadão que precisa organizar de forma prática e efetiva as suas receitas e despesas. Conforme essa situação se agravou e se tornou um problema na vida de muitos cidadãos brasileiros, o nosso site tem como proposta de solução a possibilidade de cadastrar os seus gastos e recebimentos no mês, calendário para futuros gastos e gráficos para uma melhor visualização e comparação de entrada e saída de valores, visando a facilidade de acesso e navegação.
+O nosso projeto tem o intuito de auxiliar os brasileiros que se encontram com problemas para controlar as suas finanças. Atualmente as ferramentas de controle de finanças tem uma caractéristica em comum, a necessidade de integrar a sua conta bancária à ferramenta, porém isso não seria possível para aquele trabalhador que recebe a sua remuneração em espécie ou para um cidadão que precisa organizar de forma prática e efetiva as suas receitas e despesas. Conforme essa situação se agravou e se tornou um problema na vida de muitos cidadãos brasileiros, o nosso site tem como proposta de solução a possibilidade de cadastrar os seus gastos e recebimentos no mês, calendário para futuros gastos e gráficos para uma melhor visualização e comparação de entrada e saída de valores visando a facilidade de acesso e navegação.
 
 
 ## Público-Alvo
