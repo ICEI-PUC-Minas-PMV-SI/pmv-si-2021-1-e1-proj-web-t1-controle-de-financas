@@ -15,7 +15,7 @@ Referências bibliográficas:
   
   Para amenizar o problema apresentado acima, acreditamos que ao desenvolver uma plataforma em que os usuários consigam cadastrar os seus gastos e ganhos mensais, e consigam enxerga-los de forma mais dinâmica e interativa com base em um calendário mensal, ajudará a gerenciar melhor os seus gastos. Para irmos além de nossa plataforma e conseguirmos educar os usuários, nossa ideia é disponibilizar uma "área do conhecimento", em que seria dedicada a dicas, conceitos e conselhos para que cada usuário consiga não só gerir os seus gastos dentro da plataforma, mas pensar de forma crítica em relação as suas finanças de modo geral.
   
-  Pensando em fugir do tradicionalismo do que os sites do mercado já trazem, nosso site vai prover uma interface intuitiva e bem visual para que o usuário tenha completa visão de seus gastos durante o mês como um todo, podendo assim gerir de forma mais efetiva seus gastos.
+  Pensando em fugir do tradicionalismo do que os sites do mercado já trazem, nosso site vai prover uma interface intuitiva e bem visual para que o usuário tenha completa visão de seus gastos durante o mês como um todo, podendo assim gerir de forma mais efetiva seus gastos. Além da visualização de seus gastos distribuidos em um calendário mensal, será possível com que o usuário planeje futuros gastos e veja o impacto destes no seu saldo final do mês. Com essas ferramentas daremos acesso a pessoas que antes não tinham um controle financeiro de forma fácil e intuitiva, para assim fazer com que os usuários tenham mais controle de seus gastos e desenvolvam sua habilidade financeira.
 
 ## Objetivos
 
