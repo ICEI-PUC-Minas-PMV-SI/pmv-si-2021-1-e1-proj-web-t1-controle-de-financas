@@ -18,7 +18,7 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO...          | QUERO/PRECISO ...                              |PARA ...                                |
 |--------------------|------------------------------------------------|----------------------------------------|
-|Joaquim             | Registrar despesas e receitas                  | Quitar minhas dívidas                  |
+|Joaquim             | Registrar despesas e receitas (movimentações)  | Quitar minhas dívidas                  |
 |Beatriz             | Registro de movimentações para várias contas   | Administrar melhor meu dinheiro        |
 
 ## Requisitos
