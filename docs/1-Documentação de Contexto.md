@@ -1,6 +1,6 @@
 # Introdução
 
-Segundo o Conselho Nacional do Comércio de Bens, Serviços e Turismo (CNC), o número de brasileiros com dívidas voltou a crescer no final do ano de 2020, após três reduções seguidas. A Pesquisa Nacional do Endividamento e Inadimplência(Peic), o percentual de famílias endividadas no Brasil chegou a 66% em janeiro de 2021. 
+Segundo o Conselho Nacional do Comércio de Bens, Serviços e Turismo (CNC), o número de brasileiros com dívidas voltou a crescer no final do ano de 2020, após três reduções seguidas. Na Pesquisa Nacional do Endividamento e Inadimplência (Peic), o percentual de famílias endividadas no Brasil chegou a 66% em janeiro de 2021. 
 
 Tendo em vista os números apresentados acima, nossa equipe acredita que grande parte da responsabilidade dos números de endividamentos que temos hoje no Brasil, é devido ao descaso com a educação financeira na base da educação nacional, pois se se um jovem não tem contato com o universo das finanças na escola, dificilmente quando começar a desempenhar um trabalho remunerado terá condições de gerir o seu patrimônio, trazendo consequências indesejáveis como o endividamento. 
 
@@ -19,13 +19,14 @@ Referências bibliográficas:
 
 ## Objetivos
 
-O projeto Controle de Finanças possui como objetivo geral a capacidade de auxiliar o controle de finanças pessoal do usuário.
+O projeto Controle de Finanças possui como objetivo geral a capacidade de auxiliar no controle de finanças pessoal do usuário.
 
 Além disso, são objetivos específicos do projeto:
 - Exibir de forma interativa valores de entrada e saída financeira;
 - Registrar a data de contas a pagar;
 - Exibir calendário com as contas a pagar registradas;
-- Alertar o úsuario sobre contas pendentes próximo ao vencimento.
+- Alertar o úsuario sobre contas pendentes próximo ao vencimento;
+- Fornecer conceitos e dicas sobre a gestão financeira.
 
 ## Justificativa
 
