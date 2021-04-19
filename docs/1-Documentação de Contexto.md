@@ -4,7 +4,6 @@ Segundo o Conselho Nacional do Comércio de Bens, Serviços e Turismo (CNC), o n
 
 Tendo em vista os números apresentados acima, nossa equipe acredita que grande parte da responsabilidade dos números de endividamentos que temos hoje no Brasil, é devido ao descaso com a educação financeira na base da educação nacional, pois se se um jovem não tem contato com o universo das finanças na escola, dificilmente quando começar a desempenhar um trabalho remunerado terá condições de gerir o seu patrimônio, trazendo consequências indesejáveis como o endividamento. 
 
-Para amenizar este problema, acreditamos que ao desenvolver uma plataforma em que os usuários consigam cadastrar os seus gastos e ganhos mensais, e consigam enxerga-los de forma mais dinâmica e interativa com base em um calendário mensal, ajudará a gerenciar melhor os seus gastos. Para irmos além de nossa plataforma e conseguirmos educar os usuários, nossa ideia é disponibilizar uma "área do conhecimento", em que seria dedicada a dicas, conceitos e conselhos para que cada usuário consiga não só gerir os seus gastos dentro da plataforma, mas pensar de forma crítica em relação as suas finanças de modo geral. 
 
 Referências bibliográficas:  
 
@@ -13,16 +12,10 @@ Referências bibliográficas:
 2- https://www.gazetadopovo.com.br/economia/brasil-pais-dos-analfabetos-financeiros/ 
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
-
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
-
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+  
+  Para amenizar o problema apresentado acima, acreditamos que ao desenvolver uma plataforma em que os usuários consigam cadastrar os seus gastos e ganhos mensais, e consigam enxerga-los de forma mais dinâmica e interativa com base em um calendário mensal, ajudará a gerenciar melhor os seus gastos. Para irmos além de nossa plataforma e conseguirmos educar os usuários, nossa ideia é disponibilizar uma "área do conhecimento", em que seria dedicada a dicas, conceitos e conselhos para que cada usuário consiga não só gerir os seus gastos dentro da plataforma, mas pensar de forma crítica em relação as suas finanças de modo geral.
+  
+  Pensando em fugir do tradicionalismo do que os sites do mercado já trazem, nosso site vai prover uma interface intuitiva e bem visual para que o usuário tenha completa visão de seus gastos durante o mês como um todo, podendo assim gerir de forma mais efetiva seus gastos.
 
 ## Objetivos
 
