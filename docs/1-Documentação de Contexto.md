@@ -39,15 +39,6 @@ O Público-alvo se destina aos seguintes perfis:
 
 <ul>
     <li><b>Pessoa física</b>, sem gênero em específico, de idade predominante entre 18 a 60 anos, localizada em qualquer região e saiba o idioma português, que possua dificuldade em controlar as suas despesas e receitas, ou gostaria de realizar o controle de seus gastos e recebimentos.</li><br>
-    <li><b>Pessoa jurídica</b>, de qualquer porte e segmento, no qual será utilizado por funcionários da empresa, predominante dos setores financeiro, contábil e gerencial, com o objetivo de realizar o controle de contas a pagar e receber.
+    <li><b>Pessoa jurídica</b>, de qualquer porte e segmento, no qual será utilizado por funcionários da empresa, predominante dos setores financeiro, contábil e gerencial, com o objetivo de realizar o controle financeiro da empresa ou de seu respectivo setor.
     </li>
 </ul>
-
-Diagrama de Personas
-
-<img src="img/persona1.jpg"><br>
-<img src="img/persona2.jpg">
-
-Mapa de Stakeholders
-
-<img src="img/stakeholder.jpg">
