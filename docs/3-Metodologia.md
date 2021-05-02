@@ -10,8 +10,7 @@ Em Caso de Dificuldades na execução da tarefa, o integrante pode mencionar os 
 
 ## Controle de Versão
 
-A ferramenta de controle de versão adotada no projeto foi o
-[Git](https://git-scm.com/), sendo que o [Github](https://github.com)
+A ferramenta de controle de versão adotada no projeto foi o [Git](https://git-scm.com/), sendo que o [Github](https://github.com)
 foi utilizado para hospedagem do repositório.
 
 O projeto segue a seguinte convenção para o nome de branchs:
@@ -57,9 +56,9 @@ Os commit de cada push de código, devem explicar de forma clara a implementaç�
 Apresente a divisão de papéis entre os membros do grupo.
 
 > **Links Úteis**:
+
 > - [11 Passos Essenciais para Implantar Scrum no seu
 > Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
 
 ### Processo
 
@@ -75,15 +74,13 @@ Coloque  informações sobre detalhes da implementação do Scrum seguido pelo g
 
 As ferramentas empregadas no projeto são:
 
-- Editor de código.
-- Ferramentas de comunicação
+- Editor de código: [Visual Studio Code](https://code.visualstudio.com/)
+- Ferramentas para comunicação: [Microsoft Teams](https://www.microsoft.com/pt-br/microsoft-teams/group-chat-software), [WhatsApp](https://www.whatsapp.com/?lang=pt_br)
 - Ferramentas de diagramação
 
-O editor de código foi escolhido porque ele possui uma integração com o
-sistema de versão. As ferramentas de comunicação utilizadas possuem
-integração semelhante e por isso foram selecionadas. Por fim, para criar
-diagramas utilizamos essa ferramenta por melhor captar as
-necessidades da nossa solução.
+O editor de código foi escolhido porque ele possui uma integração com o sistema de controle de versão, pelo pouco consumo de recursos e simplicidade.
+As ferramentas de comunicação utilizadas foram selecionadas por ferramentas úteis de integração de grupo, e por serem amplamente utilizadas no meio empresarial.
+Por fim, para criar diagramas utilizamos essa ferramenta por melhor captar as necessidades da nossa solução.
 
 Liste quais ferramentas foram empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível.
 

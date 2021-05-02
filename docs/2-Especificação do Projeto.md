@@ -16,10 +16,10 @@ Beatriz, 26 anos, trabalha em uma agência de publicidade e recebe seu dinheiro 
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
 
-|EU COMO...          | QUERO/PRECISO ...                              |PARA ...                                |
-|--------------------|------------------------------------------------|----------------------------------------|
-|Joaquim             | Registrar despesas e receitas                  | Quitar minhas dívidas                  |
-|Beatriz             | Registro de movimentações para várias contas   | Administrar melhor meu dinheiro        |
+|EU COMO...         | QUERO/PRECISO ...                              |PARA ...                                |
+|-------------------|------------------------------------------------|----------------------------------------|
+|Joaquim            | Registrar despesas e receitas                  | Quitar minhas dívidas                  |
+|Beatriz            | Registro de movimentações para várias contas   | Administrar melhor meu dinheiro        |
 
 ## Requisitos
 
@@ -27,46 +27,32 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos Funcionais
 
-|ID    | Descrição do Requisito  | Prioridade |
-|------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|ID    | Descrição do Requisito                                                                     | Prioridade |
+|------|--------------------------------------------------------------------------------------------|------------|
+|RF-001| Permitir que o usuário faça os lançamentos de receitas e despesas                          | ALTA       | 
+|RF-002| Permitir que o usuário tenha acesso ao saldo como resultado das operações em local visível | ALTA       |
+|RF-003| Permitir que o usuário cadastre e gerencie mais de uma conta simultaneamente               | MEDIA      |
+|RF-004| Permitir que o usuário faça o cadastro de categorias personalizadas                        | MEDIA      |
+|RF-005| Relatório do somatório das despesas e das receitas do mês                                  | BAIXA      |
+|RF-006| Gráficos para visualização das receitas e despesas do mês                                  | BAIXA      |
 
 
 ### Requisitos não Funcionais
 
-|ID     | Descrição do Requisito  |Prioridade |
-|-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+|ID     | Descrição do Requisito                                            |Prioridade |
+|-------|-------------------------------------------------------------------|-----------|
+|RNF-001| Sistema deve ser executado por meio de um navegador de internet   | ALTA      |
+|RNF-002| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA     | 
+|RNF-003| Deve processar requisições do usuário em no máximo 3s             | BAIXA     |
 
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
 
 ## Restrições
 
 O projeto está restrito pelos itens apresentados na tabela a seguir.
 
-|ID| Restrição                                             |
-|--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
-
-
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+|ID| Restrição                                                                                          |
+|--|----------------------------------------------------------------------------------------------------|
+|01| O projeto deverá ser entregue até o prazo final estipulado pelo orientador do projeto              |
+|02| Deverão ser feitas reuniões semanais para apresentar o andamento do projeto                        |
+|03| Somente deverão ser utilizados, caso necessário, bancos de dados Relacionais SQL                   |
+|04| Back-end, caso necessário, somente deverá ser desenvolvido com uma linguagem de programação C-Like |
