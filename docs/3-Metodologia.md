@@ -53,7 +53,7 @@ Os commit de cada push de código, devem explicar de forma clara a implementaç�
 
 ### Divisão de Papéis
 
-Apresente a divisão de papéis entre os membros do grupo.
+Todos os membros terão as mesmas funcões no projeto, sem nenhuma relação de hierarquia. Em relação as tarefas, ao organizar juntamente com o nosso tutor as tarefas da etapa do projeto no projects, podemos distribuir as tarefas com o grau de afinidade dos integrantes do grupo. Entretanto, como o foco principal do projeto é o aprendizado, todos devem ser capazes de executar e compreender todos os passos do sistema.
 
 > **Links Úteis**:
 
@@ -62,7 +62,7 @@ Apresente a divisão de papéis entre os membros do grupo.
 
 ### Processo
 
-Coloque  informações sobre detalhes da implementação do Scrum seguido pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
+Para o acompanhamento do projeto vamos usar o projects do github, lá conseguimos ter uma visão completa das tarefas a serem feitas e temos o código e o projeto todo em um só lugar, o que facilita bastante o controle do projeto como um todo.
 
 > **Links Úteis**:
 > - [Project management, made simple](https://github.com/features/project-management/)
@@ -75,14 +75,16 @@ Coloque  informações sobre detalhes da implementação do Scrum seguido pelo g
 As ferramentas empregadas no projeto são:
 
 - Editor de código: [Visual Studio Code](https://code.visualstudio.com/)
+
 - Ferramentas para comunicação: [Microsoft Teams](https://www.microsoft.com/pt-br/microsoft-teams/group-chat-software), [WhatsApp](https://www.whatsapp.com/?lang=pt_br)
+
 - Ferramentas de diagramação
 
 O editor de código foi escolhido porque ele possui uma integração com o sistema de controle de versão, pelo pouco consumo de recursos e simplicidade.
 As ferramentas de comunicação utilizadas foram selecionadas por ferramentas úteis de integração de grupo, e por serem amplamente utilizadas no meio empresarial.
 Por fim, para criar diagramas utilizamos essa ferramenta por melhor captar as necessidades da nossa solução.
 
-Liste quais ferramentas foram empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível.
+Pela facilidade do uso do software e as inúmeras integrações que ele oferece, vamos usar o Slack com integração ao github para toda a equipe ser notificada dos eventos no github e se manter em sintonia. Com o
 
 > **Possíveis Ferramentas que auxiliarão no gerenciamento**:
 > - [Slack](https://slack.com/)
