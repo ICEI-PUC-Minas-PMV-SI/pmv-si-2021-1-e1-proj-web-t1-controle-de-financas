@@ -1,37 +1,37 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+Segundo o Conselho Nacional do Comércio de Bens, Serviços e Turismo (CNC), o número de brasileiros com dívidas voltou a crescer no final do ano de 2020, após três reduções seguidas. Na Pesquisa Nacional do Endividamento e Inadimplência (Peic), o percentual de famílias endividadas no Brasil chegou a 66% em janeiro de 2021.
+
+Tendo em vista os números apresentados acima, nossa equipe acredita que grande parte da responsabilidade dos números de endividamentos que temos hoje no Brasil, é devido ao descaso com a educação financeira na base da educação nacional, pois se se um jovem não tem contato com o universo das finanças na escola, dificilmente quando começar a desempenhar um trabalho remunerado terá condições de gerir o seu patrimônio, trazendo consequências indesejáveis como o endividamento.
+
+
+Referências bibliográficas:
+
+1- https://agenciabrasil.ebc.com.br/economia/noticia/2021-01/numero-de-brasileiros-com-dividas-cresce-no-fim-de-2020
+
+2- https://www.gazetadopovo.com.br/economia/brasil-pais-dos-analfabetos-financeiros/
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
 
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
+  Para amenizar o problema apresentado acima, acreditamos que ao desenvolver uma plataforma em que os usuários consigam cadastrar os seus gastos e ganhos mensais, e consigam enxerga-los de forma mais dinâmica e interativa com base em um calendário mensal, ajudará a gerenciar melhor os seus gastos. Para irmos além de nossa plataforma e conseguirmos educar os usuários, nossa ideia é disponibilizar uma "área do conhecimento", em que seria dedicada a dicas, conceitos e conselhos para que cada usuário consiga não só gerir os seus gastos dentro da plataforma, mas pensar de forma crítica em relação as suas finanças de modo geral.
 
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+  Pensando em fugir do tradicionalismo do que os sites do mercado já trazem, nosso site vai prover uma interface intuitiva e bem visual para que o usuário tenha completa visão de seus gastos durante o mês como um todo, podendo assim gerir de forma mais efetiva seus gastos. Além da visualização de seus gastos distribuidos em um calendário mensal, será possível com que o usuário planeje futuros gastos e veja o impacto destes no seu saldo final do mês. Com essas ferramentas daremos acesso a pessoas que antes não tinham um controle financeiro de forma fácil e intuitiva, para assim fazer com que os usuários tenham mais controle de seus gastos e desenvolvam sua habilidade financeira.
 
 ## Objetivos
 
-O projeto Controle de Finanças possui como objetivo geral a capacidade de auxiliar o controle de finanças pessoal do usuário.
+O projeto Controle de Finanças possui como objetivo geral a capacidade de auxiliar no controle de finanças pessoal do usuário.
 
 Além disso, são objetivos específicos do projeto:
 - Exibir de forma interativa valores de entrada e saída financeira;
 - Registrar a data de contas a pagar;
 - Exibir calendário com as contas a pagar registradas;
-- Alertar o úsuario sobre contas pendentes próximo ao vencimento.
+- Alertar o úsuario sobre contas pendentes próximo ao vencimento;
+- Fornecer conceitos e dicas sobre a gestão financeira.
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
+O nosso projeto tem o intuito de auxiliar os brasileiros que se encontram com problemas para controlar as suas finanças. Atualmente as ferramentas de controle de finanças tem uma caractéristica em comum, a necessidade de integrar a sua conta bancária à ferramenta, porém isso não seria possível para aquele trabalhador que recebe a sua remuneração em espécie ou para um cidadão que precisa organizar de forma prática e efetiva as suas receitas e despesas. Conforme essa situação se agravou e se tornou um problema na vida de muitos cidadãos brasileiros, o nosso site tem como proposta de solução a possibilidade de cadastrar os seus gastos e recebimentos no mês, calendário para futuros gastos e gráficos para uma melhor visualização e comparação de entrada e saída de valores visando a facilidade de acesso e navegação.
 
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
-
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
 
 ## Público-Alvo
 
