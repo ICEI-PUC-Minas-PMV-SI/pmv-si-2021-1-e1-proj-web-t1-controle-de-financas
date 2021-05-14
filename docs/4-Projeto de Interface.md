@@ -13,7 +13,7 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 ![Exemplo de UserFlow]![Projeto de finanças (1)](https://user-images.githubusercontent.com/81396982/118201537-0f1d3600-b42e-11eb-9ea3-d0a22643d295.png)
 
 
-(https://user-images.githubusercontent.com/81396982/118201460-da10e380-b42d-11eb-98ca-f79f6af25623.png)
+(https://user-images.githubusercontent.com/81396982/118201537-0f1d3600-b42e-11eb-9ea3-d0a22643d295.png)
 
 
 ## Wireframes
