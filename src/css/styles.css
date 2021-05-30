@@ -218,6 +218,10 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   color: inherit;
   text-decoration: none;
 }
+a:link 
+{ 
+ text-decoration:none; 
+}
 
 pre,
 code,
@@ -3943,6 +3947,7 @@ textarea.form-control-lg {
   justify-content: space-between;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  background-color: #f3f6fa !important;
 }
 .navbar > .container,
 .navbar > .container-fluid,
@@ -10849,8 +10854,8 @@ textarea.form-control-lg {
 
 header.masthead {
   position: relative;
-  background-color: #343a40;
-  background: url("../assets/img/bg-masthead.jpg") no-repeat center center;
+  background-color: #f3f6fa;
+  /* background: url("../assets/img/bg-masthead.jpg") no-repeat center center; */
   background-size: cover;
   padding-top: 8rem;
   padding-bottom: 8rem;
@@ -10858,7 +10863,8 @@ header.masthead {
 header.masthead:before {
   content: "";
   position: absolute;
-  background-color: #1c375e;
+  /* background-color: #1c375e; */
+  background-color: #f3f6fa;
   height: 100%;
   width: 100%;
   top: 0;
