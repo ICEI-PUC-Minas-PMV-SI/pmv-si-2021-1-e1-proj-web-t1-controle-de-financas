@@ -10,8 +10,7 @@ Em Caso de Dificuldades na execução da tarefa, o integrante pode mencionar os 
 
 ## Controle de Versão
 
-A ferramenta de controle de versão adotada no projeto foi o
-[Git](https://git-scm.com/), sendo que o [Github](https://github.com)
+A ferramenta de controle de versão adotada no projeto foi o [Git](https://git-scm.com/), sendo que o [Github](https://github.com)
 foi utilizado para hospedagem do repositório.
 
 O projeto segue a seguinte convenção para o nome de branchs:
@@ -57,9 +56,9 @@ Os commit de cada push de código, devem explicar de forma clara a implementaç�
 Todos os membros terão as mesmas funcões no projeto, sem nenhuma relação de hierarquia. Em relação as tarefas, ao organizar juntamente com o nosso tutor as tarefas da etapa do projeto no projects, podemos distribuir as tarefas com o grau de afinidade dos integrantes do grupo. Entretanto, como o foco principal do projeto é o aprendizado, todos devem ser capazes de executar e compreender todos os passos do sistema.
 
 > **Links Úteis**:
+
 > - [11 Passos Essenciais para Implantar Scrum no seu
 > Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
 
 ### Processo
 
@@ -76,14 +75,14 @@ Para o acompanhamento do projeto vamos usar o projects do github, lá conseguimo
 As ferramentas empregadas no projeto são:
 
 - Editor de código: [Visual Studio Code](https://code.visualstudio.com/)
-- Ferramentas para comunicação: [Microsoft Teams](https://www.microsoft.com/pt-br/microsoft-teams/group-chat-software), [WhatsApp](https://www.whatsapp.com/?lang=pt_br), [Slack](https://slack.com/)
+
+- Ferramentas para comunicação: [Microsoft Teams](https://www.microsoft.com/pt-br/microsoft-teams/group-chat-software), [WhatsApp](https://www.whatsapp.com/?lang=pt_br)
+
 - Ferramentas de diagramação
 
-O editor de código foi escolhido porque ele possui uma integração com o
-sistema de versão. As ferramentas de comunicação utilizadas possuem
-integração semelhante e por isso foram selecionadas. Por fim, para criar
-diagramas utilizamos essa ferramenta por melhor captar as
-necessidades da nossa solução.
+O editor de código foi escolhido porque ele possui uma integração com o sistema de controle de versão, pelo pouco consumo de recursos e simplicidade.
+As ferramentas de comunicação utilizadas foram selecionadas por ferramentas úteis de integração de grupo, e por serem amplamente utilizadas no meio empresarial.
+Por fim, para criar diagramas utilizamos essa ferramenta por melhor captar as necessidades da nossa solução.
 
 Pela facilidade do uso do software e as inúmeras integrações que ele oferece, vamos usar o Slack com integração ao github para toda a equipe ser notificada dos eventos no github e se manter em sintonia. Com o
 
