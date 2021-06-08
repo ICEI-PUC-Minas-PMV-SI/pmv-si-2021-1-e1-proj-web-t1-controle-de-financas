@@ -1,0 +1,24 @@
+{
+  "lancamentos": [
+    {
+      "id": "1",
+      "descricao": "supermercado",
+      "vlr": "24.80"
+    },
+    {
+      "id": "2",
+      "descricao": "cinema",
+      "vlr": "9.69"
+    },
+    {
+      "id": "3",
+      "descricao": "lanchonete",
+      "vlr": "9.69"
+    },
+    {
+      "id": "4",
+      "descricao": "cinema",
+      "vlr": "9.69"
+    }
+  ]
+}
