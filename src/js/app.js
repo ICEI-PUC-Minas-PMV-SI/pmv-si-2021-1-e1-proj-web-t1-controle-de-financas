@@ -1,7 +1,4 @@
-// URL DA API DE DADOS
 URL = 'http://localhost:3000/lancamentos'
-//=================================================================================================
-// GET - Recupera todos os lancamentos e adiciona na tabela
 
 const lancamentosList = document.getElementById('list-lancamentos');
 
@@ -20,3 +17,94 @@ fetch(URL)
             lancamentosList.innerHTML = lista_lancamentos;
         }
     });
+
+
+
+// DELETE - PROCEDIMENTO PARA EXCLUIR UM lancamentos
+
+// const lancamentosDelete = document.getElementById('btn-delete');
+
+// lancamentosDelete.addEventListener('click', (e) => {
+
+//     let id = $('#id-prod').text();
+
+//     fetch(`${URL}/${id}`, {
+//         method: 'DELETE',
+//     })
+//     .then(res => res.json())
+//     .then(() => location.reload());
+
+// })
+
+//=================================================================================================
+
+// PROCEDIMENTO PARA RECUPERAR OS DADOS DE UM lancamentos NA API
+
+function getlancamentos(id){
+
+    if(id == 0){
+        console.log("rafa");
+        $('#edit-lancamentos-id').text("");
+        $( "#lancamentos-id" ).prop( "disabled", false );
+        $('#lancamentos-descricao').val("");
+        $('#lancamentos-vlr').val("");
+    }else{
+        $('#edit-prod-id').text(id);
+        fetch(`${URL}/${id}`).then(res => res.json())
+        .then(data => {
+            $( "#lancamentos-id" ).prop( "disabled", true );
+            $('#lancamentos-id').val(data.id);
+            $('#lancamentos-descricao').val(data.descricao);
+            $('#lancamentos-vlr').val(data.vlr);
+        });
+    }
+}
+
+// Modal Editar Lancamentos
+
+function ModalLancamento(){
+    $()
+}
+
+//=================================================================================================
+
+// CREATE or UPDATE - PROCEDIMENTO PARA CRIAR OU EDITAR UM lancamentos
+
+const lancamentosForm = document.getElementById('lancamentos-form');
+
+lancamentosForm.addEventListener('submit', (e) => {
+
+    // RECUPERA O ID DO lancamentos
+    let id = parseInt($('#edit-prod-id').text());
+
+    // RECUPERA OS DADOS DO lancamentos
+    const lancamentos = JSON.stringify({
+        id: document.getElementById('lancamentos-id').value,
+        descricao: document.getElementById('lancamentos-descricao').value,
+        vlr: document.getElementById('lancamentos-vlr').value,
+    })
+
+    if (id >= 0) {
+        fetch(`${URL}/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: lancamentos
+        })
+        .then(res => res.json())
+        .then(() => location.reload());
+    }
+    else{
+        fetch(URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: lancamentos
+        })
+        .then(res => res.json())
+        .then(() => location.reload());
+    }
+})
+//=================================================================================================
