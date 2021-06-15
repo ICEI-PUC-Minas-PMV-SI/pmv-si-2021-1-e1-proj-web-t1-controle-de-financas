@@ -1,8 +1,8 @@
-URL = 'http://localhost:3000/lancamentos'
+URL = 'http://localhost:3000/usuarios/'
 
 const lancamentosList = document.getElementById('list-lancamentos');
 
-fetch(URL)
+fetch(`${URL}/${id}`)
     .then(res => res.json())
     .then(lancamentos => {
         let lista_lancamentos = '';
@@ -18,27 +18,6 @@ fetch(URL)
         }
     });
 
-
-
-// DELETE - PROCEDIMENTO PARA EXCLUIR UM lancamentos
-
-// const lancamentosDelete = document.getElementById('btn-delete');
-
-// lancamentosDelete.addEventListener('click', (e) => {
-
-//     let id = $('#id-prod').text();
-
-//     fetch(`${URL}/${id}`, {
-//         method: 'DELETE',
-//     })
-//     .then(res => res.json())
-//     .then(() => location.reload());
-
-// })
-
-//=================================================================================================
-
-// PROCEDIMENTO PARA RECUPERAR OS DADOS DE UM lancamentos NA API
 
 function getlancamentos(id){
 
