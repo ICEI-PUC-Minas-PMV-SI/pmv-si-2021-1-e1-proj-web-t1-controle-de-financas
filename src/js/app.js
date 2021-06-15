@@ -1,8 +1,8 @@
-URL = 'http://localhost:3000/usuarios/'
+URL = 'http://localhost:3000/lancamentos'
 
 const lancamentosList = document.getElementById('list-lancamentos');
 
-fetch(`${URL}/${id}`)
+fetch(`${URL}?user_id=${window.localStorage.getItem('id')}`)
     .then(res => res.json())
     .then(lancamentos => {
         let lista_lancamentos = '';

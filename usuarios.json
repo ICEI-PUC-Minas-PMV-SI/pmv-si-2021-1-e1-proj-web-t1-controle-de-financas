@@ -19,24 +19,7 @@
       "nome": "joao",
       "email": "rafasoutto40@gmail.com",
       "senha": "123",
-      "telefone": "99205-8183",
-      "lancamentos": [
-        {
-          "id": "1",
-          "descricao": "supermercado",
-          "vlr": "24.80"
-        },
-        {
-          "id": "2",
-          "descricao": "cinema",
-          "vlr": "9.69"
-        },
-        {
-          "id": "3",
-          "descricao": "lanchonete",
-          "vlr": "9.69"
-        }
-      ]
+      "telefone": "99205-8183"
     }
   ]
 }

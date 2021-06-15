@@ -1,4 +1,4 @@
-URL = 'http://localhost:3000/usuarios'
+URL = 'http://localhost:3001/usuarios/'
 
 function logar() {
 
@@ -18,6 +18,7 @@ function logar() {
             }
 
             if(usuarios[i].nome == usuario.value && usuarios[i].senha == senha.value ){
+                window.localStorage.setItem('id', `${usuarios[i].id}`);
                 document.location.replace("./app.html");
 
                 return usuario[i].id;
@@ -25,6 +26,8 @@ function logar() {
         }
     });
 }
+
+
 
 
 function IrParaCadastro(){
