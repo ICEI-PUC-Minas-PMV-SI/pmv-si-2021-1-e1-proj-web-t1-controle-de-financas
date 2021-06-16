@@ -3,31 +3,53 @@
   <meta charset="UTF-8" />
   <title>PUC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+
 </head>
 <body>
-    <div class="content">
+    <nav class="navbar navbar-light static-top">
+      <div class="container">
+          <a class="navbar-brand" href="#!">Logo</a>
+          <!-- <i class="navbar-brand bi bi-cash-coin" style="font-size: 2.5rem;"></i> -->
+          <div class="mx-auto">
+              <a class="mx-5" href="#!">Aprenda</a>
+              <a class="mx-5" href="#!">Noticias</a>
+              <a class="mx-5" href="#!">Sobre</a>
+          </div>
+          <div>
+              <a class="btn btn-secondary" href="#Logar">Logar</a>
+              <a class="btn btn-primary" href="#Cadastrar">Cadastrar</a>
+          </div>
+      </div>
+  </nav>
+    <div class="tela-formulario">
         <div id="login">
-            <form method="post" action="">
+            <form>
             <h1>Login</h1>
             <p>
-                <label for="nome_login">Seu nome</label>
-                <input id="nome_login" name="nome_login" required="required" type="text" placeholder="ex. Roberto Carlos"/>
+                <label for="usuario">Seu nome</label>
+                <input id="usuario" name="usuario" required="required" type="text" placeholder="ex. Roberto Carlos"/>
             </p>
 
             <p>
-                <label for="email_login">Seu e-mail</label>
-                <input id="email_login" name="email_login" required="required" type="password" placeholder="ex. senha" />
+                <label for="senha">Seu e-mail</label>
+                <input id="senha" name="senha" required="required" type="password" placeholder="ex. senha" />
             </p>
 
-            <p>
-                <input type="submit" value="Logar" />
-            </p>
+            <div class="btn.btn-primary" onclick="logar()">
+                <a type="submit" class="btn btn-secondary" href="#Logar">Logar</a>
+            </div>
 
-            <p class="link">
-                Ainda não tem conta?
-                <a href="#paracadastro">Cadastre-se</a>
-            </p>
+            <div>
+                <p class="link">
+                    Ainda não tem conta?
+                    <a href="#paracadastro" onclick="IrParaCadastro()">Cadastre-se</a>
+                </p>
+            </div>
             </form>
         </div>
     </div>
+
+    <script src="./js/login.js"></script>
+</body>

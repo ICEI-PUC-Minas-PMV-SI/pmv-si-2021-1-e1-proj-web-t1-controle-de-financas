@@ -3,13 +3,28 @@
   <meta charset="UTF-8" />
   <title>PUC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
 </head>
 <body>
-  <div class="content">
+  <nav class="navbar navbar-light static-top">
+    <div class="container">
+        <a class="navbar-brand" href="#!">Logo</a>
+        <!-- <i class="navbar-brand bi bi-cash-coin" style="font-size: 2.5rem;"></i> -->
+        <div class="mx-auto">
+            <a class="mx-5" href="#!">Aprenda</a>
+            <a class="mx-5" href="#!">Noticias</a>
+            <a class="mx-5" href="#!">Sobre</a>
+        </div>
+        <div>
+            <a class="btn btn-secondary" href="#Logar">Logar</a>
+            <a class="btn btn-primary" href="#Cadastrar">Cadastrar</a>
+        </div>
+    </div>
+  </nav>
+  <div class="tela-formulario">
     <div id="cadastro">
 
-      <form method="post" action="">
+      <form action="">
         <h1>Cadastre-se</h1>
         <p>
           <label for="nome_cadastro">Nome</label>
@@ -40,8 +55,14 @@
           <input type="submit" value="Cadastrar" />
         </p>
 
-        <p class="link">
-          Já possui conta?
-        </p>
+        <div>
+          <p class="link">
+              Já possui conta?
+              <a href="#paracadastro" onclick="IrParaLogin()">Entrar</a>
+          </p>
+      </div>
       </form>
     </div>
+  </div>
+  <script src="./js/cadastro.js"></script>
+</body>
