@@ -11405,10 +11405,17 @@ transition: all 0.2s linear;
 
 
 
-.news-box {
+#news-body{
   height: 100vh;
   width: 100vw;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
 
 }
+
+
+#news-box {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
