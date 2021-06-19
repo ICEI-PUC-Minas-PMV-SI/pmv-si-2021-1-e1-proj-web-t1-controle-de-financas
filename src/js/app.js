@@ -4,13 +4,14 @@ URL_Lancamentos = 'http://localhost:3002/lancamentos'
 
 window.onload = function () {
     listarLancamentos();
+    somaTotal();
 }
 
 function listarLancamentos() {
 
     const lancamentosList = document.getElementById('list-lancamentos');
 
-    fetch(`${URL_Lancamentos}?user_id=${window.localStorage.getItem('id')}`)
+    fetch(`${URL_Lancamentos}?usuario=${window.localStorage.getItem('id')}`)
         .then(res => res.json())
         .then(lancamentos => {
             let lista_lancamentos = '';
@@ -100,43 +101,30 @@ function adicionaLancamento() {
 //=================================================================================================
 
 function somaTotal() {
-    /*
-    fetch(`${URL_Lancamentos}`, {
-        method: 'GET'
-    })
-    .then(res => res.json())
-    .then(function (res) {
-        let total = 0;
-        document.getElementById('totLancamentoCarteir').innerHTML = ''
-        for (let i = 0; i < res.length; i++) {
-            if (res[i].tipo === "R") {
-                total += res[i].valor;
-            } else if (res[i].tipo === "D") {
-                total -= res[i].valor
-            }
-        }
-        document.getElementById('totCarteiras').innerHTML = "R$ " + total.toString();
-    })
-    .then(() => location.reload())
-    */
-    fetch(`${URL_Lancamentos}`, {
+    //fetch(`${URL_Lancamentos}`)
+    fetch(`${URL_Lancamentos}?usuario=${window.localStorage.getItem('id')}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         }
     })
+        //.then(res => res.json())
         .then(function (response) {
             if (response.ok) {
-                let lancamentos = response.json();
-                let total = 0;
-                for (let i = 0; i < lancamentos.length; i++) {
-                    if (lancamentos[i].tipo === "R") {
-                        total += lancamentos[i].valor;
-                    } else if (lancamentos[i].tipo === "D") {
-                        total -= lancamentos[i].valor
+                response.json().then(function (response) {
+                    let lancamentos = response;
+                    let total = 0;
+                    document.getElementById('totCarteiras').innerHTML = ''
+                    for (let i = 0; i < lancamentos.length; i++) {
+                        if (lancamentos[i].tipo === "R") {
+                            total += lancamentos[i].valor;
+                        } else if (lancamentos[i].tipo === "D") {
+                            total -= lancamentos[i].valor
+                        }
                     }
-                }
-                document.getElementById('totCarteiras').innerHTML = "R$ " + total.toString();
+                    document.getElementById('totCarteiras').innerHTML = "R$ " + total.toString();
+                });
+
             } else {
                 console.log('Network response was not ok.');
             }
