@@ -5,6 +5,7 @@ URL_Lancamentos = 'http://localhost:3002/lancamentos'
 window.onload = function () {
     listarLancamentos();
     somaTotal();
+    somaCarteiras();
 }
 
 function listarLancamentos() {
@@ -108,7 +109,6 @@ function somaTotal() {
             'Content-Type': 'application/json'
         }
     })
-        //.then(res => res.json())
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (response) {
@@ -134,73 +134,56 @@ function somaTotal() {
         });
 }
 
-/*
-function somaTotal() {
-    let ajax = new XMLHttpRequest();
-    ajax.open('GET', 'db.json');
-    ajax.onreadystatechange = function () {
-        if (ajax.status === 200 && ajax.readyState === 4) {
-            let res = JSON.parse(ajax.responseText);
-            let lancamentos = res.lancamentos;
-            let total = 0;
-            for (let i = 0; i < lancamentos.length; i++) {
-                if (lancamentos[i].tipo === "R") {
-                    total += lancamentos[i].valor;
-                } else if (lancamentos[i].tipo === "D") {
-                    total -= lancamentos[i].valor
-                }
-            }
-            document.getElementById('totCarteiras').innerHTML = "R$ " + total.toString();
-        }
-    };
-    ajax.send();
-}
-
 function somaCarteiras() {
-    let ajax = new XMLHttpRequest();
-    ajax.open('GET', 'db.json');
-    ajax.onreadystatechange = function () {
-        if (ajax.status === 200 && ajax.readyState === 4) {
-            let res = JSON.parse(ajax.responseText);
-            let carteiras = res.carteiras;
-            let lancamentos = res.lancamentos;
-            document.getElementById('totLancamentoCarteir').innerHTML = ''
-            for (let i = 1; i < carteiras.length + 1; i++) {
-                let total = 0;
-                for (let j = 0; j < lancamentos.length; j++) {
-                    if (lancamentos[j].tipo === "R" && lancamentos[j].carteira === i) {
-                        total += lancamentos[j].valor;
-                    } else if (lancamentos[j].tipo === "D" && lancamentos[j].carteira === i) {
-                        total -= lancamentos[j].valor;
-                    }
-                }
-                document.getElementById('totLancamentoCarteir').innerHTML += '<li class="list-group-item"><div class="row row-cols-3"><div class="col-1"><i class="bi bi-wallet2"></i></div><div class="col">Carteira ' + i.toString() + '</div><div class="col">R$ ' + total.toFixed(2).toString() + '</div></div></li>'
-            }
+    let carteiras;
+    let lancamentos;
+    fetch(`${URL_Carteiras}?usuario=${window.localStorage.getItem('id')}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
         }
-    };
-    ajax.send();
-}
+    })
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (response) {
+                    carteiras = response;
+                });
 
-function lerLancamentosPorCarteira() {
-    let ajax = new XMLHttpRequest();
-    ajax.open('GET', 'db.json');
-    ajax.onreadystatechange = function () {
-        if (ajax.status === 200 && ajax.readyState === 4) {
-            let res = JSON.parse(ajax.responseText);
-            let carteiras = res.carteiras;
-            let lancamentos = res.lancamentos;
-            for (let i = 1; i < carteiras.length + 1; i++) {
-                for (let j = 0; j < lancamentos.length; j++) {
-                    // Inserir os itens em uma lista para ser exibido os lançamentos
-                    if (lancamentos[j].tipo === "R") {
-                        document.getElementById(' ').innerHTML += "" //Pinta o texto de verde
-                    } else if (lancamentos[j].tipo === "D") {
-                        document.getElementById(' ').innerHTML += "" //Pinta o texto de vermelho
-                    }
-                }
+            } else {
+                console.log('Network response was not ok.');
             }
+        })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
+    fetch(`${URL_Lancamentos}?usuario=${window.localStorage.getItem('id')}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
         }
-    };
-    ajax.send();
+    })
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (response) {
+                    lancamentos = response;
+                    document.getElementById('totLancamentoCarteir').innerHTML = ''
+                    for (let i = 1; i < carteiras.length + 1; i++) {
+                        let total = 0;
+                        for (let j = 0; j < lancamentos.length; j++) {
+                            if (lancamentos[j].tipo === "R" && lancamentos[j].carteira === i) {
+                                total += lancamentos[j].valor;
+                            } else if (lancamentos[j].tipo === "D" && lancamentos[j].carteira === i) {
+                                total -= lancamentos[j].valor;
+                            }
+                        }
+                        document.getElementById('totLancamentoCarteir').innerHTML += '<li class="list-group-item"><div class="row row-cols-3"><div class="col-1"><i class="bi bi-wallet2"></i></div><div class="col">Carteira ' + i.toString() + '</div><div class="col">R$ ' + total.toFixed(2).toString() + '</div></div></li>'
+                    }
+                });
+            } else {
+                console.log('Network response was not ok.');
+            }
+        })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
 }
-*/
