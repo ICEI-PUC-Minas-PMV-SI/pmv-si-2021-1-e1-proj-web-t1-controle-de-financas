@@ -1,0 +1,70 @@
+{
+  "carteiras": [
+    {
+      "id": 1,
+      "nome": "Carteira 1"
+    },
+    {
+      "id": 2,
+      "nome": "Carteira 2"
+    }
+  ],
+  "lancamentos": [
+    {
+      "id": 1,
+      "descricao": "Supermercado",
+      "vlr": 24.80,
+      "carteira": 2,
+      "tipo": "D",
+      "dtlanc": "2021-06-13"
+    },
+    {
+      "id": 2,
+      "descricao": "Cinema",
+      "vlr": 9.69,
+      "carteira": 1,
+      "tipo": "D",
+      "dtlanc": "2021-06-13"
+    },
+    {
+      "id": 3,
+      "descricao": "Lanchonete",
+      "vlr": 9.69,
+      "carteira": 2,
+      "tipo": "D",
+      "dtlanc": "2021-06-13"
+    },
+    {
+      "id": 4,
+      "descricao": "Cinema",
+      "vlr": 9.69,
+      "carteira": 1,
+      "tipo": "D",
+      "dtlanc": "2021-06-13"
+    },
+    {
+      "id": 5,
+      "descricao": "Salario",
+      "vlr": 2100.45,
+      "carteira": 1,
+      "tipo": "R",
+      "dtlanc": "2021-06-13"
+    },
+    {
+      "id": 6,
+      "descricao": "Transferência",
+      "vlr": 34.49,
+      "carteira": 1,
+      "tipo": "D",
+      "dtlanc": "2021-06-13"
+    },
+    {
+      "id": 7,
+      "descricao": "Transferência",
+      "vlr": 34.49,
+      "carteira": 2,
+      "tipo": "R",
+      "dtlanc": "2021-06-13"
+    }
+  ]
+}

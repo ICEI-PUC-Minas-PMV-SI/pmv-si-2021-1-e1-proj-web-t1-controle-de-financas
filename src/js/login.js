@@ -1,4 +1,4 @@
-URL = 'http://localhost:3001/usuarios/'
+URL = 'http://localhost:3000/usuarios/'
 
 function logar() {
 
@@ -26,9 +26,6 @@ function logar() {
         }
     });
 }
-
-
-
 
 function IrParaCadastro(){
     document.location.replace("./cadastro.html");
