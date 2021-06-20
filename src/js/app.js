@@ -17,9 +17,18 @@ function listarLancamentos() {
         .then(lancamentos => {
             let lista_lancamentos = '';
             for (let i = 0; i < lancamentos.length; i++) {
+                /*
                 lista_lancamentos += `
             <tr>
                 <th>${lancamentos[i].id}</th>
+                <td>${lancamentos[i].descricao}</td>
+                <td>R$${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
+            </tr>
+            `;
+            */
+                lista_lancamentos += `
+            <tr data-value=${lancamentos[i].id}'> 
+                <th>${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}</th>
                 <td>${lancamentos[i].descricao}</td>
                 <td>R$${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
             </tr>
@@ -176,7 +185,11 @@ function somaCarteiras() {
                                 total -= lancamentos[j].valor;
                             }
                         }
-                        document.getElementById('totLancamentoCarteir').innerHTML += '<li class="list-group-item"><div class="row row-cols-3"><div class="col-1"><i class="bi bi-wallet2"></i></div><div class="col">Carteira ' + i.toString() + '</div><div class="col">R$ ' + total.toFixed(2).toString() + '</div></div></li>'
+                        if (total > 0) {
+                            document.getElementById('totLancamentoCarteir').innerHTML += '<li class="list-group-item"><div class="row row-cols-3"><div class="col-1"><i class="bi bi-wallet2"></i></div><div class="col">Carteira ' + i.toString() + '</div><div class="col">R$ ' + total.toFixed(2).toString() + '</div></div></li>'
+                        } else {
+                            document.getElementById('totLancamentoCarteir').innerHTML += '<li class="list-group-item"><div class="row row-cols-3"><div class="col-1"><i class="bi bi-wallet2"></i></div><div class="col">Carteira ' + i.toString() + '</div><div class="col">R$ ' + total.toFixed(2).toString() + '</div></div></li>'
+                        }
                     }
                 });
             } else {

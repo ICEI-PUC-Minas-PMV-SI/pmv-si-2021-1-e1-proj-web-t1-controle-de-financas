@@ -84,13 +84,13 @@
 
                                 <div class="col" style="font-size: 2em; text-align: center;">
                                     <a onclick="getlancamento(0)" class="bi bi-plus-circle-fill" style="color: #008000"
-                                    data-toggle="modal" data-target="#lancamentos-modal">
+                                        data-toggle="modal" data-target="#lancamentos-modal">
                                     </a>
                                 </div>
 
                                 <div class="col" style="color: 	#FF0000; font-size: 2em; text-align: center;">
-                                    <a class="bi bi-dash-circle-fill" style="color: #FF0000"
-                                    data-toggle="modal" data-target="#edit-lancamentos-modal">
+                                    <a class="bi bi-dash-circle-fill" style="color: #FF0000" data-toggle="modal"
+                                        data-target="#edit-lancamentos-modal">
                                     </a>
                                 </div>
 
@@ -218,16 +218,24 @@
                 <div class="modal-body">
                     <form id="lancamentos-form" method="post" action="">
                         <div class="form-group">
-                            <label for="lancamentos-id" class="col-form-label">Código:</label>
-                            <input type="number" class="form-control" id="lancamentos-id" min="1" required>
-                        </div>
-                        <div class="form-group">
                             <label for="lancamentos-descricao" class="col-form-label">Descrição:</label>
                             <input type="text" class="form-control" id="lancamentos-descricao" required>
                         </div>
                         <div class="form-group">
                             <label for="lancamentos-vlr" class="col-form-label">Valor:</label>
                             <input type="number" step="0.01" class="form-control" id="lancamentos-vlr" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lancamentos-id" class="col-form-label">Carteira:</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option value="1">Carteira 1</option>
+                                <option value="2">Carteira 2</option>
+                                <option value="3">Carteira 3</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="lancamentos-id" class="col-form-label">Data:</label>
+                            <input type="date" class="form-control" id="lancamentos-id" required>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -272,7 +280,7 @@
                 </div>
             </div>
         </div>
-    </div>    <!--  Modal para  os dados para preenchimento do formulário -->
+    </div> <!--  Modal para  os dados para preenchimento do formulário -->
 
     <div class="modal fade" id="edit-lancamentos-modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -295,8 +303,8 @@
                                             <th width=15%>Valor</th>
                                         </tr>
                                     </thead>
-                                    <tbody >
-                                        <button onclick="ModalLancamento()" >
+                                    <tbody>
+                                        <button onclick="ModalLancamento()">
                                         </button>
                                     </tbody>
                                 </table>
