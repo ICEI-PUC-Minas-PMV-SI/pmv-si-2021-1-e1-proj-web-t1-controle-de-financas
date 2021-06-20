@@ -6,6 +6,7 @@ window.onload = function () {
     listarLancamentos();
     somaTotal();
     somaCarteiras();
+    listaCarteirasModal();
 }
 
 function listarLancamentos() {
@@ -110,6 +111,33 @@ function adicionaLancamento() {
 }
 //=================================================================================================
 
+function listaCarteirasModal() {
+    fetch(`${URL_Carteiras}?usuario=${window.localStorage.getItem('id')}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (response) {
+                    document.getElementById('receita-modal-carteiras').innerHTML = '';
+                    document.getElementById('despesa-modal-carteiras').innerHTML = ''
+                    for (let i = 0; i < response.length; i++) {
+                        document.getElementById('receita-modal-carteiras').innerHTML += `<option value='${response[i].id}'>${response[i].descricao}</option>`;
+                        document.getElementById('despesa-modal-carteiras').innerHTML += `<option value='${response[i].id}'>${response[i].descricao}</option>`;
+                    }
+                });
+
+            } else {
+                console.log('Network response was not ok.');
+            }
+        })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
+}
+
 function somaTotal() {
     //fetch(`${URL_Lancamentos}`)
     fetch(`${URL_Lancamentos}?usuario=${window.localStorage.getItem('id')}`, {
@@ -186,8 +214,10 @@ function somaCarteiras() {
                             }
                         }
                         if (total > 0) {
+                            //Pintar de verde
                             document.getElementById('totLancamentoCarteir').innerHTML += '<li class="list-group-item"><div class="row row-cols-3"><div class="col-1"><i class="bi bi-wallet2"></i></div><div class="col">Carteira ' + i.toString() + '</div><div class="col">R$ ' + total.toFixed(2).toString() + '</div></div></li>'
                         } else {
+                            //Pintar de vermelho
                             document.getElementById('totLancamentoCarteir').innerHTML += '<li class="list-group-item"><div class="row row-cols-3"><div class="col-1"><i class="bi bi-wallet2"></i></div><div class="col">Carteira ' + i.toString() + '</div><div class="col">R$ ' + total.toFixed(2).toString() + '</div></div></li>'
                         }
                     }
