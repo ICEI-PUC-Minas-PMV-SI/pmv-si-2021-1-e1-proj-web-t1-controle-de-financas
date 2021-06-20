@@ -122,10 +122,14 @@ function listaCarteirasModal() {
             if (response.ok) {
                 response.json().then(function (response) {
                     document.getElementById('receita-modal-carteiras').innerHTML = '';
-                    document.getElementById('despesa-modal-carteiras').innerHTML = ''
+                    document.getElementById('despesa-modal-carteiras').innerHTML = '';
+                    document.getElementById('transferencia-modal-carteira-origem').innerHTML = '';
+                    document.getElementById('transferencia-modal-carteira-destino').innerHTML = '';
                     for (let i = 0; i < response.length; i++) {
                         document.getElementById('receita-modal-carteiras').innerHTML += `<option value='${response[i].id}'>${response[i].descricao}</option>`;
                         document.getElementById('despesa-modal-carteiras').innerHTML += `<option value='${response[i].id}'>${response[i].descricao}</option>`;
+                        document.getElementById('transferencia-modal-carteira-origem').innerHTML += `<option value='${response[i].id}'>${response[i].descricao}</option>`;
+                        document.getElementById('transferencia-modal-carteira-destino').innerHTML += `<option value='${response[i].id}'>${response[i].descricao}</option>`;
                     }
                 });
 
