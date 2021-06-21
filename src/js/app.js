@@ -3,10 +3,35 @@ URL_Carteiras = 'http://localhost:3001/carteiras'
 URL_Lancamentos = 'http://localhost:3002/lancamentos'
 
 window.onload = function () {
+    usuarioLogado();
     listarLancamentos();
     somaTotal();
     somaCarteiras();
     listaCarteirasModal();
+}
+
+function usuarioLogado() {
+    fetch(`${URL_Usuarios}/${window.localStorage.getItem('id')}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (response) {
+                    document.getElementById('navBtn1').innerHTML = response.nome;
+                    document.getElementById('navBtn1').setAttribute("href", "./Página de perfil Logado.html")
+                    document.getElementById('navBtn2').innerHTML = "Sair";
+                    document.getElementById('navBtn2').setAttribute("href", "login.html")
+                })
+            }  else {
+                console.log('Network response was not ok.');
+            }
+        })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
 }
 
 function listarLancamentos() {
@@ -132,7 +157,6 @@ function listaCarteirasModal() {
                         document.getElementById('transferencia-modal-carteira-destino').innerHTML += `<option value='${response[i].id}'>${response[i].descricao}</option>`;
                     }
                 });
-
             } else {
                 console.log('Network response was not ok.');
             }
@@ -163,7 +187,13 @@ function somaTotal() {
                             total -= lancamentos[i].valor
                         }
                     }
-                    document.getElementById('totCarteiras').innerHTML = "R$ " + total.toString();
+                    if (total >= 0) {
+                        //Pinta de verde
+                        document.getElementById('totCarteiras').innerHTML = "<div style='color: green;'>" + "R$ " + total.toFixed(2).toString() + "</div>";
+                    } else {
+                        //Pinta de vermelho
+                        document.getElementById('totCarteiras').innerHTML = "<div style='color: red;'>" + "R$ " + total.toFixed(2).toString() + "</div>";
+                    }
                 });
 
             } else {
@@ -217,12 +247,12 @@ function somaCarteiras() {
                                 total -= lancamentos[j].valor;
                             }
                         }
-                        if (total > 0) {
+                        if (total >= 0) {
                             //Pintar de verde
-                            document.getElementById('totLancamentoCarteir').innerHTML += '<li class="list-group-item"><div class="row row-cols-3"><div class="col-1"><i class="bi bi-wallet2"></i></div><div class="col">Carteira ' + i.toString() + '</div><div class="col">R$ ' + total.toFixed(2).toString() + '</div></div></li>'
+                            document.getElementById('totLancamentoCarteir').innerHTML += '<li class="list-group-item"><div class="row row-cols-3"><div class="col-1"><i class="bi bi-wallet2"></i></div><div class="col">Carteira ' + i.toString() + '</div><div class="col" style="color: green;">R$ ' + total.toFixed(2).toString() + '</div></div></li>'
                         } else {
                             //Pintar de vermelho
-                            document.getElementById('totLancamentoCarteir').innerHTML += '<li class="list-group-item"><div class="row row-cols-3"><div class="col-1"><i class="bi bi-wallet2"></i></div><div class="col">Carteira ' + i.toString() + '</div><div class="col">R$ ' + total.toFixed(2).toString() + '</div></div></li>'
+                            document.getElementById('totLancamentoCarteir').innerHTML += '<li class="list-group-item"><div class="row row-cols-3"><div class="col-1"><i class="bi bi-wallet2"></i></div><div class="col">Carteira ' + i.toString() + '</div><div class="col" style="color: red;">R$ ' + total.toFixed(2).toString() + '</div></div></li>'
                         }
                     }
                 });
