@@ -25,7 +25,7 @@ function usuarioLogado() {
                     document.getElementById('navBtn2').innerHTML = "Sair";
                     document.getElementById('navBtn2').setAttribute("href", "login.html")
                 })
-            }  else {
+            } else {
                 console.log('Network response was not ok.');
             }
         })
@@ -83,58 +83,6 @@ function getlancamento(id) {
             });
     }
 }
-
-// Modal Editar Lancamentos
-
-function ModalLancamento() {
-    $()
-}
-
-//=================================================================================================
-
-// CREATE or UPDATE - PROCEDIMENTO PARA CRIAR OU EDITAR UM lancamentos
-
-function adicionaLancamento() {
-
-    const lancamentosForm = document.getElementById('lancamentos-form');
-
-    lancamentosForm.addEventListener('submit', (e) => {
-
-        // RECUPERA O ID DO lancamentos
-        let id = parseInt($('#edit-prod-id').text());
-
-        // RECUPERA OS DADOS DO lancamentos
-        const lancamentos = JSON.stringify({
-            id: document.getElementById('lancamentos-id').value,
-            descricao: document.getElementById('lancamentos-descricao').value,
-            vlr: document.getElementById('lancamentos-vlr').value,
-        })
-
-        if (id >= 0) {
-            fetch(`${URL_Lancamentos}/${id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: lancamentos
-            })
-                .then(res => res.json())
-                .then(() => location.reload());
-        }
-        else {
-            fetch(URL_Lancamentos, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: lancamentos
-            })
-                .then(res => res.json())
-                .then(() => location.reload());
-        }
-    })
-}
-//=================================================================================================
 
 function listaCarteirasModal() {
     fetch(`${URL_Carteiras}?usuario=${window.localStorage.getItem('id')}`, {
@@ -264,3 +212,71 @@ function somaCarteiras() {
             console.log('There has been a problem with your fetch operation: ' + error.message);
         });
 }
+
+// Modal Editar Lancamentos
+
+function ModalLancamento() {
+    $()
+}
+
+function adicionaLancamento(oper) {
+    if (oper === "R") {
+        
+    }
+
+    else if (oper === "D") {
+
+    }
+
+    else if (oper === "T") {
+
+    }
+}
+
+/*
+//=================================================================================================
+
+// CREATE or UPDATE - PROCEDIMENTO PARA CRIAR OU EDITAR UM lancamentos
+
+function adicionaLancamento() {
+
+    const lancamentosForm = document.getElementById('lancamentos-form');
+
+    lancamentosForm.addEventListener('submit', (e) => {
+
+        // RECUPERA O ID DO lancamentos
+        let id = parseInt($('#edit-prod-id').text());
+
+        // RECUPERA OS DADOS DO lancamentos
+        const lancamentos = JSON.stringify({
+            id: document.getElementById('lancamentos-id').value,
+            descricao: document.getElementById('lancamentos-descricao').value,
+            vlr: document.getElementById('lancamentos-vlr').value,
+        })
+
+        if (id >= 0) {
+            fetch(`${URL_Lancamentos}/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: lancamentos
+            })
+                .then(res => res.json())
+                .then(() => location.reload());
+        }
+        else {
+            fetch(URL_Lancamentos, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: lancamentos
+            })
+                .then(res => res.json())
+                .then(() => location.reload());
+        }
+    })
+}
+//=================================================================================================
+*/
