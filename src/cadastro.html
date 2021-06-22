@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <title>PUC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+<body>
+  <nav class="navbar navbar-light static-top">
+    <div class="container">
+        <a class="navbar-brand" href="#!">Logo</a>
+        <!-- <i class="navbar-brand bi bi-cash-coin" style="font-size: 2.5rem;"></i> -->
+        <div class="mx-auto">
+            <a class="mx-5" href="#!">Aprenda</a>
+            <a class="mx-5" href="#!">Noticias</a>
+            <a class="mx-5" href="#!">Sobre</a>
+        </div>
+        <div>
+          <a class="btn btn-secondary" href="#Logar" onclick="IrParaLogin()">Logar</a>
+          <a class="btn btn-primary" href="#Cadastrar" onclick="IrParaCadastro()" >Cadastrar</a>
+        </div>
+    </div>
+  </nav>
+  <div class="tela-formulario">
+    <div id="cadastro">
+
+      <form action="">
+        <h1>Cadastre-se</h1>
+        <p>
+          <label for="nome">Nome</label>
+          <input id="nome" name="nome" required="required" type="text" placeholder="ex. Roberto Carlos"/>
+        </p>
+
+        <p>
+          <label for="email">E-mail</label>
+          <input id="email" name="email" required="required" type="email" placeholder="ex. Elonmusk@tesla.con"/>
+        </p>
+
+        <p>
+          <label for="senha">Senha</label>
+          <input id="senha" name="senha" required="senha" type="password"/>
+        </p>
+
+        <p>
+          <label for="confirmar_senha">Confirmar senha</label>
+          <input id="confirmar_senha" name="confirmar_senha" required="required" type="password" />
+        </p>
+
+        <p>
+          <label for="telefone">Telefone</label>
+          <input id="telefone" name="telefone" required="required" type="text" placeholder="ex. (31) 992058183" />
+        </p>
+
+        <p>
+          <input type="submit" value="Cadastrar" onclick="AdicionaUsuario()"/>
+        </p>
+
+        <div>
+          <p class="link">
+              Já possui conta?
+              <a href="#paracadastro" onclick="IrParaLogin()">Entrar</a>
+          </p>
+      </div>
+      </form>
+    </div>
+  </div>
+  <script src="./js/cadastro.js"></script>
+  <script src="./js/login.js"></script>
+</body>

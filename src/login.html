@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <title>PUC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-light static-top">
+      <div class="container">
+          <a class="navbar-brand" href="#!">Logo</a>
+          <!-- <i class="navbar-brand bi bi-cash-coin" style="font-size: 2.5rem;"></i> -->
+          <div class="mx-auto">
+              <a class="mx-5" href="#!">Aprenda</a>
+              <a class="mx-5" href="#!">Noticias</a>
+              <a class="mx-5" href="#!">Sobre</a>
+          </div>
+          <div>
+              <a class="btn btn-secondary" href="#Logar" onclick="IrParaLogin()">Logar</a>
+              <a class="btn btn-primary" href="#Cadastrar" onclick="IrParaCadastro()" >Cadastrar</a>
+          </div>
+      </div>
+  </nav>
+    <div class="tela-formulario">
+        <div id="login">
+            <form>
+            <h1>Login</h1>
+            <p>
+                <label for="usuario">Seu login</label>
+                <input id="usuario" name="usuario" required="required" type="text" placeholder="ex. Roberto Carlos"/>
+            </p>
+
+            <p>
+                <label for="senha">Sua senha</label>
+                <input id="senha" name="senha" required="required" type="password" placeholder="ex. senha" />
+            </p>
+
+            <div class="btn.btn-primary" onclick="logar()">
+                <a type="submit" class="btn btn-secondary" href="#Logar">Logar</a>
+            </div>
+
+            <div>
+                <p class="link">
+                    Ainda não tem conta?
+                    <a href="#paracadastro" onclick="IrParaCadastro()">Cadastre-se</a>
+                </p>
+            </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="./js/login.js"></script>
+    <script src="./js/cadastro.js"></script>
+</body>

@@ -1,0 +1,19 @@
+{
+    "carteiras": [
+        {
+            "id": 1,
+            "descricao": "Carteira 1",
+            "usuario": 1
+        },
+        {
+            "id": 2,
+            "descricao": "Carteira 2",
+            "usuario": 1
+        },
+        {
+            "id": 3,
+            "descricao": "Carteira 3",
+            "usuario": 1
+        }
+    ]
+}
