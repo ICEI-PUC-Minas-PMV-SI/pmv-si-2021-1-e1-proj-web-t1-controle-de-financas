@@ -8,7 +8,7 @@ function IrParaLogin(){
 }
 
 
-function AdicionaUsuario() {
+async function AdicionaUsuario() {
 
     const nome = document.getElementById("nome");
     const email = document.getElementById("email");
@@ -16,23 +16,15 @@ function AdicionaUsuario() {
     const confirmar_senha = document.getElementById("confirmar_senha");
     const telefone = document.getElementById("telefone");
 
-    console.log(nome.value);
-    console.log(email.value);
-    console.log(senha.value);
-    console.log(confirmar_senha.value);
-    console.log(telefone.value);
-
     if (senha.value == confirmar_senha.value){
 
-        const usuario_existente = ValidaNome(nome.value);
+        const usuario_existente = await ValidaNome(nome.value);
         console.log(usuario_existente);
 
-        console.log(`${usuario_existente} pinvall`);
-
-        if (usuario_existente == true) {
-            alert("NOME DE USUÁRIO JÄ EXISTE");
+        if (usuario_existente != "[]") {
+            alert("NOME DE USUÁRIO JÁ  EXISTE");
+            return false;
         }
-
 
         const novo_usuario = JSON.stringify({
 
@@ -57,6 +49,7 @@ function AdicionaUsuario() {
     }
     else {
         alert("AS SENHAS NÃO BATEM")
+
     }
 }
 
@@ -75,17 +68,10 @@ function AdicionaCarteiraPadrao() {
 
 }
 
-function ValidaNome(nome) {
+async function ValidaNome(nome) {
 
-    const response = fetch(`${URL_Usuarios}?nome=${nome}`)
-
-    response.ok;     // => false
-    response.status; // => 404
-
-    const text = response.text();
+    const response = await fetch(`${URL_Usuarios}?nome=${nome}`)
+    const text = await response.text();
     console.log(text)
     return text;
 }
-
-
-
