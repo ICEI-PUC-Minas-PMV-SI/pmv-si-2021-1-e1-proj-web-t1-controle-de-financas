@@ -11415,7 +11415,12 @@ transition: all 0.2s linear;
 
 
 #news-box {
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  background: rgb(230, 230, 230);
+  width: 70%;
+  height: 180px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 15px 0px 10px 6px;
+  border: 2px dashed rgb(161, 161, 161);
+  padding: 6px;
 }
-

@@ -16,8 +16,8 @@
             <a class="mx-5" href="#!">Sobre</a>
         </div>
         <div>
-            <a class="btn btn-secondary" href="#Logar">Logar</a>
-            <a class="btn btn-primary" href="#Cadastrar">Cadastrar</a>
+          <a class="btn btn-secondary" href="#Logar" onclick="IrParaLogin()">Logar</a>
+          <a class="btn btn-primary" href="#Cadastrar" onclick="IrParaCadastro()" >Cadastrar</a>
         </div>
     </div>
   </nav>
@@ -27,32 +27,32 @@
       <form action="">
         <h1>Cadastre-se</h1>
         <p>
-          <label for="nome_cadastro">Nome</label>
-          <input id="nome_cadastro" name="nome_cadastro" required="required" type="text" placeholder="ex. Roberto Carlos"/>
+          <label for="nome">Nome</label>
+          <input id="nome" name="nome" required="required" type="text" placeholder="ex. Roberto Carlos"/>
         </p>
 
         <p>
-          <label for="E-mail">E-mail</label>
-          <input id="e-mail" name="e-mail" required="required" type="text" placeholder="ex. Elonmusk@tesla.con"/>
+          <label for="email">E-mail</label>
+          <input id="email" name="email" required="required" type="email" placeholder="ex. Elonmusk@tesla.con"/>
         </p>
 
         <p>
-          <label for="nome_cadastro">Senha</label>
-          <input id="Senha" name="Senha" required="Senha" type="text"/>
+          <label for="senha">Senha</label>
+          <input id="senha" name="senha" required="senha" type="password"/>
         </p>
 
         <p>
-          <label for="Confirmar senha">Confirmar senha</label>
-          <input id="Confirmar senha" name="Confirmar senha" required="required" type="text" />
+          <label for="confirmar_senha">Confirmar senha</label>
+          <input id="confirmar_senha" name="confirmar_senha" required="required" type="password" />
         </p>
 
         <p>
-          <label for="email_cadastro">Telefone</label>
-          <input id="email_cadastro" name="email_cadastro" required="required" type="password" placeholder="ex. (31) 992058183" />
+          <label for="telefone">Telefone</label>
+          <input id="telefone" name="telefone" required="required" type="text" placeholder="ex. (31) 992058183" />
         </p>
 
         <p>
-          <input type="submit" value="Cadastrar" />
+          <input  value="Cadastrar" onclick="AdicionaUsuario()"/>
         </p>
 
         <div>
@@ -65,4 +65,5 @@
     </div>
   </div>
   <script src="./js/cadastro.js"></script>
+  <script src="./js/login.js"></script>
 </body>

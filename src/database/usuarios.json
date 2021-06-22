@@ -20,6 +20,62 @@
       "email": "rafasoutto40@gmail.com",
       "senha": "123",
       "telefone": "99205-8183"
+    },
+    {
+      "nome": "rafael",
+      "email": "wdwdwed",
+      "senha": "123",
+      "confirmar_senha": "123",
+      "telefone": "323345345",
+      "id": 4
+    },
+    {
+      "nome": "rafael",
+      "email": "wdwdwed",
+      "senha": "123",
+      "confirmar_senha": "123",
+      "telefone": "g",
+      "id": 5
+    },
+    {
+      "nome": "rafael",
+      "email": "wdwdwed",
+      "senha": "123",
+      "confirmar_senha": "123",
+      "telefone": "wefwefd",
+      "id": 6
+    },
+    {
+      "nome": "joao",
+      "email": "wdwdwed",
+      "senha": "123",
+      "confirmar_senha": "123",
+      "telefone": "dq",
+      "id": 7
+    },
+    {
+      "nome": "rafael",
+      "email": "wdwdwed",
+      "senha": "123",
+      "confirmar_senha": "123",
+      "telefone": "dwedwed",
+      "id": 8
+    },
+    {
+      "nome": "rafael",
+      "email": "wdwdwed",
+      "senha": "123",
+      "confirmar_senha": "123",
+      "telefone": "wfwfwefwfwef",
+      "id": 9
+    },
+    {
+      "nome": "rafael",
+      "email": "rafael@educat.com.br",
+      "senha": "123",
+      "confirmar_senha": "123",
+      "telefone": "31992058183",
+      "id": 10
     }
   ]
 }

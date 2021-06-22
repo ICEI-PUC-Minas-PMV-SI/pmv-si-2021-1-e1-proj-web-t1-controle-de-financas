@@ -59,11 +59,6 @@ function getlancamento(id) {
     }
 }
 
-// Modal Editar Lancamentos
-
-function ModalLancamento() {
-    $()
-}
 
 //=================================================================================================
 
