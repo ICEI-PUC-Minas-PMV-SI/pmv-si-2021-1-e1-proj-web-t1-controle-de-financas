@@ -219,18 +219,78 @@ function ModalLancamento() {
     $()
 }
 
-function adicionaLancamento(oper) {
-    if (oper === "R") {
-        
-    }
+function adicionaReceita() {
+    let receita = JSON.stringify({
+        tipo: "R",
+        usuario: window.localStorage.getItem('id'),
+        carteira: document.getElementById("receita-modal-carteiras").value,
+        valor: document.getElementById("lancamento-receita-valor").value,
+        descricao: document.getElementById("lancamento-receita-descricao").value,
+        dtlanc: document.getElementById("lancamento-receita-data").value
+    })
 
-    else if (oper === "D") {
+    fetch(`${URL_Lancamentos}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: receita
+    })
+}
 
-    }
+function adicionaDespesa() {
+    let despesa = JSON.stringify({
+        tipo: "D",
+        usuario: window.localStorage.getItem('id'),
+        carteira: document.getElementById("despesa-modal-carteiras").value,
+        valor: document.getElementById("lancamento-despesa-valor").value,
+        descricao: document.getElementById("lancamento-despesa-descricao").value,
+        dtlanc: document.getElementById("lancamento-despesa-data").value
+    })
 
-    else if (oper === "T") {
+    fetch(`${URL_Lancamentos}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: despesa
+    })
+}
 
-    }
+function adicionaTransferencia() {
+    let despesa = JSON.stringify({
+        tipo: "D",
+        usuario: window.localStorage.getItem('id'),
+        carteira: document.getElementById("transferencia-modal-carteira-origem").value,
+        valor: document.getElementById("lancamento-transferencia-valor").value,
+        descricao: document.getElementById("lancamento-transferencia-descricao").value,
+        dtlanc: document.getElementById("lancamento-transferencia-data").value
+    })
+
+    fetch(`${URL_Lancamentos}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: despesa
+    })
+
+    let receita = JSON.stringify({
+        tipo: "R",
+        usuario: window.localStorage.getItem('id'),
+        carteira: document.getElementById("transferencia-modal-carteira-destino").value,
+        valor: document.getElementById("lancamento-transferencia-valor").value,
+        descricao: document.getElementById("lancamento-transferencia-descricao").value,
+        dtlanc: document.getElementById("lancamento-transferencia-data").value
+    })
+
+    fetch(`${URL_Lancamentos}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: receita
+    })
 }
 
 /*
