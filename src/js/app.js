@@ -22,7 +22,7 @@ function usuarioLogado() {
             if (response.ok) {
                 response.json().then(function (response) {
                     document.getElementById('navBtn1').innerHTML = response.nome;
-                    document.getElementById('navBtn1').setAttribute("data-toggle","modal")
+                    document.getElementById('navBtn1').setAttribute("data-toggle", "modal")
                     document.getElementById('navBtn1').setAttribute("data-target", "#perfil-modal")
                     document.getElementById('navBtn2').innerHTML = "Sair";
                     document.getElementById('navBtn2').setAttribute("href", "login.html")
@@ -105,6 +105,26 @@ function preencherPerfil() {
                 console.log('Network response was not ok.');
             }
         })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
+}
+
+function alterarPerfil() {
+    let perfil = JSON.stringify({
+        nome: document.getElementById('perfil-nome').value,
+        sobrenome: document.getElementById('perfil-sobrenome').value,
+        telefone: document.getElementById('perfil-telefone').value,
+        email: document.getElementById('perfil-email')
+    });
+
+    fetch(`${URL_Lancamentos}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: perfil
+    })
         .catch(function (error) {
             console.log('There has been a problem with your fetch operation: ' + error.message);
         });
@@ -248,9 +268,9 @@ function ModalLancamento() {
 function adicionaReceita() {
     let receita = JSON.stringify({
         tipo: "R",
-        usuario: window.localStorage.getItem('id'),
-        carteira: document.getElementById("receita-modal-carteiras").value,
-        valor: document.getElementById("lancamento-receita-valor").value,
+        usuario: parseInt(window.localStorage.getItem('id')),
+        carteira: parseInt(document.getElementById("receita-modal-carteiras").value),
+        valor: parseFloat(document.getElementById("lancamento-receita-valor").value),
         descricao: document.getElementById("lancamento-receita-descricao").value,
         dtlanc: document.getElementById("lancamento-receita-data").value
     });
@@ -261,7 +281,10 @@ function adicionaReceita() {
             'Content-Type': 'application/json'
         },
         body: receita
-    });
+    })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
 
     somaCarteiras();
     somaTotal();
@@ -270,9 +293,9 @@ function adicionaReceita() {
 function adicionaDespesa() {
     let despesa = JSON.stringify({
         tipo: "D",
-        usuario: window.localStorage.getItem('id'),
-        carteira: document.getElementById("despesa-modal-carteiras").value,
-        valor: document.getElementById("lancamento-despesa-valor").value,
+        usuario: parseInt(window.localStorage.getItem('id')),
+        carteira: parseInt(document.getElementById("despesa-modal-carteiras").value),
+        valor: parseFloat(document.getElementById("lancamento-despesa-valor").value),
         descricao: document.getElementById("lancamento-despesa-descricao").value,
         dtlanc: document.getElementById("lancamento-despesa-data").value
     });
@@ -283,7 +306,10 @@ function adicionaDespesa() {
             'Content-Type': 'application/json'
         },
         body: despesa
-    });
+    })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
 
     somaCarteiras();
     somaTotal();
@@ -292,9 +318,9 @@ function adicionaDespesa() {
 function adicionaTransferencia() {
     let despesa = JSON.stringify({
         tipo: "D",
-        usuario: window.localStorage.getItem('id'),
-        carteira: document.getElementById("transferencia-modal-carteira-origem").value,
-        valor: document.getElementById("lancamento-transferencia-valor").value,
+        usuario: parseInt(window.localStorage.getItem('id')),
+        carteira: parseInt(document.getElementById("transferencia-modal-carteira-origem").value),
+        valor: parseFloat(document.getElementById("lancamento-transferencia-valor").value),
         descricao: document.getElementById("lancamento-transferencia-descricao").value,
         dtlanc: document.getElementById("lancamento-transferencia-data").value
     });
@@ -305,13 +331,16 @@ function adicionaTransferencia() {
             'Content-Type': 'application/json'
         },
         body: despesa
-    });
+    })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
 
     let receita = JSON.stringify({
         tipo: "R",
-        usuario: window.localStorage.getItem('id'),
-        carteira: document.getElementById("transferencia-modal-carteira-destino").value,
-        valor: document.getElementById("lancamento-transferencia-valor").value,
+        usuario: parseInt(window.localStorage.getItem('id')),
+        carteira: parseInt(document.getElementById("transferencia-modal-carteira-destino").value),
+        valor: parseFloat(document.getElementById("lancamento-transferencia-valor").value),
         descricao: document.getElementById("lancamento-transferencia-descricao").value,
         dtlanc: document.getElementById("lancamento-transferencia-data").value
     });
@@ -322,7 +351,10 @@ function adicionaTransferencia() {
             'Content-Type': 'application/json'
         },
         body: receita
-    });
+    })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
 
     somaCarteiras();
     somaTotal();

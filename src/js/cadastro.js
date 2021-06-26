@@ -11,6 +11,7 @@ function IrParaLogin(){
 async function AdicionaUsuario() {
 
     const nome = document.getElementById("nome");
+    const sobrenome = document.getElementById("sobrenome");
     const email = document.getElementById("email");
     const senha = document.getElementById("senha");
     const confirmar_senha = document.getElementById("confirmar_senha");
