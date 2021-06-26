@@ -29,9 +29,10 @@ async function AdicionaUsuario() {
         const novo_usuario = JSON.stringify({
 
             nome: document.getElementById("nome").value,
+            sobrenome: document.getElementById("sobrenome").value,
             email: document.getElementById("email").value,
             senha: document.getElementById("senha").value,
-            confirmar_senha: document.getElementById("confirmar_senha").value,
+            //confirmar_senha: document.getElementById("confirmar_senha").value,
             telefone: document.getElementById("telefone").value
         })
 

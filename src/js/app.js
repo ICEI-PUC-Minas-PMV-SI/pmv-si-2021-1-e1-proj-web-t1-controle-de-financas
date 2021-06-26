@@ -7,6 +7,7 @@ window.onload = function () {
     listarLancamentos();
     somaTotal();
     somaCarteiras();
+    preencherPerfil();
     listaCarteirasModal();
 }
 
@@ -21,7 +22,8 @@ function usuarioLogado() {
             if (response.ok) {
                 response.json().then(function (response) {
                     document.getElementById('navBtn1').innerHTML = response.nome;
-                    document.getElementById('navBtn1').setAttribute("href", "./Página de perfil Logado.html")
+                    document.getElementById('navBtn1').setAttribute("data-toggle","modal")
+                    document.getElementById('navBtn1').setAttribute("data-target", "#perfil-modal")
                     document.getElementById('navBtn2').innerHTML = "Sair";
                     document.getElementById('navBtn2').setAttribute("href", "login.html")
                 })
@@ -82,6 +84,30 @@ function getlancamento(id) {
                 $('#lancamentos-vlr').val(data.valor);
             });
     }
+}
+
+function preencherPerfil() {
+    fetch(`${URL_Usuarios}/${window.localStorage.getItem('id')}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (response) {
+                    document.getElementById('perfil-nome').value = response.nome;
+                    document.getElementById('perfil-sobrenome').value = response.sobrenome;
+                    document.getElementById('perfil-telefone').value = response.telefone;
+                    document.getElementById('perfil-email').value = response.email;
+                })
+            } else {
+                console.log('Network response was not ok.');
+            }
+        })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
 }
 
 function listaCarteirasModal() {
@@ -227,7 +253,7 @@ function adicionaReceita() {
         valor: document.getElementById("lancamento-receita-valor").value,
         descricao: document.getElementById("lancamento-receita-descricao").value,
         dtlanc: document.getElementById("lancamento-receita-data").value
-    })
+    });
 
     fetch(`${URL_Lancamentos}`, {
         method: 'POST',
@@ -235,7 +261,10 @@ function adicionaReceita() {
             'Content-Type': 'application/json'
         },
         body: receita
-    })
+    });
+
+    somaCarteiras();
+    somaTotal();
 }
 
 function adicionaDespesa() {
@@ -246,7 +275,7 @@ function adicionaDespesa() {
         valor: document.getElementById("lancamento-despesa-valor").value,
         descricao: document.getElementById("lancamento-despesa-descricao").value,
         dtlanc: document.getElementById("lancamento-despesa-data").value
-    })
+    });
 
     fetch(`${URL_Lancamentos}`, {
         method: 'POST',
@@ -254,7 +283,10 @@ function adicionaDespesa() {
             'Content-Type': 'application/json'
         },
         body: despesa
-    })
+    });
+
+    somaCarteiras();
+    somaTotal();
 }
 
 function adicionaTransferencia() {
@@ -265,7 +297,7 @@ function adicionaTransferencia() {
         valor: document.getElementById("lancamento-transferencia-valor").value,
         descricao: document.getElementById("lancamento-transferencia-descricao").value,
         dtlanc: document.getElementById("lancamento-transferencia-data").value
-    })
+    });
 
     fetch(`${URL_Lancamentos}`, {
         method: 'POST',
@@ -273,7 +305,7 @@ function adicionaTransferencia() {
             'Content-Type': 'application/json'
         },
         body: despesa
-    })
+    });
 
     let receita = JSON.stringify({
         tipo: "R",
@@ -282,7 +314,7 @@ function adicionaTransferencia() {
         valor: document.getElementById("lancamento-transferencia-valor").value,
         descricao: document.getElementById("lancamento-transferencia-descricao").value,
         dtlanc: document.getElementById("lancamento-transferencia-data").value
-    })
+    });
 
     fetch(`${URL_Lancamentos}`, {
         method: 'POST',
@@ -290,7 +322,39 @@ function adicionaTransferencia() {
             'Content-Type': 'application/json'
         },
         body: receita
-    })
+    });
+
+    somaCarteiras();
+    somaTotal();
+}
+
+function alteraLancamento(id) {
+    let receita = JSON.stringify({
+        carteira: document.getElementById("transferencia-modal-carteira-destino").value,
+        valor: document.getElementById("lancamento-transferencia-valor").value,
+        descricao: document.getElementById("lancamento-transferencia-descricao").value,
+        dtlanc: document.getElementById("lancamento-transferencia-data").value
+    });
+
+    fetch(`${URL_Lancamentos}/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: lancamento
+    });
+
+    somaCarteiras();
+    somaTotal();
+}
+
+function excluiLancamento(id) {
+    fetch(`${URL_Lancamentos}/${id}`, {
+        method: 'DELETE'
+    });
+
+    somaCarteiras();
+    somaTotal();
 }
 
 /*
