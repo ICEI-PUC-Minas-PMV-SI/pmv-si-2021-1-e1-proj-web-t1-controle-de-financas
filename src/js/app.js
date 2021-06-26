@@ -59,6 +59,8 @@ function listarLancamentos() {
                 <th>${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}</th>
                 <td>${lancamentos[i].descricao}</td>
                 <td>R$${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
+                <td class="bi bi-pencil" data-toggle="modal" data-target="#lancamento-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
+                <td class="bi bi-x-lg" onclick="excluiLancamento(${lancamentos[i].id})"> </td>
             </tr>
             `;
                 lancamentosList.innerHTML = lista_lancamentos;
@@ -374,6 +376,9 @@ function alteraLancamento(id) {
             'Content-Type': 'application/json'
         },
         body: lancamento
+    })
+    .catch(function (error) {
+        console.log('There has been a problem with your fetch operation: ' + error.message);
     });
 
     somaCarteiras();
@@ -383,57 +388,11 @@ function alteraLancamento(id) {
 function excluiLancamento(id) {
     fetch(`${URL_Lancamentos}/${id}`, {
         method: 'DELETE'
+    })
+    .catch(function (error) {
+        console.log('There has been a problem with your fetch operation: ' + error.message);
     });
 
     somaCarteiras();
     somaTotal();
 }
-
-/*
-//=================================================================================================
-
-// CREATE or UPDATE - PROCEDIMENTO PARA CRIAR OU EDITAR UM lancamentos
-
-function adicionaLancamento() {
-
-    const lancamentosForm = document.getElementById('lancamentos-form');
-
-    lancamentosForm.addEventListener('submit', (e) => {
-
-        // RECUPERA O ID DO lancamentos
-        let id = parseInt($('#edit-prod-id').text());
-
-        // RECUPERA OS DADOS DO lancamentos
-        const lancamentos = JSON.stringify({
-            id: document.getElementById('lancamentos-id').value,
-            descricao: document.getElementById('lancamentos-descricao').value,
-            vlr: document.getElementById('lancamentos-vlr').value,
-        })
-
-        if (id >= 0) {
-            fetch(`${URL_Lancamentos}/${id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: lancamentos
-            })
-                .then(res => res.json())
-                .then(() => location.reload());
-        }
-        else {
-            fetch(URL_Lancamentos, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: lancamentos
-            })
-                .then(res => res.json())
-                .then(() => location.reload());
-        }
-    })
-}
-//=================================================================================================
-*/
-
