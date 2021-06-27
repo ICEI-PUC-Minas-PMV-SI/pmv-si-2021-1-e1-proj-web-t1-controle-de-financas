@@ -55,17 +55,32 @@ function listarLancamentos() {
             `;
             */
                 lista_lancamentos += `
-            <tr data-value=${lancamentos[i].id}'> 
+            <tr data-value=${lancamentos[i].id}'>
                 <th>${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}</th>
                 <td>${lancamentos[i].descricao}</td>
                 <td>R$${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
                 <td class="bi bi-pencil" data-toggle="modal" data-target="#lancamento-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
-                <td class="bi bi-x-lg" onclick="excluiLancamento(${lancamentos[i].id})"> </td>
+                <td class="bi bi-x-lg" onclick="checkExcluirLancamento(${lancamentos[i].id})"> </td>
             </tr>
             `;
                 lancamentosList.innerHTML = lista_lancamentos;
             }
         });
+}
+
+function checkExcluirLancamento(lancamento_id){
+    swal({
+        title: "Você tem certeza?",
+        text: "Esta acão não pode ser desfeita!",
+        icon: "warning",
+        buttons: ["Cancelar", "Sim!"],
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            excluiLancamento(lancamento_id);
+        }
+      });
 }
 
 function getlancamento(id) {
