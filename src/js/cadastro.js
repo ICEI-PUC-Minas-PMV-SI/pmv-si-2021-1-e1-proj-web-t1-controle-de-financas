@@ -11,6 +11,7 @@ function IrParaLogin(){
 async function AdicionaUsuario() {
 
     const nome = document.getElementById("nome");
+    const sobrenome = document.getElementById("sobrenome");
     const email = document.getElementById("email");
     const senha = document.getElementById("senha");
     const confirmar_senha = document.getElementById("confirmar_senha");
@@ -29,9 +30,10 @@ async function AdicionaUsuario() {
         const novo_usuario = JSON.stringify({
 
             nome: document.getElementById("nome").value,
+            sobrenome: document.getElementById("sobrenome").value,
             email: document.getElementById("email").value,
             senha: document.getElementById("senha").value,
-            confirmar_senha: document.getElementById("confirmar_senha").value,
+            //confirmar_senha: document.getElementById("confirmar_senha").value,
             telefone: document.getElementById("telefone").value
         })
 

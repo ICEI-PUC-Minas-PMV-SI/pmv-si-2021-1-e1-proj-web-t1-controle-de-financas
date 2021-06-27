@@ -7,6 +7,7 @@ window.onload = function () {
     listarLancamentos();
     somaTotal();
     somaCarteiras();
+    preencherPerfil();
     listaCarteirasModal();
 }
 
@@ -21,7 +22,8 @@ function usuarioLogado() {
             if (response.ok) {
                 response.json().then(function (response) {
                     document.getElementById('navBtn1').innerHTML = response.nome;
-                    document.getElementById('navBtn1').setAttribute("href", "./Página de perfil Logado.html")
+                    document.getElementById('navBtn1').setAttribute("data-toggle", "modal")
+                    document.getElementById('navBtn1').setAttribute("data-target", "#perfil-modal")
                     document.getElementById('navBtn2').innerHTML = "Sair";
                     document.getElementById('navBtn2').setAttribute("href", "login.html")
                 })
@@ -57,6 +59,8 @@ function listarLancamentos() {
                 <th>${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}</th>
                 <td>${lancamentos[i].descricao}</td>
                 <td>R$${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
+                <td class="bi bi-pencil" data-toggle="modal" data-target="#lancamento-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
+                <td class="bi bi-x-lg" onclick="excluiLancamento(${lancamentos[i].id})"> </td>
             </tr>
             `;
                 lancamentosList.innerHTML = lista_lancamentos;
@@ -82,6 +86,50 @@ function getlancamento(id) {
                 $('#lancamentos-vlr').val(data.valor);
             });
     }
+}
+
+function preencherPerfil() {
+    fetch(`${URL_Usuarios}/${window.localStorage.getItem('id')}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (response) {
+                    document.getElementById('perfil-nome').value = response.nome;
+                    document.getElementById('perfil-sobrenome').value = response.sobrenome;
+                    document.getElementById('perfil-telefone').value = response.telefone;
+                    document.getElementById('perfil-email').value = response.email;
+                })
+            } else {
+                console.log('Network response was not ok.');
+            }
+        })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
+}
+
+function alterarPerfil() {
+    let perfil = JSON.stringify({
+        nome: document.getElementById('perfil-nome').value,
+        sobrenome: document.getElementById('perfil-sobrenome').value,
+        telefone: document.getElementById('perfil-telefone').value,
+        email: document.getElementById('perfil-email')
+    });
+
+    fetch(`${URL_Lancamentos}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: perfil
+    })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
 }
 
 function listaCarteirasModal() {
@@ -219,65 +267,132 @@ function ModalLancamento() {
     $()
 }
 
-function adicionaLancamento(oper) {
-    if (oper === "R") {
-        
-    }
+function adicionaReceita() {
+    let receita = JSON.stringify({
+        tipo: "R",
+        usuario: parseInt(window.localStorage.getItem('id')),
+        carteira: parseInt(document.getElementById("receita-modal-carteiras").value),
+        valor: parseFloat(document.getElementById("lancamento-receita-valor").value),
+        descricao: document.getElementById("lancamento-receita-descricao").value,
+        dtlanc: document.getElementById("lancamento-receita-data").value
+    });
 
-    else if (oper === "D") {
-
-    }
-
-    else if (oper === "T") {
-
-    }
-}
-
-/*
-//=================================================================================================
-
-// CREATE or UPDATE - PROCEDIMENTO PARA CRIAR OU EDITAR UM lancamentos
-
-function adicionaLancamento() {
-
-    const lancamentosForm = document.getElementById('lancamentos-form');
-
-    lancamentosForm.addEventListener('submit', (e) => {
-
-        // RECUPERA O ID DO lancamentos
-        let id = parseInt($('#edit-prod-id').text());
-
-        // RECUPERA OS DADOS DO lancamentos
-        const lancamentos = JSON.stringify({
-            id: document.getElementById('lancamentos-id').value,
-            descricao: document.getElementById('lancamentos-descricao').value,
-            vlr: document.getElementById('lancamentos-vlr').value,
-        })
-
-        if (id >= 0) {
-            fetch(`${URL_Lancamentos}/${id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: lancamentos
-            })
-                .then(res => res.json())
-                .then(() => location.reload());
-        }
-        else {
-            fetch(URL_Lancamentos, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: lancamentos
-            })
-                .then(res => res.json())
-                .then(() => location.reload());
-        }
+    fetch(`${URL_Lancamentos}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: receita
     })
-}
-//=================================================================================================
-*/
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
 
+    somaCarteiras();
+    somaTotal();
+}
+
+function adicionaDespesa() {
+    let despesa = JSON.stringify({
+        tipo: "D",
+        usuario: parseInt(window.localStorage.getItem('id')),
+        carteira: parseInt(document.getElementById("despesa-modal-carteiras").value),
+        valor: parseFloat(document.getElementById("lancamento-despesa-valor").value),
+        descricao: document.getElementById("lancamento-despesa-descricao").value,
+        dtlanc: document.getElementById("lancamento-despesa-data").value
+    });
+
+    fetch(`${URL_Lancamentos}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: despesa
+    })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
+
+    somaCarteiras();
+    somaTotal();
+}
+
+function adicionaTransferencia() {
+    let despesa = JSON.stringify({
+        tipo: "D",
+        usuario: parseInt(window.localStorage.getItem('id')),
+        carteira: parseInt(document.getElementById("transferencia-modal-carteira-origem").value),
+        valor: parseFloat(document.getElementById("lancamento-transferencia-valor").value),
+        descricao: document.getElementById("lancamento-transferencia-descricao").value,
+        dtlanc: document.getElementById("lancamento-transferencia-data").value
+    });
+
+    fetch(`${URL_Lancamentos}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: despesa
+    })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
+
+    let receita = JSON.stringify({
+        tipo: "R",
+        usuario: parseInt(window.localStorage.getItem('id')),
+        carteira: parseInt(document.getElementById("transferencia-modal-carteira-destino").value),
+        valor: parseFloat(document.getElementById("lancamento-transferencia-valor").value),
+        descricao: document.getElementById("lancamento-transferencia-descricao").value,
+        dtlanc: document.getElementById("lancamento-transferencia-data").value
+    });
+
+    fetch(`${URL_Lancamentos}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: receita
+    })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
+
+    somaCarteiras();
+    somaTotal();
+}
+
+function alteraLancamento(id) {
+    let receita = JSON.stringify({
+        carteira: document.getElementById("transferencia-modal-carteira-destino").value,
+        valor: document.getElementById("lancamento-transferencia-valor").value,
+        descricao: document.getElementById("lancamento-transferencia-descricao").value,
+        dtlanc: document.getElementById("lancamento-transferencia-data").value
+    });
+
+    fetch(`${URL_Lancamentos}/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: lancamento
+    })
+    .catch(function (error) {
+        console.log('There has been a problem with your fetch operation: ' + error.message);
+    });
+
+    somaCarteiras();
+    somaTotal();
+}
+
+function excluiLancamento(id) {
+    fetch(`${URL_Lancamentos}/${id}`, {
+        method: 'DELETE'
+    })
+    .catch(function (error) {
+        console.log('There has been a problem with your fetch operation: ' + error.message);
+    });
+
+    somaCarteiras();
+    somaTotal();
+}

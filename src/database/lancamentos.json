@@ -4,7 +4,7 @@
       "id": 1,
       "carteira": 1,
       "usuario": 1,
-      "valor": 14.90,
+      "valor": 14.9,
       "descricao": "Cinema",
       "tipo": "D",
       "dtlanc": "2021-06-13"
@@ -13,7 +13,7 @@
       "id": 2,
       "carteira": 1,
       "usuario": 1,
-      "valor": 145.90,
+      "valor": 145.9,
       "descricao": "Supermercado",
       "tipo": "D",
       "dtlanc": "2021-06-13"
@@ -22,7 +22,7 @@
       "id": 3,
       "carteira": 1,
       "usuario": 1,
-      "valor": 134.90,
+      "valor": 134.9,
       "descricao": "Teste",
       "tipo": "D",
       "dtlanc": "2021-06-13"
@@ -31,7 +31,7 @@
       "id": 4,
       "carteira": 3,
       "usuario": 1,
-      "valor": 145.90,
+      "valor": 145.9,
       "descricao": "Pinga",
       "tipo": "D",
       "dtlanc": "2021-06-13"
@@ -40,7 +40,7 @@
       "id": 5,
       "carteira": 3,
       "usuario": 1,
-      "valor": 1453.90,
+      "valor": 1453.9,
       "descricao": "Computador",
       "tipo": "D",
       "dtlanc": "2021-06-13"
@@ -49,7 +49,7 @@
       "id": 6,
       "carteira": 1,
       "usuario": 1,
-      "valor": 2675.70,
+      "valor": 2675.7,
       "descricao": "Salário",
       "tipo": "R",
       "dtlanc": "2021-06-13"
