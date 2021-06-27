@@ -14,10 +14,10 @@ function GetNoticias (tema) {
 }
 
 
-
 function CriaHTMLNoticias (response) {
+  const noticiastable = $(".noticias")
   for (let i = 0; i < 6; i++){
-    console.log(response.articles[i].title);
+    noticiastable.append(response.articles[i].title);
     console.log(response.articles[i].urlToImage);
     console.log(response.articles[i].content);
     console.log(response.articles[i].url);
