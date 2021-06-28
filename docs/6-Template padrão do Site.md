@@ -7,13 +7,14 @@ Layout padrão do site (HTML e CSS) que será utilizado em todas as páginas com
 * Para a criação do fora utilizado o Bootstrap https://getbootstrap.com/ na qual adiciona diversas possibilidades de personalização no layout do site.
 
 
-https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2021-1-e1-proj-web-t1-controle-de-financas/blob/dev/src/index.html
-https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2021-1-e1-proj-web-t1-controle-de-financas/blob/dev/src/P%C3%A1gina%20de%20perfil%20Logado.html
+<a href="https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2021-1-e1-proj-web-t1-controle-de-financas/blob/dev/src/index.html"> Página Inicial</a>
+
+<a href="https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2021-1-e1-proj-web-t1-controle-de-financas/blob/dev/src/P%C3%A1gina%20de%20perfil%20Logado.html">Pagína de Perfil Logado</a>
 
 * O layout HTML consiste em uma NAV bar no topo da página, utilização de input e buttons.
 
 
-https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2021-1-e1-proj-web-t1-controle-de-financas/blob/dev/src/css/styles.css
+<a href="https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2021-1-e1-proj-web-t1-controle-de-financas/blob/dev/src/css/styles.css">Estilo CSS</a>
 
 > **Links Úteis**:
 >
