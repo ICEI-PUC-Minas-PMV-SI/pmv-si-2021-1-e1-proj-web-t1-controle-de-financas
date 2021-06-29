@@ -6,6 +6,21 @@ Implementação do sistema descritas por meio dos requisitos funcionais e/ou nã
 
 Para cada requisito funcional, pode ser entregue um artefato desse tipo
 
+* RF-001	Permitir que o usuário faça os lançamentos de receitas e despesas
+* RF-002	Permitir que o usuário tenha acesso ao saldo como resultado das operações em local visível
+* RF-003	Permitir que o usuário cadastre e gerencie mais de uma conta simultaneamente
+* RF-004	Permitir que o usuário tenha acesso ao saldo mensal das operações em local visivel
+
+<a href="https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2021-1-e1-proj-web-t1-controle-de-financas/blob/dev/src/app.html">Código RF-001, RF-002, RF-003, RF-004</a>
+
+<a href="https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2021-1-e1-proj-web-t1-controle-de-financas/blob/dev/src/js/app.js">Código RF-001, RF-002, RF-003, RF-004 Java Script</a>
+
+
+
+
+
+
+
 > **Links Úteis**:
 >
 > - [Trabalhando com HTML5 Local Storage e JSON](https://www.devmedia.com.br/trabalhando-com-html5-local-storage-e-json/29045)
