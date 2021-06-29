@@ -13,11 +13,7 @@ Para cada requisito funcional, pode ser entregue um artefato desse tipo
 * RF-005	Permitir que o usuário faça o cadastro de categorias personalizadas
 * RF-006	Gráficos para visualização das receitas e despesas do mês
 
-<a href="https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2021-1-e1-proj-web-t1-controle-de-financas/blob/dev/src/app.html">Código RF-001, RF-002, RF-003, RF-004</a>
-
-<a href="https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2021-1-e1-proj-web-t1-controle-de-financas/blob/dev/src/js/app.js">Código RF-001, RF-002, RF-003, RF-004 Java Script</a>
-
-
+<a href="https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2021-1-e1-proj-web-t1-controle-de-financas/blob/dev/src">Código Fonte</a>
 
 
 
