@@ -2,9 +2,9 @@
   "lancamentos": [
     {
       "id": 6,
-      "carteira": 1,
+      "carteira": 2,
       "usuario": 1,
-      "valor": 2675.7,
+      "valor": 2765.75,
       "descricao": "Salário",
       "tipo": "R",
       "dtlanc": "2021-06-13"
@@ -30,11 +30,38 @@
     {
       "tipo": "D",
       "usuario": 1,
-      "carteira": 1,
-      "valor": 464,
-      "descricao": "464",
+      "carteira": 2,
+      "valor": 257,
+      "descricao": "Teste",
       "dtlanc": "2021-06-10",
       "id": 9
+    },
+    {
+      "tipo": "R",
+      "usuario": 1,
+      "carteira": 3,
+      "valor": 150.01,
+      "descricao": "Steam",
+      "dtlanc": "2021-06-27",
+      "id": 10
+    },
+    {
+      "tipo": "R",
+      "usuario": 1,
+      "carteira": 1,
+      "valor": 477,
+      "descricao": "Dinheiros",
+      "dtlanc": "2021-06-28",
+      "id": 11
+    },
+    {
+      "tipo": "R",
+      "usuario": 1,
+      "carteira": 1,
+      "valor": 500,
+      "descricao": "Teste",
+      "dtlanc": "2021-05-24",
+      "id": 12
     }
   ]
 }

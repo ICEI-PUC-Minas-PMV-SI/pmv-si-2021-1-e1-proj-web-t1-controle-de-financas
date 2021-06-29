@@ -41,405 +41,544 @@
             </div>
         </div>
     </nav>
-    <!--
-        <nav class="navbar navbar-light navbar-expand-lg fixed-top">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#!">Logo</a>
-                <div>
-                    <a class="mx-5" href="#!">Aprenda</a>
-                    <a class="mx-5" href="#!">Noticias</a>
-                    <a class="mx-5" href="#!">Sobre</a>
-                </div>
-                <div>
-                    <a class="btn btn-secondary" href="#Logar">Nome do Usuário</a>
-                    <a class="btn btn-primary" href="#Cadastrar">Página Inicial</a>
-                </div>
-            </div>
-        </nav>
-        -->
-    <section>
-        <div class="container">
-            <div class="row row-cols-2">
-                <div class="d-flex flex-column justify-content-center col">
-                    <div class="accordion" style="padding: 1rem 1rem;" id="accordionTotal">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headerTotal">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTotal" aria-expanded="true" aria-controls="collapseTotal">
-                                    Total
-                                </button>
-                            </h2>
-                            <div id="collapseTotal" class="accordion-collapse collapse show"
-                                aria-labelledby="headerTotal" data-bs-parent="#accordionTotal">
-                                <div class="accordion-body" id="totCarteiras">
-                                    R$ 0
-                                </div>
-                            </div>
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Resumo</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Lançamentos</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Gráficos</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <!--
+                <nav class="navbar navbar-light navbar-expand-lg fixed-top">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#!">Logo</a>
+                        <div>
+                            <a class="mx-5" href="#!">Aprenda</a>
+                            <a class="mx-5" href="#!">Noticias</a>
+                            <a class="mx-5" href="#!">Sobre</a>
+                        </div>
+                        <div>
+                            <a class="btn btn-secondary" href="#Logar">Nome do Usuário</a>
+                            <a class="btn btn-primary" href="#Cadastrar">Página Inicial</a>
                         </div>
                     </div>
-                </div>
-                <div class="d-flex flex-column justify-content-center col-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col" style="text-align: center;">
-                                    <a onclick="getlancamento(0)" class="btn bi bi-plus-circle-fill"
-                                        style="color: #008000; font-size: xx-large;" data-toggle="modal"
-                                        data-target="#lancamento-receita-modal">
-                                    </a>
-                                </div>
-                                <div class="col" style="text-align: center;">
-                                    <a class="btn bi bi-dash-circle-fill" style="color: #FF0000; font-size: xx-large;"
-                                        data-toggle="modal" data-target="#lancamento-despesa-modal">
-                                    </a>
-                                </div>
-                                <div class="col" style="text-align: center;">
-                                    <a class="btn bi bi-arrow-left-right" style="color: #a2a8ae; font-size: xx-large;"
-                                        data-toggle="modal" data-target="#lancamento-transferencia-modal">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row row-cols-2">
-                <div class="d-flex flex-column justify-content-center col">
-                    <div class="accordion" style="padding: 1rem 1rem;" id="accordionCarteiras">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headerCarteiras">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseCarteiras" aria-expanded="true"
-                                    aria-controls="collapseCarteiras">
-                                    Minhas Carteiras
-                                </button>
-                            </h2>
-                            <div id="collapseCarteiras" class="accordion-collapse collapse show"
-                                aria-labelledby="headerCarteiras" data-bs-parent="#accordionCarteiras">
-                                <div class="accordion-body">
-                                    <ul class="list-group list-group-flush" id="totLancamentoCarteir">
-                                        <li class="list-group-item">
-                                            <div class="row row-cols-2">
-                                                <div class="col-1"><i class="bi bi-wallet2"></i></div>
-                                                <div class="col">R$ 0</div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-column justify-content-center col">
-
-                    </div>
-                </div>
-                <div class="d-flex flex-column justify-content-center col-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th width=5%></th>
-                                            <th width=30%>Descrição</th>
-                                            <th width=15%>Valor</th>
-                                            <th width=5%></th>
-                                            <th width=5%></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id='list-lancamentos'>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </section>
-
-    <div class="modal fade" id="perfil-modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Perfil</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="perfil-form" method="post" action="">
-                        <div class="form-group">
-                            <label for="perfil-nome" class="col-form-label">Nome:</label>
-                            <input type="text" class="form-control" id="perfil-nome" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="perfil-sobrenome" class="col-form-label">Sobrenome:</label>
-                            <input type="text" class="form-control" id="perfil-sobrenome" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="perfil-telefone" class="col-form-label">Telefone:</label>
-                            <input type="text" class="form-control" id="perfil-telefone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="perfil-email" class="col-form-label">Email:</label>
-                            <input type="email" class="form-control" id="perfil-email" required>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary" onclick="alterarPerfil()">Salvar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--
-    <section>
-        <div class="container">
-            <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                        class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://source.unsplash.com/300x300/?quokka,perth" class="img-responsive">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://source.unsplash.com/300x300/?margaretriver,australia" class="img-responsive">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://source.unsplash.com/300x300/?perth,australia&r=7" class="img-responsive">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-
-    </section>
-    -->
-
-    <!--  Modal apresentada para solicitar os dados para preenchimento do formulário -->
-
-    <div class="modal fade" id="lancamento-receita-modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Adicionar Receita</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="lancamento-receita-form">
-                        <div class="form-group">
-                            <label for="lancamento-receita-descricao" class="col-form-label">Descrição:</label>
-                            <input type="text" class="form-control" id="lancamento-receita-descricao" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lancamento-receita-valor" class="col-form-label">Valor:</label>
-                            <input type="number" step="0.01" class="form-control" id="lancamento-receita-valor"
-                                required>
-                        </div>
-                        <div class="form-group">
-                            <label for="receita-modal-carteiras" class="col-form-label">Carteira:</label>
-                            <select class="form-select" id="receita-modal-carteiras">
-                                <option></option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="lancamento-receita-id" class="col-form-label">Data:</label>
-                            <input type="date" class="form-control" id="lancamento-receita-data" required>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary" onclick="adicionaReceita()">Salvar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="lancamento-despesa-modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Adicionar Despesa</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="lancamento-despesa-form">
-                        <div class="form-group">
-                            <label for="lancamento-despesa-descricao" class="col-form-label">Descrição:</label>
-                            <input type="text" class="form-control" id="lancamento-despesa-descricao" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lancamento-despesa-valor" class="col-form-label">Valor:</label>
-                            <input type="number" step="0.01" class="form-control" id="lancamento-despesa-valor"
-                                required>
-                        </div>
-                        <div class="form-group">
-                            <label for="despesa-modal-carteiras" class="col-form-label">Carteira:</label>
-                            <select class="form-select" id="despesa-modal-carteiras">
-                                <option></option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="lancamento-despesa-id" class="col-form-label">Data:</label>
-                            <input type="date" class="form-control" id="lancamento-despesa-data" required>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary" onclick="adicionaDespesa()">Salvar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="lancamento-transferencia-modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Adicionar Transferência</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="lancamento-transferencia-form">
-                        <div class="form-group">
-                            <label for="lancamento-transferencia-descricao" class="col-form-label">Descrição:</label>
-                            <input type="text" class="form-control" id="lancamento-transferencia-descricao" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lancamento-transferencia-valor" class="col-form-label">Valor:</label>
-                            <input type="number" step="0.01" class="form-control" id="lancamento-transferencia-valor"
-                                required>
-                        </div>
-                        <div class="form-group">
-                            <label for="transferencia-modal-carteira-origem" class="col-form-label">Carteira
-                                Origem:</label>
-                            <select class="form-select" id="transferencia-modal-carteira-origem">
-                                <option></option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="transferencia-modal-carteira-destino" class="col-form-label">Carteira
-                                Destino:</label>
-                            <select class="form-select" id="transferencia-modal-carteira-destino">
-                                <option></option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="lancamento-transferencia-id" class="col-form-label">Data:</label>
-                            <input type="date" class="form-control" id="lancamento-transferencia-data" required>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary"
-                                onclick="adicionaTransferencia()">Salvar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--  Modal apresentada para solicitar os dados para preenchimento do formulário -->
-    <!--
-    <div class="modal fade" id="lancamento-receita-modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Produto <span id="edit-lancamentos-id"></span></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="lancamento-receita-form" method="post" action="">
-                        <div class="form-group">
-                            <label for="lancamentos-id" class="col-form-label">Código:</label>
-                            <input type="number" class="form-control" id="lancamento-receita-id" min="1" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lancamentos-descricao" class="col-form-label">Descrição:</label>
-                            <input type="text" class="form-control" id="lancamento-receita-descricao" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lancamentos-vlr" class="col-form-label">Valor:</label>
-                            <input type="number" step="0.01" class="form-control" id="lancamento-receita-vlr" required>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-primary">Salvar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!--  Modal para  os dados para preenchimento do formulário -->
-    <!--
-    <div class="modal fade" id="edit-lancamentos-modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Produto <span id="edit-lancamentos-id"></span></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="edit-lancamentos-form" method="post" action="">
-                        <div class="card-body">
-                            <div class="row">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th width=5%></th>
-                                            <th width=30%>Descrição</th>
-                                            <th width=15%>Valor</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <button onclick="ModalLancamento()">
+                </nav>
+                -->
+            <section>
+                <div class="container">
+                    <div class="row row-cols-2">
+                        <div class="d-flex flex-column justify-content-center col">
+                            <div class="accordion" style="padding: 1rem 1rem;" id="accordionTotal">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headerTotal">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseTotal" aria-expanded="true" aria-controls="collapseTotal">
+                                            Total
                                         </button>
-                                    </tbody>
-                                </table>
+                                    </h2>
+                                    <div id="collapseTotal" class="accordion-collapse collapse show"
+                                        aria-labelledby="headerTotal" data-bs-parent="#accordionTotal">
+                                        <div class="accordion-body" id="totCarteiras">
+                                            R$ 0
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        <div class="d-flex flex-column justify-content-center col-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col" style="text-align: center;">
+                                            <a onclick="getlancamento(0)" class="btn bi bi-plus-circle-fill"
+                                                style="color: #008000; font-size: xx-large;" data-toggle="modal"
+                                                data-target="#lancamento-receita-modal">
+                                            </a>
+                                        </div>
+                                        <div class="col" style="text-align: center;">
+                                            <a class="btn bi bi-dash-circle-fill" style="color: #FF0000; font-size: xx-large;"
+                                                data-toggle="modal" data-target="#lancamento-despesa-modal">
+                                            </a>
+                                        </div>
+                                        <div class="col" style="text-align: center;">
+                                            <a class="btn bi bi-arrow-left-right" style="color: #a2a8ae; font-size: xx-large;"
+                                                data-toggle="modal" data-target="#lancamento-transferencia-modal">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </form>
+                    </div>
+                    <div class="row row-cols-2">
+                        <div class="d-flex flex-column justify-content-center col">
+                            <div class="accordion" style="padding: 1rem 1rem;" id="accordionCarteiras">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headerCarteiras">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseCarteiras" aria-expanded="true"
+                                            aria-controls="collapseCarteiras">
+                                            Minhas Carteiras
+                                        </button>
+                                    </h2>
+                                    <div id="collapseCarteiras" class="accordion-collapse collapse show"
+                                        aria-labelledby="headerCarteiras" data-bs-parent="#accordionCarteiras">
+                                        <div class="accordion-body">
+                                            <ul class="list-group list-group-flush" id="totLancamentoCarteir">
+                                                <li class="list-group-item">
+                                                    <div class="row row-cols-2">
+                                                        <div class="col-1"><i class="bi bi-wallet2"></i></div>
+                                                        <div class="col">R$ 0</div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column justify-content-center col">
+        
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center col-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th width=5%></th>
+                                                    <th width=30%>Descrição</th>
+                                                    <th width=15%>Valor</th>
+                                                    <th width=5%></th>
+                                                    <th width=5%></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id='list-lancamentos'>
+        
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+        
+            <div class="modal fade" id="perfil-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Perfil</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="perfil-form" method="post" action="">
+                                <div class="form-group">
+                                    <label for="perfil-nome" class="col-form-label">Nome:</label>
+                                    <input type="text" class="form-control" id="perfil-nome" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="perfil-sobrenome" class="col-form-label">Sobrenome:</label>
+                                    <input type="text" class="form-control" id="perfil-sobrenome" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="perfil-telefone" class="col-form-label">Telefone:</label>
+                                    <input type="text" class="form-control" id="perfil-telefone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="perfil-email" class="col-form-label">Email:</label>
+                                    <input type="email" class="form-control" id="perfil-email" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary" onclick="alterarPerfil()">Salvar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
--->
+        
+            <!--
+            <section>
+                <div class="container">
+                    <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://source.unsplash.com/300x300/?quokka,perth" class="img-responsive">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://source.unsplash.com/300x300/?margaretriver,australia" class="img-responsive">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://source.unsplash.com/300x300/?perth,australia&r=7" class="img-responsive">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+        
+            </section>
+            -->
+        
+            <!--  Modal apresentada para solicitar os dados para preenchimento do formulário -->
+        
+            <div class="modal fade" id="lancamento-receita-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Adicionar Receita</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="lancamento-receita-form">
+                                <div class="form-group">
+                                    <label for="lancamento-receita-descricao" class="col-form-label">Descrição:</label>
+                                    <input type="text" class="form-control" id="lancamento-receita-descricao" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lancamento-receita-valor" class="col-form-label">Valor:</label>
+                                    <input type="number" step="0.01" class="form-control" id="lancamento-receita-valor"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="receita-modal-carteiras" class="col-form-label">Carteira:</label>
+                                    <select class="form-select" id="receita-modal-carteiras">
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lancamento-receita-id" class="col-form-label">Data:</label>
+                                    <input type="date" class="form-control" id="lancamento-receita-data" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary" onclick="adicionaReceita()">Salvar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="modal fade" id="lancamento-despesa-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Adicionar Despesa</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="lancamento-despesa-form">
+                                <div class="form-group">
+                                    <label for="lancamento-despesa-descricao" class="col-form-label">Descrição:</label>
+                                    <input type="text" class="form-control" id="lancamento-despesa-descricao" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lancamento-despesa-valor" class="col-form-label">Valor:</label>
+                                    <input type="number" step="0.01" class="form-control" id="lancamento-despesa-valor"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="despesa-modal-carteiras" class="col-form-label">Carteira:</label>
+                                    <select class="form-select" id="despesa-modal-carteiras">
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lancamento-despesa-id" class="col-form-label">Data:</label>
+                                    <input type="date" class="form-control" id="lancamento-despesa-data" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary" onclick="adicionaDespesa()">Salvar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="modal fade" id="lancamento-transferencia-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Adicionar Transferência</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="lancamento-transferencia-form">
+                                <div class="form-group">
+                                    <label for="lancamento-transferencia-descricao" class="col-form-label">Descrição:</label>
+                                    <input type="text" class="form-control" id="lancamento-transferencia-descricao" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lancamento-transferencia-valor" class="col-form-label">Valor:</label>
+                                    <input type="number" step="0.01" class="form-control" id="lancamento-transferencia-valor"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="transferencia-modal-carteira-origem" class="col-form-label">Carteira
+                                        Origem:</label>
+                                    <select class="form-select" id="transferencia-modal-carteira-origem">
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="transferencia-modal-carteira-destino" class="col-form-label">Carteira
+                                        Destino:</label>
+                                    <select class="form-select" id="transferencia-modal-carteira-destino">
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lancamento-transferencia-id" class="col-form-label">Data:</label>
+                                    <input type="date" class="form-control" id="lancamento-transferencia-data" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary"
+                                        onclick="adicionaTransferencia()">Salvar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="modal fade" id="alteracao-receita-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Alterar Receita</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="alteracao-receita-form">
+                                <div class="form-group">
+                                    <label for="lancamento-receita-descricao" class="col-form-label">Descrição:</label>
+                                    <input type="text" class="form-control" id="alteracao-receita-descricao" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="alteracao-receita-valor" class="col-form-label">Valor:</label>
+                                    <input type="number" step="0.01" class="form-control" id="alteracao-receita-valor"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="receita-modal-carteiras" class="col-form-label">Carteira:</label>
+                                    <select class="form-select" id="alteracao-receita-modal-carteiras">
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="alteracao-receita-id" class="col-form-label">Data:</label>
+                                    <input type="date" class="form-control" id="alteracao-receita-data" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary" id="btnAlteraReceita">Salvar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="modal fade" id="alteracao-despesa-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Alterar Despesa</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="alteracao-despesa-form">
+                                <div class="form-group">
+                                    <label for="alteracao-despesa-descricao" class="col-form-label">Descrição:</label>
+                                    <input type="text" class="form-control" id="alteracao-despesa-descricao" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lancamento-despesa-valor" class="col-form-label">Valor:</label>
+                                    <input type="number" step="0.01" class="form-control" id="alteracao-despesa-valor"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="despesa-modal-carteiras" class="col-form-label">Carteira:</label>
+                                    <select class="form-select" id="alteracao-despesa-modal-carteiras">
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="alteracao-despesa-id" class="col-form-label">Data:</label>
+                                    <input type="date" class="form-control" id="alteracao-despesa-data" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary" id="btnAlteraDespesa">Salvar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="modal fade" id="adicionar-carteira-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Alterar Despesa</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="alteracao-despesa-form">
+                                <div class="form-group">
+                                    <label for="alteracao-despesa-descricao" class="col-form-label">Descrição:</label>
+                                    <input type="text" class="form-control" id="alteracao-despesa-descricao" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lancamento-despesa-valor" class="col-form-label">Valor:</label>
+                                    <input type="number" step="0.01" class="form-control" id="alteracao-despesa-valor"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="despesa-modal-carteiras" class="col-form-label">Carteira:</label>
+                                    <select class="form-select" id="alteracao-despesa-modal-carteiras">
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="alteracao-despesa-id" class="col-form-label">Data:</label>
+                                    <input type="date" class="form-control" id="alteracao-despesa-data" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary" id="btnAlteraDespesa">Salvar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!--  Modal apresentada para solicitar os dados para preenchimento do formulário -->
+            <!--
+            <div class="modal fade" id="lancamento-receita-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Produto <span id="edit-lancamentos-id"></span></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="lancamento-receita-form" method="post" action="">
+                                <div class="form-group">
+                                    <label for="lancamentos-id" class="col-form-label">Código:</label>
+                                    <input type="number" class="form-control" id="lancamento-receita-id" min="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lancamentos-descricao" class="col-form-label">Descrição:</label>
+                                    <input type="text" class="form-control" id="lancamento-receita-descricao" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lancamentos-vlr" class="col-form-label">Valor:</label>
+                                    <input type="number" step="0.01" class="form-control" id="lancamento-receita-vlr" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary">Salvar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!--  Modal para  os dados para preenchimento do formulário -->
+            <!--
+            <div class="modal fade" id="edit-lancamentos-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Produto <span id="edit-lancamentos-id"></span></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="edit-lancamentos-form" method="post" action="">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th width=5%></th>
+                                                    <th width=30%>Descrição</th>
+                                                    <th width=15%>Valor</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <button onclick="ModalLancamento()">
+                                                </button>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary">Salvar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        --></div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+      </div>
+      
     <script src="./js/app.js"></script>
+    <script src="./js/date.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
