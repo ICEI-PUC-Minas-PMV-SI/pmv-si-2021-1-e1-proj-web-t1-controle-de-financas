@@ -1,4 +1,5 @@
 URL = 'http://localhost:3000/usuarios/'
+URL_CARTEIRAS = 'http://localhost:3001/carteiras'
 
 function logar() {
 
@@ -18,10 +19,10 @@ function logar() {
             }
 
             if(usuarios[i].nome == usuario.value && usuarios[i].senha == senha.value ){
+                VerificaCarteiraPadrao(usuarios[i].id);
                 window.localStorage.setItem('id', `${usuarios[i].id}`);
-                document.location.replace("./app.html");
 
-                return usuario[i].id;
+                return usuarios[i].id;
             }
         }
     });
@@ -29,4 +30,37 @@ function logar() {
 
 function IrParaCadastro(){
     document.location.replace("./cadastro.html");
+}
+
+function IrParaApp(){
+    document.location.replace("./app.html");
+}
+
+
+async function VerificaCarteiraPadrao(id_usuario) {
+    const response = await fetch(`${URL_CARTEIRAS}?usuario=${id_usuario}`);
+    const text = await response.text();
+    const nova_carteira = JSON.stringify({
+
+        descricao: "Carteira Padrão",
+        usuario: id_usuario
+    })
+
+    if (text == "[]") {
+
+       await fetch(`${URL_CARTEIRAS}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+
+            body: nova_carteira
+        });
+
+        IrParaApp();
+    }
+    else{
+        IrParaApp();
+    }
+
 }
