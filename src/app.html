@@ -365,6 +365,126 @@
         </div>
     </div>
 
+    <div class="modal fade" id="alteracao-receita-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Alterar Receita</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="alteracao-receita-form">
+                        <div class="form-group">
+                            <label for="lancamento-receita-descricao" class="col-form-label">Descrição:</label>
+                            <input type="text" class="form-control" id="alteracao-receita-descricao" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="alteracao-receita-valor" class="col-form-label">Valor:</label>
+                            <input type="number" step="0.01" class="form-control" id="alteracao-receita-valor"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="receita-modal-carteiras" class="col-form-label">Carteira:</label>
+                            <select class="form-select" id="alteracao-receita-modal-carteiras">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="alteracao-receita-id" class="col-form-label">Data:</label>
+                            <input type="date" class="form-control" id="alteracao-receita-data" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary" id="btnAlteraReceita">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="alteracao-despesa-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Alterar Despesa</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="alteracao-despesa-form">
+                        <div class="form-group">
+                            <label for="alteracao-despesa-descricao" class="col-form-label">Descrição:</label>
+                            <input type="text" class="form-control" id="alteracao-despesa-descricao" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lancamento-despesa-valor" class="col-form-label">Valor:</label>
+                            <input type="number" step="0.01" class="form-control" id="alteracao-despesa-valor"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="despesa-modal-carteiras" class="col-form-label">Carteira:</label>
+                            <select class="form-select" id="alteracao-despesa-modal-carteiras">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="alteracao-despesa-id" class="col-form-label">Data:</label>
+                            <input type="date" class="form-control" id="alteracao-despesa-data" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary" id="btnAlteraDespesa">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="adicionar-carteira-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Alterar Despesa</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="alteracao-despesa-form">
+                        <div class="form-group">
+                            <label for="alteracao-despesa-descricao" class="col-form-label">Descrição:</label>
+                            <input type="text" class="form-control" id="alteracao-despesa-descricao" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lancamento-despesa-valor" class="col-form-label">Valor:</label>
+                            <input type="number" step="0.01" class="form-control" id="alteracao-despesa-valor"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="despesa-modal-carteiras" class="col-form-label">Carteira:</label>
+                            <select class="form-select" id="alteracao-despesa-modal-carteiras">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="alteracao-despesa-id" class="col-form-label">Data:</label>
+                            <input type="date" class="form-control" id="alteracao-despesa-data" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary" id="btnAlteraDespesa">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!--  Modal apresentada para solicitar os dados para preenchimento do formulário -->
     <!--
     <div class="modal fade" id="lancamento-receita-modal" tabindex="-1" role="dialog" aria-hidden="true">

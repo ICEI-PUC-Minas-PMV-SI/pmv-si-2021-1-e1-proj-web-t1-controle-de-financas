@@ -59,7 +59,7 @@ function listarLancamentos() {
                 <th>${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}</th>
                 <td>${lancamentos[i].descricao}</td>
                 <td>R$${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
-                <td class="bi bi-pencil" data-toggle="modal" data-target="#lancamento-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
+                <td class="bi bi-pencil" onclick="preencheAlteracao${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}(${lancamentos[i].id})" data-toggle="modal" data-target="#alteracao-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
                 <td class="bi bi-x-lg" onclick="checkExcluirLancamento(${lancamentos[i].id})"> </td>
             </tr>
             `;
@@ -68,19 +68,19 @@ function listarLancamentos() {
         });
 }
 
-function checkExcluirLancamento(lancamento_id){
+function checkExcluirLancamento(lancamento_id) {
     swal({
         title: "Você tem certeza?",
         text: "Esta acão não pode ser desfeita!",
         icon: "warning",
         buttons: ["Cancelar", "Sim!"],
         dangerMode: true,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-            excluiLancamento(lancamento_id);
-        }
-      });
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                excluiLancamento(lancamento_id);
+            }
+        });
 }
 
 function getlancamento(id) {
@@ -159,11 +159,15 @@ function listaCarteirasModal() {
                 response.json().then(function (response) {
                     document.getElementById('receita-modal-carteiras').innerHTML = '';
                     document.getElementById('despesa-modal-carteiras').innerHTML = '';
+                    document.getElementById('alteracao-receita-modal-carteiras').innerHTML = '';
+                    document.getElementById('alteracao-despesa-modal-carteiras').innerHTML = '';
                     document.getElementById('transferencia-modal-carteira-origem').innerHTML = '';
                     document.getElementById('transferencia-modal-carteira-destino').innerHTML = '';
                     for (let i = 0; i < response.length; i++) {
                         document.getElementById('receita-modal-carteiras').innerHTML += `<option value='${response[i].id}'>${response[i].descricao}</option>`;
                         document.getElementById('despesa-modal-carteiras').innerHTML += `<option value='${response[i].id}'>${response[i].descricao}</option>`;
+                        document.getElementById('alteracao-receita-modal-carteiras').innerHTML += `<option value='${response[i].id}'>${response[i].descricao}</option>`;
+                        document.getElementById('alteracao-despesa-modal-carteiras').innerHTML += `<option value='${response[i].id}'>${response[i].descricao}</option>`;
                         document.getElementById('transferencia-modal-carteira-origem').innerHTML += `<option value='${response[i].id}'>${response[i].descricao}</option>`;
                         document.getElementById('transferencia-modal-carteira-destino').innerHTML += `<option value='${response[i].id}'>${response[i].descricao}</option>`;
                     }
@@ -377,12 +381,63 @@ function adicionaTransferencia() {
     somaTotal();
 }
 
-function alteraLancamento(id) {
+function preencheAlteracaoReceita(id) {
+    fetch(`${URL_Lancamentos}/${id}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (response) {
+                    document.getElementById('alteracao-receita-descricao').value = response.descricao;
+                    document.getElementById('alteracao-receita-valor').value = response.valor;
+                    document.getElementById('alteracao-receita-modal-carteiras').value = response.carteira;
+                    document.getElementById('alteracao-receita-data').value = response.dtlanc;
+                    document.getElementById('btnAlteraReceita').setAttribute('onclick', 'alteraLancamento(' + id + ',"R")')
+                });
+            } else {
+                console.log('Network response was not ok.');
+            }
+        })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
+}
+
+function preencheAlteracaoDespesa(id) {
+    fetch(`${URL_Lancamentos}/${id}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (response) {
+                    document.getElementById('alteracao-despesa-descricao').value = response.descricao;
+                    document.getElementById('alteracao-despesa-valor').value = response.valor;
+                    document.getElementById('alteracao-despesa-modal-carteiras').value = response.carteira;
+                    document.getElementById('alteracao-despesa-data').value = response.dtlanc;
+                    document.getElementById('btnAlteraDespesa').setAttribute('onclick', 'alteraLancamento(' + id + ',"D")')
+                });
+            } else {
+                console.log('Network response was not ok.');
+            }
+        })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
+}
+
+function alteraLancamento(id, oper) {
+    if (oper === "R") {
     let receita = JSON.stringify({
-        carteira: document.getElementById("transferencia-modal-carteira-destino").value,
-        valor: document.getElementById("lancamento-transferencia-valor").value,
-        descricao: document.getElementById("lancamento-transferencia-descricao").value,
-        dtlanc: document.getElementById("lancamento-transferencia-data").value
+        carteira: parseInt(document.getElementById("alteracao-receita-modal-carteiras").value),
+        valor: parseFloat(document.getElementById("alteracao-receita-valor").value),
+        descricao: document.getElementById("alteracao-receita-descricao").value,
+        dtlanc: document.getElementById("alteracao-receita-data").value
     });
 
     fetch(`${URL_Lancamentos}/${id}`, {
@@ -390,12 +445,30 @@ function alteraLancamento(id) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: lancamento
+        body: receita
     })
-    .catch(function (error) {
-        console.log('There has been a problem with your fetch operation: ' + error.message);
-    });
-
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
+    } else {
+        let despesa = JSON.stringify({
+            carteira: parseInt(document.getElementById("alteracao-despesa-modal-carteiras").value),
+            valor: parseFloat(document.getElementById("alteracao-despesa-valor").value),
+            descricao: document.getElementById("alteracao-despesa-descricao").value,
+            dtlanc: document.getElementById("alteracao-despesa-data").value
+        });
+    
+        fetch(`${URL_Lancamentos}/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: despesa
+        })
+            .catch(function (error) {
+                console.log('There has been a problem with your fetch operation: ' + error.message);
+            });
+    }
     somaCarteiras();
     somaTotal();
 }
@@ -404,9 +477,9 @@ function excluiLancamento(id) {
     fetch(`${URL_Lancamentos}/${id}`, {
         method: 'DELETE'
     })
-    .catch(function (error) {
-        console.log('There has been a problem with your fetch operation: ' + error.message);
-    });
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
 
     somaCarteiras();
     somaTotal();
