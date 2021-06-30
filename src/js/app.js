@@ -56,9 +56,67 @@ function listarLancamentos() {
             */
                 lista_lancamentos += `
             <tr data-value=${lancamentos[i].id}'>
-                <th>${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}</th>
+                <th style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}</th>
                 <td>${lancamentos[i].descricao}</td>
-                <td>R$${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
+                <td style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">R$ ${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
+                <td class="bi bi-pencil" onclick="preencheAlteracao${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}(${lancamentos[i].id})" data-toggle="modal" data-target="#alteracao-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
+                <td class="bi bi-x-lg" onclick="checkExcluirLancamento(${lancamentos[i].id})"> </td>
+            </tr>
+            `;
+                lancamentosList.innerHTML = lista_lancamentos;
+            }
+        });
+}
+
+/* Terminar */
+function listarLancamentosCarteira(id) {
+    const lancamentosList = document.getElementById('list-lancamentos');
+
+    //document.getElementById('resumo-tab').setAttribute("class", "nav-link");
+    //document.getElementById('resumo-tab').setAttribute("aria-selected", "false");
+    //document.getElementById('lancamentos-tab').setAttribute("class", "nav-link active");
+    //document.getElementById('lancamentos-tab').setAttribute("aria-selected", "true");
+    //document.getElementById('graficos-tab').setAttribute("class", "nav-link");
+    //document.getElementById('graficos-tab').setAttribute("aria-selected", "false");
+
+    //new bootstrap.Tab(document.querySelector('#lancamentos')).show();
+
+    fetch(`${URL_Lancamentos}?_sort=dtlanc&_order=asc&carteira=${id}&usuario=${window.localStorage.getItem('id')}`)
+        .then(res => res.json())
+        .then(lancamentos => {
+            let lista_lancamentos = '';
+            for (let i = 0; i < lancamentos.length; i++) {
+                lista_lancamentos += `
+            <tr data-value=${lancamentos[i].id}'>
+                <th style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}</th>
+                <td>${lancamentos[i].descricao}</td>
+                <td style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">R$ ${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
+                <td class="bi bi-pencil" onclick="preencheAlteracao${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}(${lancamentos[i].id})" data-toggle="modal" data-target="#alteracao-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
+                <td class="bi bi-x-lg" onclick="checkExcluirLancamento(${lancamentos[i].id})"> </td>
+            </tr>
+            `;
+                lancamentosList.innerHTML = lista_lancamentos;
+            }
+        });
+}
+
+/* Terminar */
+function listarLancamentosMensais() {
+    const lancamentosList = document.getElementById('list-lancamentos');
+
+    var data = new Date();
+    var primeiroDia = new Date(data.getFullYear(), data.getMonth(), 1).toISOString().split('T')[0];
+    var ultimoDia = new Date(data.getFullYear(), data.getMonth() + 1, 0).toISOString().split('T')[0];
+    fetch(`${URL_Lancamentos}?_sort=dtlanc&_order=asc&dtlanc_gte=${primeiroDia}&dtlanc_lte=${ultimoDia}&usuario=${window.localStorage.getItem('id')}`)
+        .then(res => res.json())
+        .then(lancamentos => {
+            let lista_lancamentos = '';
+            for (let i = 0; i < lancamentos.length; i++) {
+                lista_lancamentos += `
+            <tr data-value=${lancamentos[i].id}'>
+                <th style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}</th>
+                <td>${lancamentos[i].descricao}</td>
+                <td style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">R$ ${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
                 <td class="bi bi-pencil" onclick="preencheAlteracao${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}(${lancamentos[i].id})" data-toggle="modal" data-target="#alteracao-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
                 <td class="bi bi-x-lg" onclick="checkExcluirLancamento(${lancamentos[i].id})"> </td>
             </tr>
@@ -83,30 +141,7 @@ function checkExcluirLancamento(lancamento_id) {
         });
 }
 
-/* Terminar */
-function getLancamentosMensais() {
-    var data = new Date();
-    var primeiroDia = new Date(data.getFullYear(), data.getMonth(), 1).toISOString().split('T')[0];
-    var ultimoDia = new Date(data.getFullYear(), data.getMonth() + 1, 0).toISOString().split('T')[0];
-    fetch(`${URL_Lancamentos}?_sort=dtlanc&_order=asc&usuario=${window.localStorage.getItem('id')}&dtlanc_gte=${primeiroDia}&dtlanc_lte=${ultimoDia}`)
-        .then(res => res.json())
-        .then(lancamentos => {
-            let lista_lancamentos = '';
-            for (let i = 0; i < lancamentos.length; i++) {
-                lista_lancamentos += `
-            <tr data-value=${lancamentos[i].id}'>
-                <th>${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}</th>
-                <td>${lancamentos[i].descricao}</td>
-                <td>R$${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
-                <td class="bi bi-pencil" onclick="preencheAlteracao${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}(${lancamentos[i].id})" data-toggle="modal" data-target="#alteracao-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
-                <td class="bi bi-x-lg" onclick="checkExcluirLancamento(${lancamentos[i].id})"> </td>
-            </tr>
-            `;
-                lancamentosList.innerHTML = lista_lancamentos;
-            }
-        });
-}
-
+/*
 function getlancamento(id) {
 
     if (id == 0) {
@@ -126,6 +161,7 @@ function getlancamento(id) {
             });
     }
 }
+*/
 
 function preencherPerfil() {
     fetch(`${URL_Usuarios}/${window.localStorage.getItem('id')}`, {
@@ -227,10 +263,10 @@ function somaTotal() {
                     }
                     if (total >= 0) {
                         //Pinta de verde
-                        document.getElementById('totCarteiras').innerHTML = "<div style='color: green;'>" + "R$ " + total.toFixed(2).toString() + "</div>";
+                        document.getElementById('totCarteiras').innerHTML = "<div style='color: green; cursor: pointer;' onclick='listarLancamentos()'>" + "R$ " + total.toFixed(2).toString() + "</div>";
                     } else {
                         //Pinta de vermelho
-                        document.getElementById('totCarteiras').innerHTML = "<div style='color: red;'>" + "R$ " + total.toFixed(2).toString() + "</div>";
+                        document.getElementById('totCarteiras').innerHTML = "<div style='color: red; cursor: pointer;' onclick='listarLancamentos()'>" + "R$ " + total.toFixed(2).toString() + "</div>";
                     }
                 });
 
@@ -246,6 +282,7 @@ function somaTotal() {
 function somaCarteiras() {
     let carteiras;
     let lancamentos;
+
     fetch(`${URL_Carteiras}?usuario=${window.localStorage.getItem('id')}`, {
         method: 'GET',
         headers: {
@@ -256,44 +293,44 @@ function somaCarteiras() {
             if (response.ok) {
                 response.json().then(function (response) {
                     carteiras = response;
-                });
-
-            } else {
-                console.log('Network response was not ok.');
-            }
-        })
-        .catch(function (error) {
-            console.log('There has been a problem with your fetch operation: ' + error.message);
-        });
-    fetch(`${URL_Lancamentos}?usuario=${window.localStorage.getItem('id')}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (response) {
-                    lancamentos = response;
-                    document.getElementById('totLancamentoCarteir').innerHTML = ''
-                    for (let i = 1; i < carteiras.length + 1; i++) {
-                        let total = 0;
-                        for (let j = 0; j < lancamentos.length; j++) {
-                            if (lancamentos[j].tipo === "R" && lancamentos[j].carteira === i) {
-                                total += lancamentos[j].valor;
-                            } else if (lancamentos[j].tipo === "D" && lancamentos[j].carteira === i) {
-                                total -= lancamentos[j].valor;
+                    fetch(`${URL_Lancamentos}?usuario=${window.localStorage.getItem('id')}`, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                        .then(function (response) {
+                            if (response.ok) {
+                                response.json().then(function (response) {
+                                    lancamentos = response;
+                                    document.getElementById('totLancamentoCarteir').innerHTML = '';
+                                    for (i = 0; i < carteiras.length; i++) {
+                                        let total = 0;
+                                        for (let j = 0; j < lancamentos.length; j++) {
+                                            if (lancamentos[j].tipo === "R" && lancamentos[j].carteira === carteiras[i].id) {
+                                                total += lancamentos[j].valor;
+                                            } else if (lancamentos[j].tipo === "D" && lancamentos[j].carteira === carteiras[i].id) {
+                                                total -= lancamentos[j].valor;
+                                            }
+                                        }
+                                        if (total >= 0) {
+                                            //Pintar de verde
+                                            document.getElementById('totLancamentoCarteir').innerHTML += '<li class="list-group-item"><div class="row row-cols-3"><div class="col-1"><i class="bi bi-wallet2"></i></div><div class="col">' + carteiras[i].descricao + '</div><div class="col" style="color: green; cursor: pointer;" data-value="' + carteiras[i].id + '" onclick="listarLancamentosCarteira(' + carteiras[i].id + ')">R$ ' + total.toFixed(2).toString() + '</div></div></li>'
+                                        } else {
+                                            //Pintar de vermelho
+                                            document.getElementById('totLancamentoCarteir').innerHTML += '<li class="list-group-item"><div class="row row-cols-3"><div class="col-1"><i class="bi bi-wallet2"></i></div><div class="col">' + carteiras[i].descricao + '</div><div class="col" style="color: red; cursor: pointer;" data-value="' + carteiras[i].id + '" onclick="listarLancamentosCarteira(' + carteiras[i].id + ')">R$ ' + total.toFixed(2).toString() + '</div></div></li>'
+                                        }
+                                    }
+                                });
+                            } else {
+                                console.log('Network response was not ok.');
                             }
-                        }
-                        if (total >= 0) {
-                            //Pintar de verde
-                            document.getElementById('totLancamentoCarteir').innerHTML += '<li class="list-group-item"><div class="row row-cols-3"><div class="col-1"><i class="bi bi-wallet2"></i></div><div class="col">Carteira ' + i.toString() + '</div><div class="col" style="color: green;">R$ ' + total.toFixed(2).toString() + '</div></div></li>'
-                        } else {
-                            //Pintar de vermelho
-                            document.getElementById('totLancamentoCarteir').innerHTML += '<li class="list-group-item"><div class="row row-cols-3"><div class="col-1"><i class="bi bi-wallet2"></i></div><div class="col">Carteira ' + i.toString() + '</div><div class="col" style="color: red;">R$ ' + total.toFixed(2).toString() + '</div></div></li>'
-                        }
-                    }
+                        })
+                        .catch(function (error) {
+                            console.log('There has been a problem with your fetch operation: ' + error.message);
+                        });
                 });
+
             } else {
                 console.log('Network response was not ok.');
             }
@@ -301,12 +338,6 @@ function somaCarteiras() {
         .catch(function (error) {
             console.log('There has been a problem with your fetch operation: ' + error.message);
         });
-}
-
-// Modal Editar Lancamentos
-
-function ModalLancamento() {
-    $()
 }
 
 function adicionaReceita() {
