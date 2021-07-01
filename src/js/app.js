@@ -103,6 +103,7 @@ function listarLancamentosCarteira(id) {
 
 /* Terminar */
 function listarLancamentosMensais(data) {
+
     const lancamentosList = document.getElementById('list-lancamentos');
 
     var data = new Date();
