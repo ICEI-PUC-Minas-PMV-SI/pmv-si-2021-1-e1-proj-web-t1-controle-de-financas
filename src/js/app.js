@@ -11,6 +11,11 @@ window.onload = function () {
     listaCarteirasModal();
 }
 
+function formatarData(data) {
+    const [yy, mm, dd] = data.split(/-/g);
+    return `${dd}/${mm}/${yy}`;
+}
+
 function usuarioLogado() {
     fetch(`${URL_Usuarios}/${window.localStorage.getItem('id')}`, {
         method: 'GET',
@@ -60,6 +65,7 @@ function listarLancamentos() {
                 <td>${lancamentos[i].descricao}</td>
                 <td>${lancamentos[i].categoria}</td>
                 <td style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">R$ ${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
+                <td>${formatarData(lancamentos[i].dtlanc)}</td>
                 <td class="bi bi-pencil" onclick="preencheAlteracao${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}(${lancamentos[i].id})" data-toggle="modal" data-target="#alteracao-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
                 <td class="bi bi-x-lg" onclick="checkExcluirLancamento(${lancamentos[i].id})"> </td>
             </tr>
@@ -71,16 +77,8 @@ function listarLancamentos() {
 
 /* Terminar */
 function listarLancamentosCarteira(id) {
+
     const lancamentosList = document.getElementById('list-lancamentos');
-
-    //document.getElementById('resumo-tab').setAttribute("class", "nav-link");
-    //document.getElementById('resumo-tab').setAttribute("aria-selected", "false");
-    //document.getElementById('lancamentos-tab').setAttribute("class", "nav-link active");
-    //document.getElementById('lancamentos-tab').setAttribute("aria-selected", "true");
-    //document.getElementById('graficos-tab').setAttribute("class", "nav-link");
-    //document.getElementById('graficos-tab').setAttribute("aria-selected", "false");
-
-    //new bootstrap.Tab(document.querySelector('#lancamentos')).show();
 
     fetch(`${URL_Lancamentos}?_sort=dtlanc&_order=asc&carteira=${id}&usuario=${window.localStorage.getItem('id')}`)
         .then(res => res.json())
@@ -93,6 +91,7 @@ function listarLancamentosCarteira(id) {
                 <td>${lancamentos[i].descricao}</td>
                 <td>${lancamentos[i].categoria}</td>
                 <td style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">R$ ${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
+                <td>${formatarData(lancamentos[i].dtlanc)}</td>
                 <td class="bi bi-pencil" onclick="preencheAlteracao${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}(${lancamentos[i].id})" data-toggle="modal" data-target="#alteracao-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
                 <td class="bi bi-x-lg" onclick="checkExcluirLancamento(${lancamentos[i].id})"> </td>
             </tr>
@@ -103,7 +102,7 @@ function listarLancamentosCarteira(id) {
 }
 
 /* Terminar */
-function listarLancamentosMensais() {
+function listarLancamentosMensais(data) {
     const lancamentosList = document.getElementById('list-lancamentos');
 
     var data = new Date();
@@ -120,6 +119,7 @@ function listarLancamentosMensais() {
                 <td>${lancamentos[i].descricao}</td>
                 <td>${lancamentos[i].categoria}</td>
                 <td style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">R$ ${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
+                <td>${formatarData(lancamentos[i].dtlanc)}</td>
                 <td class="bi bi-pencil" onclick="preencheAlteracao${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}(${lancamentos[i].id})" data-toggle="modal" data-target="#alteracao-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
                 <td class="bi bi-x-lg" onclick="checkExcluirLancamento(${lancamentos[i].id})"> </td>
             </tr>

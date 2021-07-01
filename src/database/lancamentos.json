@@ -19,6 +19,16 @@
       "descricao": "PS3",
       "dtlanc": "2021-06-30",
       "id": 2
+    },
+    {
+      "tipo": "D",
+      "usuario": 1,
+      "carteira": 2,
+      "categoria": "Impostos e Taxas",
+      "valor": 15.9,
+      "descricao": "Taxa",
+      "dtlanc": "2021-06-30",
+      "id": 3
     }
   ]
 }
