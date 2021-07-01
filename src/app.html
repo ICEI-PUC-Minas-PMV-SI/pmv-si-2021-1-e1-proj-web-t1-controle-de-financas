@@ -252,6 +252,15 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <label for="receita-modal-carteiras" class="col-form-label">Categoria:</label>
+                                    <select class="form-select" id="receita-modal-categorias">
+                                        <option value="Salário">Salário</option>
+                                        <option value="Investimentos">Investimentos</option>
+                                        <option value="Empréstimos">Empréstimos</option>
+                                        <option value="Outras Receitas">Outras Receitas</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label for="lancamento-receita-id" class="col-form-label">Data:</label>
                                     <input type="date" class="form-control" id="lancamento-receita-data" required>
                                 </div>
@@ -291,6 +300,20 @@
                                     <label for="despesa-modal-carteiras" class="col-form-label">Carteira:</label>
                                     <select class="form-select" id="despesa-modal-carteiras">
                                         <option></option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="despesa-modal-carteiras" class="col-form-label">Categoria:</label>
+                                    <select class="form-select" id="despesa-modal-categorias">
+                                        <option value="Casa">Casa</option>
+                                        <option value="Carro">Carro</option>
+                                        <option value="Alimentação">Alimentação</option>
+                                        <option value="Educação">Educação</option>
+                                        <option value="Impostos e Taxas">Impostos e Taxas</option>
+                                        <option value="Compras">Compras</option>
+                                        <option value="Investimentos">Investimentos</option>
+                                        <option value="Dívidas">Dívidas</option>
+                                        <option value="Outras Despesas">Outras Despesas</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -361,6 +384,63 @@
                 </div>
             </div>
 
+            <div class="modal fade" id="adicionar-carteira-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Adicionar Carteira</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="adicionar-carteira-form">
+                                <div class="form-group">
+                                    <label for="adicionar-carteira-descricao" class="col-form-label">Descrição:</label>
+                                    <input type="text" class="form-control" id="adicionar-carteira-descricao" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary"
+                                        id="btnAdicionarCarteira">Salvar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="lancamentos" role="tabpanel" aria-labelledby="lancamentos-tab">
+            <div class="container">
+                <div class="d-flex flex-column justify-content-center">
+                    <div></div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th width=5%></th>
+                                            <th width=30%>Descrição</th>
+                                            <th width=15%>Categoria</th>
+                                            <th width=15%>Valor</th>
+                                            <th width=5%>Alterar</th>
+                                            <th width=5%>Excluir</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id='list-lancamentos'>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
             <div class="modal fade" id="alteracao-receita-modal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -388,6 +468,16 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <label for="alteracao-receita-modal-categorias"
+                                        class="col-form-label">Categoria:</label>
+                                    <select class="form-select" id="alteracao-receita-modal-categorias">
+                                        <option value="Salário">Salário</option>
+                                        <option value="Investimentos">Investimentos</option>
+                                        <option value="Empréstimos">Empréstimos</option>
+                                        <option value="Outras Receitas">Outras Receitas</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label for="alteracao-receita-id" class="col-form-label">Data:</label>
                                     <input type="date" class="form-control" id="alteracao-receita-data" required>
                                 </div>
@@ -401,7 +491,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="modal fade" id="alteracao-despesa-modal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -429,44 +519,18 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="alteracao-despesa-id" class="col-form-label">Data:</label>
-                                    <input type="date" class="form-control" id="alteracao-despesa-data" required>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-dismiss="modal">Cancelar</button>
-                                    <button type="button" class="btn btn-primary" id="btnAlteraDespesa">Salvar</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal fade" id="adicionar-carteira-modal" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Alterar Despesa</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="alteracao-despesa-form">
-                                <div class="form-group">
-                                    <label for="alteracao-despesa-descricao" class="col-form-label">Descrição:</label>
-                                    <input type="text" class="form-control" id="alteracao-despesa-descricao" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="lancamento-despesa-valor" class="col-form-label">Valor:</label>
-                                    <input type="number" step="0.01" class="form-control" id="alteracao-despesa-valor"
-                                        required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="despesa-modal-carteiras" class="col-form-label">Carteira:</label>
-                                    <select class="form-select" id="alteracao-despesa-modal-carteiras">
-                                        <option></option>
+                                    <label for="alteracao-despesa-modal-categorias"
+                                        class="col-form-label">Categoria:</label>
+                                    <select class="form-select" id="alteracao-despesa-modal-categorias">
+                                        <option value="Casa">Casa</option>
+                                        <option value="Carro">Carro</option>
+                                        <option value="Alimentação">Alimentação</option>
+                                        <option value="Educação">Educação</option>
+                                        <option value="Impostos e Taxas">Impostos e Taxas</option>
+                                        <option value="Compras">Compras</option>
+                                        <option value="Investimentos">Investimentos</option>
+                                        <option value="Dívidas">Dívidas</option>
+                                        <option value="Outras Despesas">Outras Despesas</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -483,33 +547,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="tab-pane fade" id="lancamentos" role="tabpanel" aria-labelledby="lancamentos-tab">
-            <div class="container">
-                <div class="d-flex flex-column justify-content-center">
-                    <div></div>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th width=5%></th>
-                                            <th width=30%>Descrição</th>
-                                            <th width=15%>Valor</th>
-                                            <th width=5%>Alterar</th>
-                                            <th width=5%>Excluir</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id='list-lancamentos'>
 
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="tab-pane fade" id="graficos" role="tabpanel" aria-labelledby="graficos-tab">
 

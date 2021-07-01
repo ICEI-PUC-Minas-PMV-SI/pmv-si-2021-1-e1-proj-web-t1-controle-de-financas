@@ -58,6 +58,7 @@ function listarLancamentos() {
             <tr data-value=${lancamentos[i].id}'>
                 <th style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}</th>
                 <td>${lancamentos[i].descricao}</td>
+                <td>${lancamentos[i].categoria}</td>
                 <td style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">R$ ${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
                 <td class="bi bi-pencil" onclick="preencheAlteracao${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}(${lancamentos[i].id})" data-toggle="modal" data-target="#alteracao-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
                 <td class="bi bi-x-lg" onclick="checkExcluirLancamento(${lancamentos[i].id})"> </td>
@@ -90,6 +91,7 @@ function listarLancamentosCarteira(id) {
             <tr data-value=${lancamentos[i].id}'>
                 <th style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}</th>
                 <td>${lancamentos[i].descricao}</td>
+                <td>${lancamentos[i].categoria}</td>
                 <td style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">R$ ${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
                 <td class="bi bi-pencil" onclick="preencheAlteracao${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}(${lancamentos[i].id})" data-toggle="modal" data-target="#alteracao-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
                 <td class="bi bi-x-lg" onclick="checkExcluirLancamento(${lancamentos[i].id})"> </td>
@@ -116,6 +118,7 @@ function listarLancamentosMensais() {
             <tr data-value=${lancamentos[i].id}'>
                 <th style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}</th>
                 <td>${lancamentos[i].descricao}</td>
+                <td>${lancamentos[i].categoria}</td>
                 <td style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">R$ ${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
                 <td class="bi bi-pencil" onclick="preencheAlteracao${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}(${lancamentos[i].id})" data-toggle="modal" data-target="#alteracao-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
                 <td class="bi bi-x-lg" onclick="checkExcluirLancamento(${lancamentos[i].id})"> </td>
@@ -345,6 +348,7 @@ function adicionaReceita() {
         tipo: "R",
         usuario: parseInt(window.localStorage.getItem('id')),
         carteira: parseInt(document.getElementById("receita-modal-carteiras").value),
+        categoria: document.getElementById("receita-modal-categorias").value,
         valor: parseFloat(document.getElementById("lancamento-receita-valor").value),
         descricao: document.getElementById("lancamento-receita-descricao").value,
         dtlanc: document.getElementById("lancamento-receita-data").value
@@ -375,6 +379,7 @@ function adicionaDespesa() {
         tipo: "D",
         usuario: parseInt(window.localStorage.getItem('id')),
         carteira: parseInt(document.getElementById("despesa-modal-carteiras").value),
+        categoria: document.getElementById("despesa-modal-categorias").value,
         valor: parseFloat(document.getElementById("lancamento-despesa-valor").value),
         descricao: document.getElementById("lancamento-despesa-descricao").value,
         dtlanc: document.getElementById("lancamento-despesa-data").value
@@ -405,6 +410,7 @@ function adicionaTransferencia() {
         tipo: "D",
         usuario: parseInt(window.localStorage.getItem('id')),
         carteira: parseInt(document.getElementById("transferencia-modal-carteira-origem").value),
+        categoria: "Transferência",
         valor: parseFloat(document.getElementById("lancamento-transferencia-valor").value),
         descricao: document.getElementById("lancamento-transferencia-descricao").value,
         dtlanc: document.getElementById("lancamento-transferencia-data").value
@@ -425,6 +431,7 @@ function adicionaTransferencia() {
         tipo: "R",
         usuario: parseInt(window.localStorage.getItem('id')),
         carteira: parseInt(document.getElementById("transferencia-modal-carteira-destino").value),
+        categoria: "Transferência",
         valor: parseFloat(document.getElementById("lancamento-transferencia-valor").value),
         descricao: document.getElementById("lancamento-transferencia-descricao").value,
         dtlanc: document.getElementById("lancamento-transferencia-data").value
@@ -458,6 +465,7 @@ function preencheAlteracaoReceita(id) {
                     document.getElementById('alteracao-receita-descricao').value = response.descricao;
                     document.getElementById('alteracao-receita-valor').value = response.valor;
                     document.getElementById('alteracao-receita-modal-carteiras').value = response.carteira;
+                    document.getElementById('alteracao-receita-modal-categorias').value = response.categoria;
                     document.getElementById('alteracao-receita-data').value = response.dtlanc;
                     document.getElementById('btnAlteraReceita').setAttribute('onclick', 'alteraLancamento(' + id + ',"R")')
                 });
@@ -483,6 +491,7 @@ function preencheAlteracaoDespesa(id) {
                     document.getElementById('alteracao-despesa-descricao').value = response.descricao;
                     document.getElementById('alteracao-despesa-valor').value = response.valor;
                     document.getElementById('alteracao-despesa-modal-carteiras').value = response.carteira;
+                    document.getElementById('alteracao-despesa-modal-categorias').value = response.categoria;
                     document.getElementById('alteracao-despesa-data').value = response.dtlanc;
                     document.getElementById('btnAlteraDespesa').setAttribute('onclick', 'alteraLancamento(' + id + ',"D")')
                 });
@@ -499,6 +508,7 @@ function alteraLancamento(id, oper) {
     if (oper === "R") {
         let receita = JSON.stringify({
             carteira: parseInt(document.getElementById("alteracao-receita-modal-carteiras").value),
+            categoria: document.getElementById("alteracao-receita-modal-categorias").value,
             valor: parseFloat(document.getElementById("alteracao-receita-valor").value),
             descricao: document.getElementById("alteracao-receita-descricao").value,
             dtlanc: document.getElementById("alteracao-receita-data").value
@@ -517,6 +527,7 @@ function alteraLancamento(id, oper) {
     } else {
         let despesa = JSON.stringify({
             carteira: parseInt(document.getElementById("alteracao-despesa-modal-carteiras").value),
+            categoria: document.getElementById("alteracao-despesa-modal-categorias").value,
             valor: parseFloat(document.getElementById("alteracao-despesa-valor").value),
             descricao: document.getElementById("alteracao-despesa-descricao").value,
             dtlanc: document.getElementById("alteracao-despesa-data").value
