@@ -4,7 +4,10 @@ URL_Lancamentos = 'http://localhost:3002/lancamentos'
 
 window.onload = function () {
     usuarioLogado();
-    listarLancamentos();
+    dataAtual();
+    listaCarteirasLancamentos();
+    //listarLancamentos();
+    listarLancamentosFiltro();
     somaTotal();
     somaCarteiras();
     preencherPerfil();
@@ -14,6 +17,11 @@ window.onload = function () {
 function formatarData(data) {
     const [yy, mm, dd] = data.split(/-/g);
     return `${dd}/${mm}/${yy}`;
+}
+
+function dataAtual() {
+    document.getElementById('select-lancamentos-meses').value = new Date().getMonth() + 1;
+    document.getElementById('select-lancamentos-anos').value = new Date().getFullYear();
 }
 
 function usuarioLogado() {
@@ -43,89 +51,48 @@ function usuarioLogado() {
 
 function listarLancamentos() {
 
-    const lancamentosList = document.getElementById('list-lancamentos');
-
     fetch(`${URL_Lancamentos}?_sort=dtlanc&_order=asc&usuario=${window.localStorage.getItem('id')}`)
         .then(res => res.json())
         .then(lancamentos => {
-            let lista_lancamentos = '';
             for (let i = 0; i < lancamentos.length; i++) {
-                /*
-                lista_lancamentos += `
-            <tr>
-                <th>${lancamentos[i].id}</th>
-                <td>${lancamentos[i].descricao}</td>
-                <td>R$${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
-            </tr>
-            `;
-            */
-                lista_lancamentos += `
+                document.getElementById('list-lancamentos').innerHTML += `
             <tr data-value=${lancamentos[i].id}'>
                 <th style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}</th>
                 <td>${lancamentos[i].descricao}</td>
                 <td>${lancamentos[i].categoria}</td>
-                <td style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">R$ ${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
                 <td>${formatarData(lancamentos[i].dtlanc)}</td>
+                <td style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">R$ ${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>                
                 <td class="bi bi-pencil" onclick="preencheAlteracao${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}(${lancamentos[i].id})" data-toggle="modal" data-target="#alteracao-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
                 <td class="bi bi-x-lg" onclick="checkExcluirLancamento(${lancamentos[i].id})"> </td>
             </tr>
             `;
-                lancamentosList.innerHTML = lista_lancamentos;
             }
         });
 }
 
-/* Terminar */
-function listarLancamentosCarteira(id) {
+function listarLancamentosFiltro() {
 
-    const lancamentosList = document.getElementById('list-lancamentos');
+    var carteira = document.getElementById('select-lancamentos-carteiras').value;
+    var primeiroDia = new Date(document.getElementById('select-lancamentos-anos').value, document.getElementById('select-lancamentos-meses').value - 1, 1).toISOString().split('T')[0];
+    var ultimoDia = new Date(document.getElementById('select-lancamentos-anos').value, document.getElementById('select-lancamentos-meses').value, 0).toISOString().split('T')[0];
 
-    fetch(`${URL_Lancamentos}?_sort=dtlanc&_order=asc&carteira=${id}&usuario=${window.localStorage.getItem('id')}`)
+    document.getElementById('list-lancamentos').innerHTML = '';
+
+    fetch(`${URL_Lancamentos}?_sort=dtlanc&_order=asc${carteira === "0" ? "" : "&carteira=" + carteira}&dtlanc_gte=${primeiroDia}&dtlanc_lte=${ultimoDia}&usuario=${window.localStorage.getItem('id')}`)
         .then(res => res.json())
         .then(lancamentos => {
-            let lista_lancamentos = '';
             for (let i = 0; i < lancamentos.length; i++) {
-                lista_lancamentos += `
-            <tr data-value=${lancamentos[i].id}'>
-                <th style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}</th>
-                <td>${lancamentos[i].descricao}</td>
-                <td>${lancamentos[i].categoria}</td>
-                <td style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">R$ ${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
-                <td>${formatarData(lancamentos[i].dtlanc)}</td>
-                <td class="bi bi-pencil" onclick="preencheAlteracao${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}(${lancamentos[i].id})" data-toggle="modal" data-target="#alteracao-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
-                <td class="bi bi-x-lg" onclick="checkExcluirLancamento(${lancamentos[i].id})"> </td>
-            </tr>
-            `;
-                lancamentosList.innerHTML = lista_lancamentos;
-            }
-        });
-}
-
-/* Terminar */
-function listarLancamentosMensais(data) {
-
-    const lancamentosList = document.getElementById('list-lancamentos');
-
-    var data = new Date();
-    var primeiroDia = new Date(data.getFullYear(), data.getMonth(), 1).toISOString().split('T')[0];
-    var ultimoDia = new Date(data.getFullYear(), data.getMonth() + 1, 0).toISOString().split('T')[0];
-    fetch(`${URL_Lancamentos}?_sort=dtlanc&_order=asc&dtlanc_gte=${primeiroDia}&dtlanc_lte=${ultimoDia}&usuario=${window.localStorage.getItem('id')}`)
-        .then(res => res.json())
-        .then(lancamentos => {
-            let lista_lancamentos = '';
-            for (let i = 0; i < lancamentos.length; i++) {
-                lista_lancamentos += `
-            <tr data-value=${lancamentos[i].id}'>
-                <th style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}</th>
-                <td>${lancamentos[i].descricao}</td>
-                <td>${lancamentos[i].categoria}</td>
-                <td style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">R$ ${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
-                <td>${formatarData(lancamentos[i].dtlanc)}</td>
-                <td class="bi bi-pencil" onclick="preencheAlteracao${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}(${lancamentos[i].id})" data-toggle="modal" data-target="#alteracao-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
-                <td class="bi bi-x-lg" onclick="checkExcluirLancamento(${lancamentos[i].id})"> </td>
-            </tr>
-            `;
-                lancamentosList.innerHTML = lista_lancamentos;
+                document.getElementById('list-lancamentos').innerHTML += `
+                <tr data-value=${lancamentos[i].id}'>
+                    <th style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}</th>
+                    <td>${lancamentos[i].descricao}</td>
+                    <td>${lancamentos[i].categoria}</td>
+                    <td>${formatarData(lancamentos[i].dtlanc)}</td>
+                    <td style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">R$ ${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>                
+                    <td class="bi bi-pencil" onclick="preencheAlteracao${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}(${lancamentos[i].id})" data-toggle="modal" data-target="#alteracao-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
+                    <td class="bi bi-x-lg" onclick="checkExcluirLancamento(${lancamentos[i].id})"> </td>
+                </tr>
+                `;
             }
         });
 }
@@ -245,6 +212,30 @@ function listaCarteirasModal() {
         });
 }
 
+function listaCarteirasLancamentos() {
+    fetch(`${URL_Carteiras}?usuario=${window.localStorage.getItem('id')}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (response) {
+                    document.getElementById('select-lancamentos-carteiras').innerHTML = '<option value="0">Todas</option>';
+                    for (let i = 0; i < response.length; i++) {
+                        document.getElementById('select-lancamentos-carteiras').innerHTML += `<option value='${response[i].id}'>${response[i].descricao}</option>`;
+                    }
+                });
+            } else {
+                console.log('Network response was not ok.');
+            }
+        })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
+}
+
 function somaTotal() {
     fetch(`${URL_Lancamentos}?usuario=${window.localStorage.getItem('id')}`, {
         method: 'GET',
@@ -267,10 +258,10 @@ function somaTotal() {
                     }
                     if (total >= 0) {
                         //Pinta de verde
-                        document.getElementById('totCarteiras').innerHTML = "<div style='color: green; cursor: pointer;' onclick='listarLancamentos()'>" + "R$ " + total.toFixed(2).toString() + "</div>";
+                        document.getElementById('totCarteiras').innerHTML = "<div style='color: green;'>" + "R$ " + total.toFixed(2).toString() + "</div>";
                     } else {
                         //Pinta de vermelho
-                        document.getElementById('totCarteiras').innerHTML = "<div style='color: red; cursor: pointer;' onclick='listarLancamentos()'>" + "R$ " + total.toFixed(2).toString() + "</div>";
+                        document.getElementById('totCarteiras').innerHTML = "<div style='color: red;'" + "R$ " + total.toFixed(2).toString() + "</div>";
                     }
                 });
 
@@ -319,12 +310,13 @@ function somaCarteiras() {
                                         }
                                         if (total >= 0) {
                                             //Pintar de verde
-                                            document.getElementById('totLancamentoCarteir').innerHTML += '<li class="list-group-item"><div class="row row-cols-3"><div class="col-1"><i class="bi bi-wallet2"></i></div><div class="col">' + carteiras[i].descricao + '</div><div class="col" style="color: green; cursor: pointer;" data-value="' + carteiras[i].id + '" onclick="listarLancamentosCarteira(' + carteiras[i].id + ')">R$ ' + total.toFixed(2).toString() + '</div></div></li>'
+                                            document.getElementById('totLancamentoCarteir').innerHTML += '<li class="list-group-item"><div class="row row-cols-3"><div class="col-1"><i class="bi bi-wallet2"></i></div><div class="col" onclick="preencheAlteracaoCarteira(' + carteiras[i].id + ')" style="cursor:pointer;" data-toggle="modal" data-target="#alterar-carteira-modal">' + carteiras[i].descricao + '</div><div class="col" style="color: green;" data-value="' + carteiras[i].id + '">R$ ' + total.toFixed(2).toString() + '</div></div></li>';
                                         } else {
                                             //Pintar de vermelho
-                                            document.getElementById('totLancamentoCarteir').innerHTML += '<li class="list-group-item"><div class="row row-cols-3"><div class="col-1"><i class="bi bi-wallet2"></i></div><div class="col">' + carteiras[i].descricao + '</div><div class="col" style="color: red; cursor: pointer;" data-value="' + carteiras[i].id + '" onclick="listarLancamentosCarteira(' + carteiras[i].id + ')">R$ ' + total.toFixed(2).toString() + '</div></div></li>'
+                                            document.getElementById('totLancamentoCarteir').innerHTML += '<li class="list-group-item"><div class="row row-cols-3"><div class="col-1"><i class="bi bi-wallet2"></i></div><div class="col" onclick="preencheAlteracaoCarteira(' + carteiras[i].id + ')" style="cursor:pointer;" data-toggle="modal" data-target="#alterar-carteira-modal">' + carteiras[i].descricao + '</div><div class="col" style="color: red;" data-value="' + carteiras[i].id + '">R$ ' + total.toFixed(2).toString() + '</div></div></li>';
                                         }
                                     }
+                                    document.getElementById('totLancamentoCarteir').innerHTML += '<li class="list-group-item"><div class="row row-cols-2"><div class="col" style="cursor:pointer;" data-toggle="modal" data-target="#adicionar-carteira-modal">Adicionar Carteira</div></div></li>';
                                 });
                             } else {
                                 console.log('Network response was not ok.');
@@ -342,6 +334,33 @@ function somaCarteiras() {
         .catch(function (error) {
             console.log('There has been a problem with your fetch operation: ' + error.message);
         });
+}
+
+function adicionaCarteira() {
+    let carteira = JSON.stringify({
+        usuario: parseInt(window.localStorage.getItem('id')),
+        descricao: document.getElementById("adicionar-carteira-descricao").value
+    });
+
+    fetch(`${URL_Carteiras}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: carteira
+    })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
+
+    document.getElementById("adicionar-carteira-descricao").value = '';
+
+    listaCarteirasLancamentos();
+    dataAtual();
+    listarLancamentosFiltro();
+    somaTotal();
+    somaCarteiras();
+    listaCarteirasModal();
 }
 
 function adicionaReceita() {
@@ -373,6 +392,8 @@ function adicionaReceita() {
 
     somaCarteiras();
     somaTotal();
+    dataAtual();
+    listarLancamentosFiltro();
 }
 
 function adicionaDespesa() {
@@ -404,6 +425,8 @@ function adicionaDespesa() {
 
     somaCarteiras();
     somaTotal();
+    dataAtual();
+    listarLancamentosFiltro();
 }
 
 function adicionaTransferencia() {
@@ -451,6 +474,30 @@ function adicionaTransferencia() {
 
     somaCarteiras();
     somaTotal();
+    dataAtual();
+    listarLancamentosFiltro();
+}
+
+function preencheAlteracaoCarteira(id) {
+    fetch(`${URL_Carteiras}/${id}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (response) {
+                    document.getElementById("alterar-carteira-descricao").value = response.descricao;
+                    document.getElementById('btnAlterarCarteira').setAttribute('onclick', 'alteraCarteira(' + id + ')')
+                });
+            } else {
+                console.log('Network response was not ok.');
+            }
+        })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
 }
 
 function preencheAlteracaoReceita(id) {
@@ -505,6 +552,29 @@ function preencheAlteracaoDespesa(id) {
         });
 }
 
+function alteraCarteira(id) {
+    let carteira = JSON.stringify({
+        descricao: document.getElementById("alterar-carteira-descricao").value
+    });
+    fetch(`${URL_Carteiras}/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: carteira
+    })
+        .catch(function (error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
+
+    dataAtual();
+    listaCarteirasLancamentos();
+    listarLancamentosFiltro();
+    somaTotal();
+    somaCarteiras();
+    listaCarteirasModal();
+}
+
 function alteraLancamento(id, oper) {
     if (oper === "R") {
         let receita = JSON.stringify({
@@ -547,6 +617,8 @@ function alteraLancamento(id, oper) {
     }
     somaCarteiras();
     somaTotal();
+    dataAtual();
+    listarLancamentosFiltro();
 }
 
 function excluiLancamento(id) {
@@ -559,4 +631,6 @@ function excluiLancamento(id) {
 
     somaCarteiras();
     somaTotal();
+    dataAtual();
+    listarLancamentosFiltro();
 }
