@@ -1,31 +1,5 @@
 {
   "usuarios": [
-    {
-      "id": 1,
-      "nome": "rafael",
-      "sobrenome":"silva",
-      "telefone": "99205-8183",
-      "email": "rafasoutto40@gmail.com",
-      "usuario": "rafael",
-      "senha": "123"      
-    },
-    {
-      "id": 2,
-      "nome": "kleber",
-      "sobrenome":"silva",
-      "telefone": "99205-8183",
-      "email": "rafasoutto40@gmail.com",
-      "usuario": "kleber",      
-      "senha": "123"      
-    },
-    {
-      "id": 3,
-      "nome": "joao",
-      "sobrenome":"silva",
-      "telefone": "99205-8183",      
-      "email": "rafasoutto40@gmail.com",
-      "usuario": "joao",
-      "senha": "123"      
-    }
+    
   ]
 }
