@@ -2,10 +2,5 @@
   "dependencies": {
     "newsapi": "^2.4.1",
     "sweetalert": "^2.1.2"
-  },
-
-  "scripts": {
-    "build": "bower install && grunt build",
-    "start": "nf start"
   }
 }
