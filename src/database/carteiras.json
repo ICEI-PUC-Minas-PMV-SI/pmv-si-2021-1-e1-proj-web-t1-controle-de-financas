@@ -1,5 +1,19 @@
 {
   "carteiras": [
-    
+    {
+      "descricao": "Carteira Padrão",
+      "usuario": 2,
+      "id": 1
+    },
+    {
+      "usuario": 2,
+      "descricao": "Nu Bank",
+      "id": 2
+    },
+    {
+      "usuario": 2,
+      "descricao": "INTER",
+      "id": 3
+    }
   ]
 }

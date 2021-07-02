@@ -1,5 +1,22 @@
 {
   "usuarios": [
-    
+    {
+      "nome": "rafael",
+      "sobrenome": "soutto",
+      "email": "Rafasoutto40@gmail.com",
+      "senha": "123",
+      "confirmar_senha": "123",
+      "telefone": "31992058183",
+      "id": 1
+    },
+    {
+      "nome": "joao",
+      "sobrenome": "soutto",
+      "email": "Rafasoutto40@gmail.com",
+      "senha": "123",
+      "confirmar_senha": "123",
+      "telefone": "31992058183",
+      "id": 2
+    }
   ]
 }

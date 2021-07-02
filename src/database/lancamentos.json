@@ -1,5 +1,54 @@
 {
   "lancamentos": [
-    
+    {
+      "tipo": "D",
+      "usuario": 2,
+      "carteira": 1,
+      "categoria": "Alimentação",
+      "valor": 150,
+      "descricao": "supermercado",
+      "dtlanc": "2021-07-01",
+      "id": 1
+    },
+    {
+      "tipo": "R",
+      "usuario": 2,
+      "carteira": 1,
+      "categoria": "Salário",
+      "valor": 1500,
+      "descricao": "salário",
+      "dtlanc": "2021-06-30",
+      "id": 2
+    },
+    {
+      "tipo": "D",
+      "usuario": 2,
+      "carteira": 2,
+      "categoria": "Transferência",
+      "valor": 400,
+      "descricao": "transferência",
+      "dtlanc": "",
+      "id": 4
+    },
+    {
+      "tipo": "R",
+      "usuario": 2,
+      "carteira": 1,
+      "categoria": "Transferência",
+      "valor": 400,
+      "descricao": "transferência",
+      "dtlanc": "",
+      "id": 5
+    },
+    {
+      "tipo": "R",
+      "usuario": 2,
+      "carteira": 3,
+      "categoria": "Investimentos",
+      "valor": 6000,
+      "descricao": "Trabalho",
+      "dtlanc": "2021-07-01",
+      "id": 6
+    }
   ]
 }
