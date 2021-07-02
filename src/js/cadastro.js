@@ -17,7 +17,7 @@ async function AdicionaUsuario() {
     const confirmar_senha = document.getElementById("confirmar_senha");
     const telefone = document.getElementById("telefone");
 
-    if (senha.value == confirmar_senha.value && nome != "" ){
+    if (senha.value == confirmar_senha.value && nome != "" && senha.value != "" ){
 
         const usuario_existente = await ValidaNome(nome.value);
         console.log(usuario_existente);
