@@ -8,11 +8,13 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 
 ![image](https://user-images.githubusercontent.com/81396982/123725566-a581ab80-d864-11eb-8aa2-6a760e5158ef.png)
 
-![image](https://user-images.githubusercontent.com/81396982/123726434-5472b700-d866-11eb-8db3-89a0baa0a23a.png)
+![image](https://user-images.githubusercontent.com/81396982/124402683-3c88b080-dd08-11eb-91fb-05dee5c710be.png)
 
-![image](https://user-images.githubusercontent.com/81396982/123726454-62283c80-d866-11eb-97a2-e89f2d2fd61f.png)
+![image](https://user-images.githubusercontent.com/81396982/124402688-41e5fb00-dd08-11eb-99fa-a8ad6318be63.png)
 
-![image](https://user-images.githubusercontent.com/81396982/123726474-6fddc200-d866-11eb-8f69-8dd142fddaac.png)
+![image](https://user-images.githubusercontent.com/81396982/124402692-47434580-dd08-11eb-8366-26017f7a61f8.png)
+
+
 
 -----
 
@@ -26,11 +28,19 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 
 ![image](https://user-images.githubusercontent.com/81396982/123726979-45d8cf80-d867-11eb-88ed-c1e4334e9212.png)
 
+
+# Teste 4 - Permitir que o usuário tenha acesso ao saldo mensal das operações em local visivel
+
+![image](https://user-images.githubusercontent.com/81396982/124402736-86719680-dd08-11eb-8b44-3123f300f1a4.png)
+
+# Teste 5 - Permitir que o usuário faça o cadastro de categorias personalizadas
+
+![image](https://user-images.githubusercontent.com/81396982/124402757-a30dce80-dd08-11eb-81d6-9d1b270ad53c.png)
+
+![image](https://user-images.githubusercontent.com/81396982/124402762-a99c4600-dd08-11eb-84d9-4a68afdf7440.png)
+
+
 # Testes pendentes
-
-## Permitir que o usuário tenha acesso ao saldo mensal das operações em local visivel
-
-## Permitir que o usuário faça o cadastro de categorias personalizadas
 
 ## Gráficos para visualização das receitas e despesas do mês
 
