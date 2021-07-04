@@ -12,6 +12,7 @@ window.onload = function () {
     somaCarteiras();
     preencherPerfil();
     listaCarteirasModal();
+    preencherGrafico();
 }
 
 function formatarData(data) {
@@ -633,4 +634,58 @@ function excluiLancamento(id) {
     somaTotal();
     dataAtual();
     listarLancamentosFiltro();
+}
+
+
+function preencherGrafico() {
+    const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+
+    let receita = [];
+    let despesa = [];
+
+    fetch(`${URL_Lancamentos}?_sort=dtlanc&_order=asc&usuario=${window.localStorage.getItem('id')}`)
+        .then(res => res.json())
+        .then(lancamentos => {
+            for (let j = 1; j <= 12; j++) {
+                //let mesAtu = new Date().getMonth() + 1;
+                let anoAtu = new Date().getFullYear();
+                let totRec = 0;
+                let totDes = 0;
+                let primeiroDia = new Date(anoAtu, j - 1, 1).toISOString().split('T')[0];
+                let ultimoDia = new Date(anoAtu, j, 0).toISOString().split('T')[0];
+                for (let i = 0; i < lancamentos.length; i++) {
+                    if (lancamentos[i].tipo === "R" && lancamentos[i].dtlanc >= primeiroDia && lancamentos[i].dtlanc <= ultimoDia) {
+                        totRec += lancamentos[i].valor;
+                    } else if (lancamentos[i].tipo === "D" && lancamentos[i].dtlanc >= primeiroDia && lancamentos[i].dtlanc <= ultimoDia) {
+                        totDes += lancamentos[i].valor;
+                    }
+                }
+                receita.push(totRec);
+                despesa.push(totDes);
+            }
+        });
+
+    var chart = new Chart(grafico, {
+        type: 'line',
+        data: {
+            labels: meses,
+            datasets: [
+                {
+                    label: 'Receita',
+                    backgroundColor: 'transparent',
+                    borderColor: 'green',
+                },
+                {
+                    label: 'Despesas',
+                    backgroundColor: 'transparent',
+                    borderColor: 'red',
+                }
+            ]
+        }
+
+    })
+
+    chart.data.datasets[0].data = receita;
+    chart.data.datasets[1].data = despesa;
+    chart.update();
 }
