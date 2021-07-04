@@ -51,23 +51,21 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
  
  ------
  
- # Testes pendentes
- 
-  * Teste 4, versão 1.0, Permitir que o usuário tenha acesso ao saldo mensal das operações em local visivel;
+ * Teste 4, versão 2.0, Permitir que o usuário tenha acesso ao saldo mensal das operações em local visivel;
 
 **Passos:**
 
-1. Efetuar login
+1.Efetuar login
 
-2. Clicar na aba "Lançamentos"
+2. Clicar na opção "Lançamentos" e realizar e utilizar os filtros para selecionar o mês desejado e qual carteira.
 
-  #### Resultado esperado = Fazer com que o usuário consiga verificar o saldo mensal conforme resultado das operações.
-  
-  #### Resultado Obtido = Pendete.
-  
- ------
-  
-   * Teste 5, versão 1.0, Permitir que o usuário faça o cadastro de categorias personalizadas;
+#### Resultado esperado = Permitir que o usuário consiga visualizar as despesas lançadas em cada carteira.
+
+#### Resultado Obtido = Usuário consegue visualizar as despesas lançadas em cada carteira possibilitando ainda o filtro por mês.
+
+------
+
+* Teste 5, versão 2.0, Permitir que o usuário faça o cadastro de categorias personalizadas;
 
 **Passos:** 
    
@@ -76,15 +74,14 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 2. Ao clicar nos botões "+" ou "-" apecerá o campo para selecionar a a categoria da despesa
 
 
-  #### Resultado esperado = Fazer com que o usuário consiga escolher uma categoria personalizada ao adiconar uma despesa.
+  #### Resultado esperado = Fazer com que o usuário consiga escolher uma categoria personalizada ao adiconar uma despesa ou receita.
   
-  #### Resultado Obtido = Pendente.
+  #### Resultado Obtido = O usuário consegue selecionar a categoria das respectivas despesas e recetias.
   
   
-  ------
- 
+ ------
   
-   * Teste 6, versão 1.0, Gráficos para visualização das receitas e despesas do mês;
+   * Teste 6, versão 2.0, Gráficos para visualização das receitas e despesas do mês;
 
 **Passos:** 
 
@@ -94,31 +91,4 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 
   #### Resultado esperado = Apresentar um gráfico ao usuário com as receitas e despesas do mês.
   
-  #### Resultado Obtido = Pendente.
-  
-  
-  ------
- 
-
- 
- 
-
-
-
-
-
-
-
-
- 
-## Ferramentas de Testes (Opcional)
-
-Comente sobre as ferramentas de testes utilizadas.
- 
-> **Links Úteis**:
-> - [IBM - Criação e Geração de Planos de Teste](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Práticas e Técnicas de Testes Ágeis](http://assiste.serpro.gov.br/serproagil/Apresenta/slides.pdf)
-> -  [Teste de Software: Conceitos e tipos de testes](https://blog.onedaytesting.com.br/teste-de-software/)
-> - [Criação e Geração de Planos de Teste de Software](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
-> - [UX Tools](https://uxdesign.cc/ux-user-research-and-user-testing-tools-2d339d379dc7)
+  #### Resultado Obtido = Gráfico apresentado com sucesso.
