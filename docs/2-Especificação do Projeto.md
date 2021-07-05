@@ -42,9 +42,8 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |ID     | Descrição do Requisito                                            |Prioridade |
 |-------|-------------------------------------------------------------------|-----------|
 |RNF-001| Sistema deve ser executado por meio de um navegador de internet   | ALTA      |
-|RNF-002| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA     | 
-|RNF-003| Deve processar requisições do usuário em no máximo 3s             | BAIXA     |
-
+|RNF-002| Deve processar requisições do usuário em no máximo 3s             | MÉDIA     |
+|RNF-003| O sistema deve ser responsivo para rodar em um dispositivos móvel | BAIXA     |
 
 ## Restrições
 
