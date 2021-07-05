@@ -6,13 +6,12 @@
 
 `2021/01`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+O objetivo principal é desenvolver uma aplicação web para auxiliar os cidadões brasileiros no processo de controle das suas finanças. O site permite que o usuário adicione despesas e receitas de forma personalizada com a atribuição de categorias, dessa forma possibilitando uma maior organização, e gráficos mensais dando ao usuário uma visualização diferenciada dos valores registrados.
 
 ## Integrantes
 
 - [Willian Medeiros de Faria](https://github.com/willianmfaria)
-- [Bruno Pacheco de Souza](https://github.com/brunopacs)
-- [Daniela Siqueira Silva](https://github.com/danixsiq)
+- [Rafael Soutto Mayor Assumpcao Pinheiro Alves](https://github.com/rafaelsoutto)
 - [Gabriel Calebe da Silva Magalhães](https://github.com/gabrielcdsm10)
 
 ## Professor
