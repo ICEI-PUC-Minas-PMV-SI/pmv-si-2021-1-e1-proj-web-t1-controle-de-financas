@@ -1,4 +1,4 @@
-URL = 'http://localhost:3000/usuarios/'
+URL = 'https://finnext.herokuapp.com/src/database/usuarios.json'
 URL_CARTEIRAS = 'http://localhost:3001/carteiras'
 
 function logar() {
