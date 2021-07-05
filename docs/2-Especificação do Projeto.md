@@ -54,5 +54,4 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |--|----------------------------------------------------------------------------------------------------|
 |01| O projeto deverá ser entregue até o prazo final estipulado pelo orientador do projeto              |
 |02| Deverão ser feitas reuniões semanais para apresentar o andamento do projeto                        |
-|03| Somente deverão ser utilizados, caso necessário, bancos de dados Relacionais SQL                   |
-|04| Back-end, caso necessário, somente deverá ser desenvolvido com uma linguagem de programação C-Like |
+|03| Back-end, caso necessário, somente deverá ser desenvolvido com uma linguagem de programação C-Like |
