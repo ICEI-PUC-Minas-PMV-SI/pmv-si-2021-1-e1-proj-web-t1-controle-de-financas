@@ -1,6 +1,6 @@
-URL_Usuarios = 'http://localhost:3000/usuarios'
-URL_Carteiras = 'http://localhost:3001/carteiras'
-URL_Lancamentos = 'http://localhost:3002/lancamentos'
+URL_Usuarios = 'https://finnext.herokuapp.com/src/database/usuarios.json'
+URL_Carteiras = 'https://finnext.herokuapp.com/src/database/carteiras.json'
+URL_Lancamentos = 'https://finnext.herokuapp.com/src/database/lancamentos.json'
 
 window.onload = function () {
     usuarioLogado();
@@ -62,7 +62,7 @@ function listarLancamentos() {
                 <td>${lancamentos[i].descricao}</td>
                 <td>${lancamentos[i].categoria}</td>
                 <td>${formatarData(lancamentos[i].dtlanc)}</td>
-                <td style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">R$ ${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>                
+                <td style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">R$ ${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
                 <td class="bi bi-pencil" onclick="preencheAlteracao${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}(${lancamentos[i].id})" data-toggle="modal" data-target="#alteracao-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
                 <td class="bi bi-x-lg" onclick="checkExcluirLancamento(${lancamentos[i].id})"> </td>
             </tr>
@@ -89,7 +89,7 @@ function listarLancamentosFiltro() {
                     <td>${lancamentos[i].descricao}</td>
                     <td>${lancamentos[i].categoria}</td>
                     <td>${formatarData(lancamentos[i].dtlanc)}</td>
-                    <td style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">R$ ${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>                
+                    <td style="color: ${lancamentos[i].tipo === "R" ? "green" : "red"};">R$ ${(parseFloat(lancamentos[i].valor)).toFixed(2)}</td>
                     <td class="bi bi-pencil" onclick="preencheAlteracao${lancamentos[i].tipo === "R" ? "Receita" : "Despesa"}(${lancamentos[i].id})" data-toggle="modal" data-target="#alteracao-${lancamentos[i].tipo === "R" ? "receita" : "despesa"}-modal"> </td>
                     <td class="bi bi-x-lg" onclick="checkExcluirLancamento(${lancamentos[i].id})"> </td>
                 </tr>
