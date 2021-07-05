@@ -33,7 +33,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-002| Permitir que o usuário tenha acesso ao saldo como resultado das operações em local visível | ALTA       |
 |RF-003| Permitir que o usuário cadastre e gerencie mais de uma carteira simultaneamente            | MEDIA      |
 |RF-004| Permitir que o usuário tenha acesso ao saldo mensal das operações em local visivel         | MEDIA      |
-|RF-005| Permitir que o usuário faça o cadastro de categorias personalizadas                        | BAIXA      |
+|RF-005| Permitir que o usuário faça o uso de categorias pré-definidas                              | BAIXA      |
 |RF-006| Gráficos para visualização das receitas e despesas do mês                                  | BAIXA      |
 
 
