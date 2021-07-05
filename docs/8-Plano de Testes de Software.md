@@ -65,7 +65,7 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 
 ------
 
-* Teste 5, versão 2.0, Permitir que o usuário faça o cadastro de categorias personalizadas;
+* Teste 5, versão 2.0, Permitir que o usuário faça o uso de categorias pré-definidas;
 
 **Passos:** 
    
