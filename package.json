@@ -2,5 +2,8 @@
   "dependencies": {
     "newsapi": "^2.4.1",
     "sweetalert": "^2.1.2"
-  }
+  },
+  "scripts": {
+    "start" : "json-server --watch database/usuarios.json --port 3002"
+ }
 }
