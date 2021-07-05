@@ -37,7 +37,7 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 
 ![image](https://user-images.githubusercontent.com/81396982/124402736-86719680-dd08-11eb-8b44-3123f300f1a4.png)
 
-# Teste 5 - Permitir que o usuário faça o cadastro de categorias personalizadas
+# Teste 5 - Permitir que o usuário faça o uso de categorias pré-definidas
 
 ![image](https://user-images.githubusercontent.com/81396982/124402757-a30dce80-dd08-11eb-81d6-9d1b270ad53c.png)
 
