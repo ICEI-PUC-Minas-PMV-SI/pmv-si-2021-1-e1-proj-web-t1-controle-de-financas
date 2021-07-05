@@ -28,9 +28,10 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 # Teste 3 - Permitir que o usuário cadastre e gerencie mais de uma carteira simultaneamente
 
 ![image](https://user-images.githubusercontent.com/81396982/124403898-eb2fef80-dd0e-11eb-92db-43edb278bd3b.png)
-![image](https://user-images.githubusercontent.com/81396982/124403917-000c8300-dd0f-11eb-8527-4724bfb7762f.png)
-![image](https://user-images.githubusercontent.com/81396982/123726979-45d8cf80-d867-11eb-88ed-c1e4334e9212.png)
 
+![image](https://user-images.githubusercontent.com/81396982/124403969-4d88f000-dd0f-11eb-9219-9c1c3a10dec6.png)
+
+![image](https://user-images.githubusercontent.com/81396982/124403917-000c8300-dd0f-11eb-8527-4724bfb7762f.png)
 
 # Teste 4 - Permitir que o usuário tenha acesso ao saldo mensal das operações em local visivel
 
