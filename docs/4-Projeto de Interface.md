@@ -1,3 +1,4 @@
+
 ![Projeto de finanças]
 
 # Projeto de Interface
@@ -10,10 +11,8 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 
 ## User Flow
 
-![Projeto de finanças (1)](https://user-images.githubusercontent.com/81396982/118201537-0f1d3600-b42e-11eb-9ea3-d0a22643d295.png)
+![Projeto de finanças Atualizado](https://user-images.githubusercontent.com/81396982/124524214-918ff980-ddd0-11eb-8f51-365daa9ddd5c.png)
 
-
-(https://user-images.githubusercontent.com/81396982/118201537-0f1d3600-b42e-11eb-9ea3-d0a22643d295.png)
 
 
 ## Wireframes
