@@ -38,7 +38,7 @@ O objetivo principal é desenvolver uma aplicação web para auxiliar os cidadõ
 
 # Código
 
-- [Código Fonte](src/README.md")
+- [Código Fonte](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2021-1-e1-proj-web-t1-controle-de-financas/tree/main/src")
 
 # Apresentação
 
