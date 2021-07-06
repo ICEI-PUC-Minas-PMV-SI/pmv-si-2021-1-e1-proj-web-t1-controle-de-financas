@@ -1,9 +1,10 @@
 {
   "dependencies": {
+    "json-server": "^0.16.3",
     "newsapi": "^2.4.1",
     "sweetalert": "^2.1.2"
   },
   "scripts": {
-    "start": "json-server src/database/lancamentos.json --port 3002 && json-server --watch src/database/carteiras.json --port 3001 && json-server --watch src/database/usuarios.json --port 3000"
+    "start": "cd src/database json-server lancamentos.json --port 3002 && json-server --watch carteiras.json --port 3001 && json-server --watch usuarios.json --port 3000"
   }
 }
