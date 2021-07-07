@@ -1,0 +1,14 @@
+{
+  "carteiras": [
+    {
+      "descricao": "Carteira Padrão",
+      "usuario": 1,
+      "id": 1
+    },
+    {
+      "descricao": "Carteira Padrão",
+      "usuario": 2,
+      "id": 2
+    }
+  ]
+}
