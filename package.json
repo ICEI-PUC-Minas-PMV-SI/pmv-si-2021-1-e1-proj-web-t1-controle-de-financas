@@ -1,10 +1,16 @@
 {
+  "name": "fake-server",
+  "version": "1.0.0",
+  "description": "fake server with fake database",
+  "main": "server.js",
+  "scripts": { // <===
+    "start": "node server.js" // <===
+  },
+  "author": "Rafael Soutto",
+  "license": "ISC",
   "dependencies": {
     "json-server": "^0.16.3",
     "newsapi": "^2.4.1",
     "sweetalert": "^2.1.2"
-  },
-  "scripts": {
-    "start": "cd src/database && json-server database.json --port 3000"
   }
 }
