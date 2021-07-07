@@ -1,5 +1,5 @@
 {
-  "name": "fake-server",
+  "name": "pmv-si-2021-1-e1-proj-web-t1-controle-de-financas",
   "version": "1.0.0",
   "description": "fake server with fake database",
   "main": "server.js",
