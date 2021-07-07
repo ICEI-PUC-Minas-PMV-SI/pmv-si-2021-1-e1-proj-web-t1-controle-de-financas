@@ -1,4 +1,4 @@
-URL_Usuarios =  "http://localhost:3000/usuarios"
+URL_Usuarios =  "https://finnext.herokuapp.com/src/database/database.json"
 URL_Carteiras = 'http://localhost:3001/carteiras'
 
 

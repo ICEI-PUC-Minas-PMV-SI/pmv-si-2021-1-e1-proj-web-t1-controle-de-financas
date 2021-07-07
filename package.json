@@ -5,6 +5,6 @@
     "sweetalert": "^2.1.2"
   },
   "scripts": {
-    "start": "cd src/database json-server lancamentos.json --port 3002 && json-server --watch carteiras.json --port 3001 && json-server --watch usuarios.json --port 3000"
+    "start": "cd src/database && json-server database.json --port 3000"
   }
 }
