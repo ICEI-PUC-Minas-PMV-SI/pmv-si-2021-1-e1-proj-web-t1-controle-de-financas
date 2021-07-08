@@ -33,6 +33,7 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 
 ![image](https://user-images.githubusercontent.com/81396982/124403917-000c8300-dd0f-11eb-8527-4724bfb7762f.png)
 
+
 # Teste 4 - Permitir que o usuário tenha acesso ao saldo mensal das operações em local visivel
 
 ![image](https://user-images.githubusercontent.com/81396982/124402736-86719680-dd08-11eb-8b44-3123f300f1a4.png)
@@ -40,6 +41,7 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 # Teste 5 - Permitir que o usuário faça o uso de categorias pré-definidas
 
 ![image](https://user-images.githubusercontent.com/81396982/124402757-a30dce80-dd08-11eb-81d6-9d1b270ad53c.png)
+
 
 ![image](https://user-images.githubusercontent.com/81396982/124402762-a99c4600-dd08-11eb-84d9-4a68afdf7440.png)
 
@@ -57,7 +59,3 @@ Discorra sobre os resultados do teste. Ressaltando pontos fortes e fracos identi
 Conforme os testes realizados algumas funcionalidades não estão atualizando a página automaticamente. Nas próximas itinerações buscaremos soluções para melhorar a fluidez do sistema.
 
 Um dos pontos fortes do sistema está na visualização de despesas e receitas de forma mensal através dos gráficos e também na adição de despesas e receitas de forma personalizada.
-
-
-> **Links Úteis**:
-> - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
