@@ -47,7 +47,7 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 
  #### Resultado esperado = Fazer com que o usuário consiga criar carteiras e lançar as respectivas despesas e receitas nas respectivas despesas.	
  
- #### Resultado Obtido = Usuário consegue adiconar as despesas e receitas nas respectivas carteiras de sua escolha, no entanto ainda não é possível a criação de uma nova carteira.
+ #### Resultado Obtido = Usuário consegue adiconar as despesas e receitas nas respectivas carteiras de sua escolha.
  
  ------
  
@@ -76,7 +76,7 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
 
   #### Resultado esperado = Fazer com que o usuário consiga escolher uma categoria personalizada ao adiconar uma despesa ou receita.
   
-  #### Resultado Obtido = O usuário consegue selecionar a categoria das respectivas despesas e recetias.
+  #### Resultado Obtido = O usuário consegue selecionar a categoria das respectivas despesas e receitas.
   
   
  ------
