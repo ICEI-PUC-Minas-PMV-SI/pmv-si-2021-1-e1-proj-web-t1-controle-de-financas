@@ -26,7 +26,6 @@ Além disso, são objetivos específicos do projeto:
 - Registrar a data de contas a pagar;
 - Exibir calendário com as contas a pagar registradas;
 - Alertar o úsuario sobre contas pendentes próximo ao vencimento;
-- Fornecer conceitos e dicas sobre a gestão financeira.
 
 ## Justificativa
 
