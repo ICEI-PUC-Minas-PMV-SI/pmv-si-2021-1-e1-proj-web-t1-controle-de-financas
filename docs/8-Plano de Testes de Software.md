@@ -92,4 +92,3 @@ Enumere quais cenários de testes foram selecionados para teste. Neste tópico o
   #### Resultado esperado = Apresentar um gráfico ao usuário com as receitas e despesas do mês.
   
   #### Resultado Obtido = Gráfico apresentado com sucesso.
-
