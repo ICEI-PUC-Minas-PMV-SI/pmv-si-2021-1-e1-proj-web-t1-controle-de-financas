@@ -10,6 +10,9 @@ Nome e marca do projeto
 
 ## Identidade Visual (Marca, Design)
 
+![finnextlogo1](https://user-images.githubusercontent.com/81396982/124998136-440acb00-e022-11eb-86a7-23fcd706d459.png)
+
+
 O grupo deve ter o cuidado em utilizar figuras, imagens, e cores dentro do contexto da solução proposta, de forma a manter a temática do problema.
 
 > **Links Úteis**:
@@ -18,6 +21,12 @@ O grupo deve ter o cuidado em utilizar figuras, imagens, e cores dentro do conte
 > - [Especialista do TED dá 10 dicas para criar slides eficazes e bonitos](https://soap.com.br/blog/especialista-do-ted-da-10-dicas-para-criar-slides-eficazes-e-bonitos)
 
 ## Conjunto de Slides (Estrutura)
+
+[Apresentação.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2021-1-e1-proj-web-t1-controle-de-financas/files/6787609/Apresentacao.pdf)
+
+
+
+https://user-images.githubusercontent.com/81396982/124998228-68ff3e00-e022-11eb-8a95-924cfdf5f060.mp4
 
 O grupo deve distribuir de forma coerente o conteúdo a ser apresentado, dentro do tempo determinado. Importante ressaltar a importância da descrição clara de todo o andamento do projeto, insumos gerados e requisitos atendidos.
  
